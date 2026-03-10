@@ -7,7 +7,6 @@
 
   imports = [
     ./programs/desktop-apps.nix
-    ./programs/desktop-apps.nix
   ];
 
   home.packages = with pkgs; [

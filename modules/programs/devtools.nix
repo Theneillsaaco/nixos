@@ -8,6 +8,9 @@
 
     curl
     wget
+    dotnet-sdk
 
+    bun
+    nodejs
   ];
 }

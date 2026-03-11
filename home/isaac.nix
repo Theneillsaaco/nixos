@@ -7,6 +7,7 @@
 
   imports = [
     ./programs/desktop-apps.nix
+    ./programs/devtools-home.nix
   ];
 
   # Home packages

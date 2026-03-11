@@ -33,25 +33,24 @@
     oh-my-zsh = {
       enable = true;
       theme = "agnoster";
-      plugins = [ "git"];
+      plugins = [ "git" ];
     };
 
     plugins = [
       {
         name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
+        src = pkgs.zsh-autosuggestions.src;
       }
       {
         name = "fast-syntax-highlighting";
-        src = pkgs.zsh-fast-syntax-highlighting;
+        src = pkgs.zsh-fast-syntax-highlighting.src;
       }
       {
         name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete;
+        src = pkgs.zsh-autocomplete.src;
       }
     ];
   };
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

@@ -5,5 +5,6 @@
     discord
     brave
     steam
+    pear-desktop
   ];
 }

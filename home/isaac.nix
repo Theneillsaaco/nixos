@@ -12,7 +12,6 @@
 
   # Home packages
   home.packages = with pkgs; [
-    jetbrains-toolbox
     
   ];
 
@@ -56,5 +55,4 @@
     enable = true;
     nix-direnv.enable = true;
   };
-
 }

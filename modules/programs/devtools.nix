@@ -8,8 +8,10 @@
 
     curl
     wget
+    nil
+    nixd
+    
     dotnet-sdk
-
     bun
     nodejs
   ];

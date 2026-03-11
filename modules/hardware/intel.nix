@@ -5,7 +5,7 @@
 
   services.thermald.enable = true;
 
-  hardware.graphics.enabled = true;
+  hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [
     intel-media-driver

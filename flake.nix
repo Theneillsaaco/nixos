@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, caelestia-shell, ... }@inputs:
 
   let
     system = "x86_64-linux";
@@ -35,7 +35,6 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
           home-manager.users.isaac = import ./home/isaac.nix;
         }
       ];

@@ -9,5 +9,6 @@
     tree
     unzip
     flatpak
+    zsh
   ];
 }

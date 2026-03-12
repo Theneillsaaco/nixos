@@ -3,19 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, caelestia-shell, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }:
 
   let
     system = "x86_64-linux";
@@ -24,9 +19,7 @@
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
-
-      specialArgs = { inherit inputs; };
-
+      
       modules = [
         ./hosts/laptop/configuration.nix
 

@@ -8,6 +8,7 @@
   imports = [
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
+    ./programs/hyprland.nix
   ];
 
   # Home packages

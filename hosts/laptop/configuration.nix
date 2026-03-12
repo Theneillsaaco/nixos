@@ -15,7 +15,6 @@
       ../../modules/system/nix.nix
 
       ../../modules/desktop/plasma.nix
-      ../../modules/desktop/hyprland.nix
 
       ../../modules/hardware/intel.nix
 

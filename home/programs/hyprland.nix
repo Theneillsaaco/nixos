@@ -28,23 +28,20 @@
   programs.btop.enable = true;
 
   xdg.configFile."hypr".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/hypr";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/hypr";
 
   xdg.configFile."foot".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/foot";
-
-  xdg.configFile."fish".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/fish";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/foot";
 
   xdg.configFile."fastfetch".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/fastfetch";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/fastfetch";
 
   xdg.configFile."btop".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/btop";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/btop";
 
   xdg.configFile."uwsm".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/uwsm";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/uwsm";
 
   xdg.configFile."starship.toml".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/isaac/.local/share/caelestia/starship.toml";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/caelestia/starship.toml";
 }

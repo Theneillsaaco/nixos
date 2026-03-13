@@ -8,7 +8,6 @@
   imports = [
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
-    ./programs/hyprland.nix
   ];
 
   # Home packages
@@ -17,6 +16,10 @@
   ];
 
   # Configure programs
+  programs.caelestia-dots = {
+    enable = true;
+  };
+  
   programs.git = {
     enable = true;
 
@@ -33,7 +36,7 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "";
       plugins = [ "git" ];
     };
 
@@ -52,6 +55,7 @@
       }
     ];
   };
+  
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

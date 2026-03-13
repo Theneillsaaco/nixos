@@ -15,7 +15,7 @@
       ../../modules/system/nix.nix
 
       ../../modules/desktop/plasma.nix
-
+      
       ../../modules/hardware/intel.nix
 
       ../../modules/services/audio.nix

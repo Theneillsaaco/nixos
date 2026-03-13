@@ -9,6 +9,6 @@
     flatpak
     zsh
     kitty
-    
+    starship
   ];
 }

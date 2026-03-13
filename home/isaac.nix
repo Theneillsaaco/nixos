@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{pkgs, caelestianix, ... }:
 
 {
   home.username = "isaac";
@@ -6,6 +6,8 @@
   home.stateVersion = "25.11";
 
   imports = [
+    caelestianix.homeManagerModules.default
+    
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
   ];
@@ -16,6 +18,14 @@
   ];
 
   # Configure programs
+  programs.caelestia-dots = {
+    enable = true;
+  
+    hypr.enable = true;
+    term.enable = true;
+    editor.enable = true;
+    foot.enable = true;
+  };
   
   programs.git = {
     enable = true;
@@ -28,30 +38,30 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
+  # programs.zsh = {
+  #   enable = true;
 
-    oh-my-zsh = {
-      enable = true;
-      theme = "";
-      plugins = [ "git" ];
-    };
+  #   oh-my-zsh = {
+  #     enable = true;
+  #     theme = "";
+  #     plugins = [ "git" ];
+  #   };
 
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions.src;
-      }
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.zsh-fast-syntax-highlighting.src;
-      }
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete.src;
-      }
-    ];
-  };
+  #   plugins = [
+  #     {
+  #       name = "zsh-autosuggestions";
+  #       src = pkgs.zsh-autosuggestions.src;
+  #     }
+  #     {
+  #       name = "fast-syntax-highlighting";
+  #       src = pkgs.zsh-fast-syntax-highlighting.src;
+  #     }
+  #     {
+  #       name = "zsh-autocomplete";
+  #       src = pkgs.zsh-autocomplete.src;
+  #     }
+  #   ];
+  # };
   
   programs.direnv = {
     enable = true;

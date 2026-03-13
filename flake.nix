@@ -9,9 +9,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    caelestianix = {
+      url = "github:Xellor-Dev/caelestia-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, caelestianix, ... }:
 
   let
     system = "x86_64-linux";
@@ -29,6 +34,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          
+          
+          home-manager.extraSpecialArgs = {
+            inherit caelestianix;
+          };
+          
           home-manager.users.isaac = import ./home/isaac.nix;
         }
       ];

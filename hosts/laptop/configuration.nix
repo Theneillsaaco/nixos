@@ -31,9 +31,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.hyprland.enable = true;
+  
   programs.zsh.enable = true;
   programs.kdeconnect.enable = true;
   services.flatpak.enable = true;
-
+  
   system.stateVersion = "25.11";
 }

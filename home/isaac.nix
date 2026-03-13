@@ -1,4 +1,4 @@
-{pkgs, caelestianix, ... }:
+{pkgs, inputs, ... }:
 
 {
   home.username = "isaac";
@@ -6,8 +6,7 @@
   home.stateVersion = "25.11";
 
   imports = [
-    caelestianix.homeManagerModules.default
-    
+    inputs.caelestia-nix.homeManagerModules.default
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
   ];
@@ -16,15 +15,29 @@
   home.packages = with pkgs; [
     
   ];
-
+  
   # Configure programs
   programs.caelestia-dots = {
-    enable = true;
   
-    hypr.enable = true;
-    term.enable = true;
-    editor.enable = true;
-    foot.enable = true;
+    hypr={
+      enable = true;
+      variables = {
+        terminal = "kitty";
+        browser = "firefox";
+        fileExplorer = "dolphin";
+      };
+    };
+    
+    caelestia.shell = {
+      paths.wallpaperDir = "~/Pictures/Wallpapers";
+      general.apps = {
+        terminal = [ "kitty" ];
+      };
+    };
+    
+    caelestia.cli.settings = {
+      theme.enableGtk = false;
+    };
   };
   
   programs.git = {
@@ -67,4 +80,8 @@
     enable = true;
     nix-direnv.enable = true;
   };
+  
+  # 
+  wayland.windowManager.hyprland.enable = true;
 }
+

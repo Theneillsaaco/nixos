@@ -16,9 +16,6 @@
   ];
 
   # Configure programs
-  programs.caelestia-dots = {
-    enable = true;
-  };
   
   programs.git = {
     enable = true;

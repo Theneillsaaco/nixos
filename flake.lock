@@ -51,11 +51,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773444779,
-        "narHash": "sha256-4j2JeOVqBwQ4rtLBfz7eopWbvjWe/4sfs1gFBJKr+WQ=",
+        "lastModified": 1773449983,
+        "narHash": "sha256-llowWYwzyv9abODL0jHZyFclnk4hH2ndtVXczekAH38=",
         "owner": "Theneillsaaco",
         "repo": "caelestia-nixos",
-        "rev": "b24ccab801674a3463c6c11e2ddfd0e22e569b9e",
+        "rev": "c457a969288fd73e370295314a90e38528647ba3",
         "type": "github"
       },
       "original": {
@@ -73,15 +73,15 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1773328492,
-        "narHash": "sha256-ajjfsBnYR54VHhh/haYuPqBOyvgerlvYK6kZvmt2GRw=",
-        "owner": "caelestia-dots",
+        "lastModified": 1773449972,
+        "narHash": "sha256-G+V4r8S0xbqAS4G09Ki2IKghPGFtWOTJpoD2tgxWTQw=",
+        "owner": "Theneillsaaco",
         "repo": "shell",
-        "rev": "d97ba8a9c08bc931261766b1070bce610e7cb22e",
+        "rev": "bdd9f01928990c7032891264ad32b1c5d984e675",
         "type": "github"
       },
       "original": {
-        "owner": "caelestia-dots",
+        "owner": "Theneillsaaco",
         "repo": "shell",
         "type": "github"
       }

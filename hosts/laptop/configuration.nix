@@ -15,6 +15,7 @@
       ../../modules/system/nix.nix
 
       ../../modules/desktop/plasma.nix
+      ../../modules/desktop/sddm.nix
       
       ../../modules/hardware/intel.nix
 
@@ -30,8 +31,6 @@
     ];
 
   nixpkgs.config.allowUnfree = true;
-  
-  programs.hyprland.enable = true;
   
   programs.zsh.enable = true;
   programs.kdeconnect.enable = true;

@@ -6,7 +6,8 @@
   home.stateVersion = "25.11";
 
   imports = [
-    inputs.caelestia-nix.homeManagerModules.default
+    inputs.caelestia-shell.homeManagerModules.default
+    ./programs/hyprland.nix
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
   ];
@@ -17,28 +18,9 @@
   ];
   
   # Configure programs
-  programs.caelestia-dots = {
+  programs.caelestia = {
     enable = true;
-    
-    hypr={
-      enable = true;
-      variables = {
-        terminal = "kitty";
-        browser = "firefox";
-        fileExplorer = "dolphin";
-      };
-    };
-    
-    caelestia.shell = {
-      paths.wallpaperDir = "~/Pictures/Wallpapers";
-      general.apps = {
-        terminal = [ "kitty" ];
-      };
-    };
-    
-    caelestia.cli.settings = {
-      theme.enableGtk = false;
-    };
+    cli.enable = true;
   };
   
   programs.git = {
@@ -82,4 +64,3 @@
     nix-direnv.enable = true;
   };
 }
-

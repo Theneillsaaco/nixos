@@ -14,5 +14,6 @@
     dotnet-sdk
     bun
     nodejs
+    python3
   ];
 }

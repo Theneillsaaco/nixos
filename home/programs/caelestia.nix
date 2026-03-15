@@ -25,8 +25,9 @@
         apps = {
           terminal = [ "kitty" ];   # Cambia por tu terminal
           audio    = [ "pavucontrol" ];
-          explorer = [ "thunar" ];
+          explorer = [ "dolphin" ];
         };
+        
         idle = {
           lockBeforeSleep = true;
           timeouts = [{ timeout = 300; idleAction = "lock"; }];
@@ -36,20 +37,26 @@
       bar = {
         persistent = true;
         showOnHover = true;
+        
         workspaces = {
           activeIndicator = true;
           rounded = true;
           showWindows = true;
           shown = 5;
         };
+        
         status = {
           showAudio    = true;
           showBattery  = true;   # Laptop → true
+          
           showNetwork  = true;
+          showWifi  = true;
+          
           showBluetooth = true;
-          showLockStatus = true;
+          showLockStatus = false;
           showKbLayout = false;
         };
+        
         scrollActions = {
           volume     = true;
           workspaces = true;

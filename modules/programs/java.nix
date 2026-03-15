@@ -1,10 +1,14 @@
 { pkgs, ... }:
 
 {
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk25;
+  };
+  
   environment.systemPackages = with pkgs; [
-    jdk17
+    jdk25
     jdk21
-    jdk
-
+    jdk17
   ];
 }

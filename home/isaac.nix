@@ -7,14 +7,30 @@
 
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
-    ./programs/hyprland.nix
+    ./programs/caelestia.nix
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
+    ./programs/hyprland/default.nix
   ];
 
   # Home packages
   home.packages = with pkgs; [
-    
+    # Wayland utils
+    wl-clipboard
+    wlr-randr
+    wayland-ultils
+    # Qt theming
+    qt5.qtwayland
+    qt6.qtwayland
+    libsForQt5.qt5ct
+    qt6ct
+    # Hyprland utils
+    hyprpolkitagent
+    hyprshot
+    hyprpicker
+    # Misc
+    dconf
+    glib
   ];
   
   # Configure programs

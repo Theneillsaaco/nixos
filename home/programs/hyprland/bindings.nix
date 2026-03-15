@@ -82,7 +82,7 @@ in
       "$shiftMod, Escape, exec, systemctl suspend"
 
       # Restart caelestia shell
-      "CTRL $mod, R, exec, caelestia shell restart && hyprctl reload"
+      "CTRL $mod, R, exec, bash -c 'hyprctl reload; systemctl --user stop $(systemctl --user list-units --no-legend | grep caelestia | awk \"{print $1}\"); sleep 1; uwsm app -- caelestia shell'"
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [

@@ -22,8 +22,10 @@
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
-        "hyprctl setcursor phinger-cursors-light 14"
+        "hyprctl setcursor phinger-cursors-light 24"
         "uwsm app -- caelestia shell"
+        "uwsm app -- discord --start-minimized"
+        "uwsm app -- kdeconnect-indicator"
       ];
       
       monitor = [

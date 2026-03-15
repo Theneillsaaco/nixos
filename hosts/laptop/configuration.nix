@@ -29,6 +29,7 @@
       ../../modules/users/isaac.nix
 
       ../../packages/base.nix
+      ../../packages/fonts.nix
     ];
 
   nixpkgs.config.allowUnfree = true;

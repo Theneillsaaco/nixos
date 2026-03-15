@@ -6,5 +6,6 @@
     brave
     steam
     pear-desktop
+    onlyoffice-desktopeditors
   ];
 }

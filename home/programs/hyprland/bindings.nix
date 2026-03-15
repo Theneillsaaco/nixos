@@ -8,7 +8,7 @@ in
       "$mod, Q, killactive"
       "$mod, F, fullscreen, 0"
       "$mod, D, fullscreen, 1"           # Maximize
-      "$mod, V, togglefloating"
+      "ALT $mod, SPACE, togglefloating"
       "$mod, P, pin"
       "ALT, F4, killactive"
       "ALT, TAB, workspace, previous"
@@ -79,6 +79,7 @@ in
 
       # Lock / suspend
       "$mod, Escape, exec, loginctl lock-session"
+      "$mod, L, exec, loginctl lock-session"
       "$shiftMod, Escape, exec, systemctl suspend"
 
       # Restart caelestia shell

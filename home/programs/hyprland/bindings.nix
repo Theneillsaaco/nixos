@@ -65,7 +65,6 @@ in
       "CTRL $mod, V, exec, uwsm app -- pavucontrol"
 
       # Caelestia shell
-      "$mod, Space,    exec, caelestia shell drawers toggle launcher"
       "$mod, N,        exec, caelestia shell drawers toggle dashboard"
       "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
 
@@ -83,7 +82,7 @@ in
       "$shiftMod, Escape, exec, systemctl suspend"
 
       # Restart caelestia shell
-      "CTRL $mod, R, exec, caelestia shell restart"
+      "CTRL $mod, R, exec, caelestia shell restart && hyprctl reload"
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [
@@ -101,22 +100,23 @@ in
 
     bindel = [
       # Brillo
-      ", XF86MonBrightnessUp,   exec, brightnessctl s +5%"
-      ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+      ",XF86MonBrightnessUp,   exec, brightnessctl s +5%"
+      ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       # Volumen
-      ", XF86AudioRaiseVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.5"
-      ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+      ",XF86AudioRaiseVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.5"
+      ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     ];
 
     bindl = [
-      ", XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-      "ALT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-      # Media
-      ", XF86AudioNext,  exec, playerctl next"
-      ", XF86AudioPrev,  exec, playerctl previous"
-      ", XF86AudioPlay,  exec, playerctl play-pause"
-      ", XF86AudioPause, exec, playerctl play-pause"
+      # Caelestia
+      "SUPER, SUPER_L, exec, caelestia shell drawers toggle launcher"
+      ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+      ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      ",XF86AudioNext,  exec, playerctl next"
+      ",XF86AudioPrev,  exec, playerctl previous"
+      ",XF86AudioPlay,  exec, playerctl play-pause"
+      ",XF86AudioPause, exec, playerctl play-pause"
       "$shiftMod, N, exec, playerctl next"
       "$shiftMod, B, exec, playerctl previous"
       "$shiftMod, P, exec, playerctl play-pause"

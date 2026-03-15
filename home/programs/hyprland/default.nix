@@ -85,7 +85,6 @@
         disable_hyprland_logo    = true;
         disable_splash_rendering = true;
         focus_on_activate        = true;
-        new_window_takes_over_fullscreen = 2;
         middle_click_paste = false;
       };
 
@@ -102,16 +101,10 @@
           drag_lock        = false;
         };
       };
-
-      gestures = {
-        workspace_swipe = true;        # Útil en laptop
-        workspace_swipe_fingers = 3;
+      
+      debug = {
+        disable_logs = false;
       };
-
-      layerrule = [
-        "noanim, launcher"
-        "noanim, ^args-.*"
-      ];
     };
   };
 }

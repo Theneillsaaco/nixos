@@ -98,6 +98,11 @@
           hibernate = [ "systemctl" "hibernate" ];
         };
       };
+      background.desktopClock = {
+        enabled = true;
+        position = "bottom-right";
+        scale = 1.0;
+      };
     };
   };
   

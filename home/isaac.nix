@@ -28,6 +28,7 @@
     hyprpolkitagent
     hyprshot
     hyprpicker
+    cliphist
     # Misc
     dconf
     glib

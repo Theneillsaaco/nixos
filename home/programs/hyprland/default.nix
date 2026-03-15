@@ -25,7 +25,7 @@
         "hyprctl setcursor phinger-cursors-light 14"
         "uwsm app -- caelestia shell"
       ];
-
+      
       monitor = [
         ",preferred,auto,1"   # Laptop → auto está bien
       ];

@@ -100,4 +100,10 @@
       };
     };
   };
+  
+  systemd.user.services.caelestia = {
+    Unit = {
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
+    };
+  };
 }

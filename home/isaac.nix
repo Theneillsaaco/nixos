@@ -18,12 +18,12 @@
     # Wayland utils
     wl-clipboard
     wlr-randr
-    wayland-ultils
+    wayland-utils
     # Qt theming
     qt5.qtwayland
     qt6.qtwayland
     libsForQt5.qt5ct
-    qt6ct
+    qt6Packages.qt6ct
     # Hyprland utils
     hyprpolkitagent
     hyprshot

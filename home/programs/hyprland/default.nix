@@ -26,6 +26,7 @@
         "uwsm app -- caelestia shell"
         "uwsm app -- discord --start-minimized"
         "uwsm app -- kdeconnect-indicator"
+        "uwsm app -- gnome-keyring-daemon --start --components=secrets"
       ];
       
       monitor = [

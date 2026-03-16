@@ -35,11 +35,7 @@
   ];
   
   # Configure programs
-  programs.caelestia = {
-    enable = true;
-    cli.enable = true;
-  };
-  
+
   programs.git = {
     enable = true;
 
@@ -74,6 +70,19 @@
         src = pkgs.zsh-autocomplete.src;
       }
     ];
+  };
+  
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  
+  programs.kitty = {
+    enable = true;
+    
+    settings = {
+      confirm_os_window_close = -1;
+    };
   };
   
   programs.direnv = {

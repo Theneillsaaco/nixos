@@ -10,6 +10,7 @@
     wget
     nil
     nixd
+    alejandra
     
     dotnet-sdk
     bun

@@ -9,5 +9,7 @@
     flatpak
     zsh
     kitty
+    gnome-keyring
+    libsecret
   ];
 }

@@ -22,6 +22,7 @@
 
       ../../modules/services/audio.nix
       ../../modules/services/printing.nix
+      ../../modules/services/keyring.nix
 
       ../../modules/programs/devtools.nix
       ../../modules/programs/java.nix

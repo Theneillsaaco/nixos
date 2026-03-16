@@ -57,6 +57,8 @@
     history = {
       size = 10000;
       path = "$HOME/.zsh_history";
+      ignoreDups = true;
+      share = true;
     };
   
     shellAliases = {

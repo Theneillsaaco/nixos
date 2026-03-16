@@ -8,5 +8,6 @@
     nerd-fonts._0xproto
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    nerd-fonts.meslo-lg
   ];
 }

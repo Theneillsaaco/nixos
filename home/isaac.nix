@@ -49,32 +49,30 @@
 
   programs.zsh = {
     enable = true;
-
-    oh-my-zsh = {
-      enable = true;
-      theme = "";
-      plugins = [ "git" ];
+  
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = true;
+  
+    history = {
+      size = 10000;
+      path = "$HOME/.zsh_history";
     };
-
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions.src;
-      }
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.zsh-fast-syntax-highlighting.src;
-      }
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete.src;
-      }
-    ];
+  
+    shellAliases = {
+      ll = "ls -al";
+      rebuild = "nh os switch --flake /etc/nixos";
+      update = "nix flake update /etc/nixos";
+      clean = "nh clean all";
+    };
+  
+    initContent = ''
+      eval "$(starship init zsh)"
+    '';
   };
   
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
   };
   
   programs.kitty = {

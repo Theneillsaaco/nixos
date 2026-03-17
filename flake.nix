@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    caelestia-shell.url = "github:Theneillsaaco/shell";
+    caelestia-shell.url = "github:caelestia-dots/shell";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 

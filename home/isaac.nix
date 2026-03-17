@@ -52,7 +52,13 @@
   
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    enableCompletion = true;
+    
+    plugins = [
+      {
+        name = "zsh-autocomplete";
+        src = pkgs.zsh-autocomplete;
+      }
+    ];
   
     history = {
       size = 10000;
@@ -63,13 +69,23 @@
   
     shellAliases = {
       ll = "ls -al";
-      rebuild = "nh os switch --flake /etc/nixos";
+      rebuild = "nixos switch --flake /etc/nixos";
       update = "nix flake update /etc/nixos";
-      clean = "nh clean all";
+      clean = "nixos clean all";
     };
   
     initContent = ''
       eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
+      
+      # Colores Caelestia
+      cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
+      
+      # Marcadores
+      _mark_prompt_start() {
+        printf '\e]133;A\e\\'
+      }
+      precmd_functions+=(_mark_prompt_start)
     '';
   };
   

@@ -64,15 +64,15 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1773449972,
-        "narHash": "sha256-G+V4r8S0xbqAS4G09Ki2IKghPGFtWOTJpoD2tgxWTQw=",
-        "owner": "Theneillsaaco",
+        "lastModified": 1773574600,
+        "narHash": "sha256-RsBgiq93SjlYVHSYtz/ESALa7WgbLu+xcH0oTJRjztQ=",
+        "owner": "caelestia-dots",
         "repo": "shell",
-        "rev": "bdd9f01928990c7032891264ad32b1c5d984e675",
+        "rev": "377778596acf90451d1bd19f0c03b5f1c0467958",
         "type": "github"
       },
       "original": {
-        "owner": "Theneillsaaco",
+        "owner": "caelestia-dots",
         "repo": "shell",
         "type": "github"
       }

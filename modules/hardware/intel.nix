@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   hardware.cpu.intel.updateMicrocode = true;

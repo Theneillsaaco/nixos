@@ -67,6 +67,8 @@ in
       # Caelestia shell
       "$mod, N,        exec, caelestia shell drawers toggle dashboard"
       "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
+      "$mod, K, exec, caelestia shell drawers toggle all"
+      "CTRL ALT, C, exec, caelestia shell notifications clear"
 
       # Screenshot
       "$shiftMod, S,     exec, hyprshot --freeze --clipboard-only --mode region --silent"

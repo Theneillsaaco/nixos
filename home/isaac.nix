@@ -51,7 +51,6 @@
   programs.zsh = {
     enable = true;
   
-    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     
     plugins = [
@@ -70,7 +69,7 @@
   
     shellAliases = {
       ll = "ls -al";
-      rebuild = "nixos-rebuild switch --flake /etc/nixos";
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
       update = "nix flake update /etc/nixos";
     };
   

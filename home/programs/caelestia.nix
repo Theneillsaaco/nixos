@@ -50,7 +50,6 @@
           showBattery  = true;   # Laptop → true
           
           showNetwork  = true;
-          showWifi  = true;
           
           showBluetooth = true;
           showLockStatus = false;

@@ -69,9 +69,8 @@
   
     shellAliases = {
       ll = "ls -al";
-      rebuild = "nixos switch --flake /etc/nixos";
+      rebuild = "nixos-rebuild switch --flake /etc/nixos";
       update = "nix flake update /etc/nixos";
-      clean = "nixos clean all";
     };
   
     initContent = ''
@@ -91,6 +90,9 @@
   
   programs.starship = {
     enable = true;
+    settings = {
+      scan_timeout = 300;
+    };
   };
   
   programs.kitty = {

@@ -11,6 +11,7 @@
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
     ./programs/hyprland/default.nix
+    .programs/starship.nix
   ];
 
   # Home packages
@@ -86,13 +87,6 @@
       }
       precmd_functions+=(_mark_prompt_start)
     '';
-  };
-  
-  programs.starship = {
-    enable = true;
-    settings = {
-      scan_timeout = 300;
-    };
   };
   
   programs.kitty = {

@@ -11,7 +11,7 @@
     ./programs/desktop-apps.nix
     ./programs/devtools-home.nix
     ./programs/hyprland/default.nix
-    .programs/starship.nix
+    ./programs/starship.nix
   ];
 
   # Home packages

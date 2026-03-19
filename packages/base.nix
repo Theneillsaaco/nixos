@@ -11,5 +11,6 @@
     kitty
     gnome-keyring
     libsecret
+    playerctl
   ];
 }

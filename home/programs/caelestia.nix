@@ -14,7 +14,15 @@
           base = 0.85;
           layers = 0.8;
         };
-        font.size.scale = 1;
+        font = {
+          family = {
+            clock = "Rubik";
+            sans = "Rubik";
+            mono = "JetBrains Mono";
+            material = "Material Symbols Rounded";
+          };
+          size.scale = 1;
+        };
         padding.scale = 1;
         rounding.scale = 1;
         spacing.scale = 1;
@@ -23,7 +31,7 @@
 
       general = {
         apps = {
-          terminal = [ "kitty" ];   # Cambia por tu terminal
+          terminal = [ "kitty" ];
           audio    = [ "pavucontrol" ];
           explorer = [ "dolphin" ];
         };
@@ -40,14 +48,13 @@
         
         workspaces = {
           activeIndicator = true;
-          rounded = true;
           showWindows = true;
           shown = 5;
         };
         
         status = {
           showAudio    = true;
-          showBattery  = true;   # Laptop → true
+          showBattery  = true;
           
           showNetwork  = true;
 
@@ -59,7 +66,14 @@
         scrollActions = {
           volume     = true;
           workspaces = true;
-          brightness = true;   # Laptop → útil
+          brightness = true;
+        };
+        
+        # Iconos pequenos
+        tray = {
+          background = false;
+          compact    = true;
+          recolour   = false;
         };
       };
 
@@ -90,10 +104,10 @@
       };
 
       services = {
-        useFahrenheit = false;   # Cambia a true si prefieres
+        useFahrenheit = false;
         useTwelveHourClock = false;
         smartScheme = true;
-        gpuType = "Intel";         # Laptop Intel/AMD
+        gpuType = "Intel";
       };
 
       session = {

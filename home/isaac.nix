@@ -70,8 +70,9 @@
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
       update = "nix flake update /etc/nixos";
     };
-  
+    
     initContent = ''
+      
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
       
@@ -82,6 +83,9 @@
       _mark_prompt_start() {
         printf '\e]133;A\e\\'
       }
+      
+      source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+      
       precmd_functions+=(_mark_prompt_start)
     '';
   };

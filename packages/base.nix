@@ -6,6 +6,9 @@
     htop
     tree
     unzip
+    zip
+    unrar
+    p7zip
     flatpak
     zsh
     kitty

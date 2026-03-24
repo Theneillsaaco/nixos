@@ -2,7 +2,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      scan_timeout = 300;
+      scan_timeout = 3000;
       add_newline = false;
       continuation_prompt = "[▸▹ ](dimmed white)";
 

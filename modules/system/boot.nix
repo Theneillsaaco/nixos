@@ -9,9 +9,10 @@
       "udev.log_priority=3"
     ];
     
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
   };
   

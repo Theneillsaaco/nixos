@@ -15,5 +15,7 @@
     gnome-keyring
     libsecret
     playerctl
+    sbctl
+    sbsigntool
   ];
 }

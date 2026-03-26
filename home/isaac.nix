@@ -1,6 +1,4 @@
-{pkgs, inputs, ... }:
-
-{
+{pkgs, inputs, ... }: {
   home.username = "isaac";
   home.homeDirectory = "/home/isaac";
   home.stateVersion = "25.11";

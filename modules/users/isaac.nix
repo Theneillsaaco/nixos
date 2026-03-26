@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   users.users.isaac = {
     isNormalUser = true;
     description = "Isaac";

@@ -15,7 +15,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, lanzaboote, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
 
@@ -25,13 +25,12 @@
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         
-        ({ pkgs, inputs, ...}:
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.isaac = import ./home/isaac.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          })
+        ({ inputs, ...}: {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.isaac = import ./home/isaac.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        })
       ];
     };
   };

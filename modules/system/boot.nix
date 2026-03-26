@@ -1,10 +1,11 @@
 { pkgs, ... }: {
-  # Enable the systemd-boot EFI bootloader.
   boot = {
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
       "quiet"
+      "splash"
+      "plymouth.use-simpledrm"
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
     ];

@@ -22,6 +22,7 @@
       ../../modules/services/printing.nix
       ../../modules/services/keyring.nix
       ../../modules/services/warp.nix
+      ../../modules/services/bluetooth.nix
 
       ../../modules/programs/devtools.nix
       ../../modules/programs/java.nix
@@ -35,8 +36,9 @@
   nixpkgs.config.allowUnfree = true;
   
   programs.zsh.enable = true;
-  programs.kdeconnect.enable = true;
   services.flatpak.enable = true;
+  
+  environment.variables.NIXOS_OZONE_WL = "1";
   
   system.stateVersion = "25.11";
 }

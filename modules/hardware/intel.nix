@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   hardware.cpu.intel.updateMicrocode = true;
 
-  services.thermald.enable = true;
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
 

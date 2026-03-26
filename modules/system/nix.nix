@@ -15,6 +15,8 @@
   
   system.autoUpgrade = {
     enable = true;
+    flake = "/etc/nixos";
+    flags = [ "--update-inputs"  "nixpkgs" ];
     dates = "weekly";
   };
 }

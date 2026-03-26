@@ -8,7 +8,6 @@
     zip
     unrar
     p7zip
-    flatpak
     zsh
     kitty
     gnome-keyring

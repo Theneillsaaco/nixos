@@ -32,7 +32,6 @@
   ];
   
   # Configure programs
-
   programs.git = {
     enable = true;
 
@@ -99,5 +98,10 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+  
+  # Variables
+  home.sessionVariables = {
+    DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
   };
 }

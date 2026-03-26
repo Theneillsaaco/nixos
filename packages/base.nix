@@ -3,6 +3,7 @@
     firefox
     htop
     tree
+    gnupg
     unzip
     zip
     unrar
@@ -15,5 +16,6 @@
     playerctl
     sbctl
     sbsigntool
+    nix-index
   ];
 }

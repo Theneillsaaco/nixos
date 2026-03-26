@@ -12,4 +12,9 @@
       auto-optimise-store = true;
     };
   };
+  
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
 }

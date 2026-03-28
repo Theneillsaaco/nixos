@@ -16,5 +16,6 @@
     sbctl
     sbsigntool
     nix-index
+    geoclue2
   ];
 }

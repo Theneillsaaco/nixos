@@ -18,9 +18,7 @@
     wl-clipboard
     wlr-randr
     wayland-utils
-    # Qt theming
-    qt6.qtwayland
-    qt6Packages.qt6ct
+
     # Hyprland utils
     hyprpolkitagent
     hyprshot

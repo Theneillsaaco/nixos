@@ -108,7 +108,7 @@
         smartScheme = true;
         gpuType = "Intel";
       };
-
+      
       session = {
         commands = {
           logout    = [ "hyprctl" "dispatch" "exit" ];
@@ -117,6 +117,22 @@
           hibernate = [ "systemctl" "hibernate" ];
         };
       };
+      
+      utilities = {
+        enable = true;
+        maxToasts = 4;
+        
+        vpn = {
+          enable = true;
+          provider = [
+            {
+              name = "warp";
+              displayName = "Cloudflare WARP";
+            }
+          ];
+        };
+      };
+      
       background.desktopClock = {
         enabled = true;
         position = "bottom-right";

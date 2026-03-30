@@ -11,6 +11,7 @@
       ../../modules/system/networking.nix
       ../../modules/system/locale.nix
       ../../modules/system/nix.nix
+      ../../modules/system/swap.nix
 
       ../../modules/desktop/plasma.nix
       ../../modules/desktop/sddm.nix
@@ -23,6 +24,7 @@
       ../../modules/services/keyring.nix
       ../../modules/services/warp.nix
       ../../modules/services/bluetooth.nix
+      ../../modules/services/btrfs.nix
 
       ../../modules/programs/devtools.nix
       ../../modules/programs/java.nix

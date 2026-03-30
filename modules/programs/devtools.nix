@@ -10,7 +10,7 @@
     nixd
     alejandra
     
-    dotnet-sdk
+    dotnet-sdk_10
     bun
     nodejs
     python3

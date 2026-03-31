@@ -14,6 +14,7 @@
     bun
     nodejs
     python3
+    
     arduino-ide
     arduino-cli
     screen

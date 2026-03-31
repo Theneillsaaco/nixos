@@ -12,7 +12,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     
     caelestia-shell.url = "github:caelestia-dots/shell";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {

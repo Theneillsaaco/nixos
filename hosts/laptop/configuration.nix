@@ -29,7 +29,8 @@
       ../../modules/programs/devtools.nix
       ../../modules/programs/java.nix
       ../../modules/programs/postgres.nix
-
+      ../../modules/programs/nix-ld.nix
+      
       ../../modules/users/isaac.nix
 
       ../../packages/base.nix

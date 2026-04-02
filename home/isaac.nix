@@ -10,6 +10,7 @@
     ./programs/devtools-home.nix
     ./programs/hyprland/default.nix
     ./programs/starship.nix
+    ./programs/nix-ld.nix
   ];
 
   # Home packages

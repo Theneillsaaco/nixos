@@ -41,6 +41,8 @@
   
   programs.zsh.enable = true;
   services.flatpak.enable = true;
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
   
   environment.variables.NIXOS_OZONE_WL = "1";
   

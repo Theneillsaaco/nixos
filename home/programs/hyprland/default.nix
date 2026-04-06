@@ -15,7 +15,7 @@
     };
 
     settings = {
-      "$mod"      = "SUPER";
+      "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
       exec-once = [

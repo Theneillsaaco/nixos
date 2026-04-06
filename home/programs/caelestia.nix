@@ -31,7 +31,7 @@
       general = {
         apps = {
           terminal = [ "kitty" ];
-          audio    = [ "pavucontrol" ];
+          audio = [ "pavucontrol" ];
           explorer = [ "dolphin" ];
         };
         
@@ -52,10 +52,10 @@
         };
         
         status = {
-          showAudio    = true;
-          showBattery  = true;
+          showAudio = true;
+          showBattery = true;
           
-          showNetwork  = true;
+          showNetwork = true;
 
           showBluetooth = true;
           showLockStatus = false;
@@ -63,7 +63,7 @@
         };
         
         scrollActions = {
-          volume     = true;
+          volume = true;
           workspaces = true;
           brightness = true;
         };
@@ -71,8 +71,8 @@
         # Iconos pequenos
         tray = {
           background = false;
-          compact    = true;
-          recolour   = false;
+          compact = true;
+          recolour = false;
         };
       };
 
@@ -111,9 +111,9 @@
       
       session = {
         commands = {
-          logout    = [ "hyprctl" "dispatch" "exit" ];
-          shutdown  = [ "systemctl" "poweroff" ];
-          reboot    = [ "systemctl" "reboot" ];
+          logout = [ "hyprctl" "dispatch" "exit" ];
+          shutdown = [ "systemctl" "poweroff" ];
+          reboot = [ "systemctl" "reboot" ];
           hibernate = [ "systemctl" "hibernate" ];
         };
       };

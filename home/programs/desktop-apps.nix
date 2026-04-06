@@ -5,6 +5,5 @@
     steam
     pear-desktop
     onlyoffice-desktopeditors
-    prismlauncher
   ];
 }

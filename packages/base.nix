@@ -17,5 +17,6 @@
     sbsigntool
     nix-index
     geoclue2
+    ffmpeg
   ];
 }

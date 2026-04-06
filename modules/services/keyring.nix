@@ -1,8 +1,8 @@
-{
+{ pkgs, ... }: {
   services.gnome.gnome-keyring.enable = false;
   
-  security.pam.services = {
-    sddm.kwallet.enable = true;
-    login.kwallet.enable = true;
+  security.pam.services.isaac.kwallet = {
+    enable = true;
+    package = pkgs.kdePackages.kwallet-pam;
   };
 }

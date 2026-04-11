@@ -8,8 +8,7 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver 
-      intel-vaapi-driver
+      intel-media-driver
       libva-vdpau-driver
       libvdpau-va-gl
       intel-compute-runtime
@@ -18,5 +17,8 @@
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
+    mesa-demos
+    vulkan-tools
+    libva-utils
   ];
 }

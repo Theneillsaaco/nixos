@@ -6,11 +6,6 @@
       enable = true;
       package = pkgs.kdePackages.kwallet-pam;
     };
-    
-    login.kwallet = {
-      enable = true;
-      package = pkgs.kdePackages.kwallet-pam;
-    };
   };
   
   security.pam.services.sddm.enableKwallet = true;

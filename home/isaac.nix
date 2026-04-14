@@ -5,11 +5,11 @@
 
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
-    ./programs/caelestia.nix
-    ./programs/desktop-apps.nix
-    ./programs/devtools-home.nix
-    ./programs/hyprland/default.nix
-    ./programs/starship.nix
+    ./isaac/programs/caelestia.nix
+    ./isaac/programs/desktop-apps.nix
+    ./isaac/programs/devtools-home.nix
+    ./isaac/programs/hyprland/default.nix
+    ./isaac/programs/starship.nix
   ];
 
   # Home packages
@@ -24,6 +24,7 @@
     hyprshot
     hyprpicker
     cliphist
+    
     # Misc
     dconf
     glib

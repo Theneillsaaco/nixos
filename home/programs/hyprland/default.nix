@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./animations.nix
     ./bindings.nix
@@ -25,6 +25,7 @@
         "uwsm app -- caelestia shell"
         "uwsm app -- discord --start-minimized"
         "uwsm app -- kdeconnect-indicator"
+        "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
         # "uwsm app -- gnome-keyring-daemon --start --components=secrets"
       ];
       

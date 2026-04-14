@@ -185,14 +185,6 @@ sudo snapper -c root create --description "Pre-update snapshot"
 sudo snapper -c root rollback <NUM>
 ```
 
-## Troubleshooting
-
-### Getting Help
-- Consult the [NixOS Manual](https://nixos.org/manual/nixos/stable/)
-- Check module documentation in `nixos/modules/`
-- Search GitHub issues for similar configurations
-- Visit the NixOS Discourse or Matrix channels
-
 ## License
 
 See the [LICENSE](LICENSE) file for details.

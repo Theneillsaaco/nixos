@@ -67,9 +67,9 @@
   
     shellAliases = {
       ll = "ls -alh";
-      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
+      rebuild = "sudo nh os switch";
       update = "sudo nix flake update --flake /etc/nixos";
-      boot = "sudo nixos-rebuild boot --flake /etc/nixos";
+      boot = "sudo nh os boot";
       upgrade = "update && rebuild";
     };
     

@@ -25,11 +25,13 @@
       ../../modules/services/keyring.nix
       ../../modules/services/warp.nix
       ../../modules/services/bluetooth.nix
-
+      ../../modules/services/ssh.nix
+      
       ../../modules/programs/devtools.nix
       ../../modules/programs/java.nix
       ../../modules/programs/postgres.nix
       ../../modules/programs/nix-ld.nix
+      ../../modules/programs/nh.nix
       
       ../../modules/users/isaac.nix
 

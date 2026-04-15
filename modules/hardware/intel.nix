@@ -3,12 +3,9 @@
 
   # Power management daemon
   powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
   
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-  
-  # Thermal management
   services.thermald.enable = true;
   
   # Drivers

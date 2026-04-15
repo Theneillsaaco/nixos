@@ -7,8 +7,11 @@
     allowedTCPPorts = [ 4321 54321 ];
   };
   
-  # Set DNS nameservers
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  
-  services.resolved.enable = true;
+  services.resolved = {
+    enable = true;
+    settings.Resolve = {
+      DNSSEC = "allow-downgrade";
+      FallbackDNS = [ "1.1.1.1" "8.8.8.8" ];
+    };
+  };
 }

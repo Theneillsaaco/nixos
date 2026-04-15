@@ -66,9 +66,10 @@
     };
   
     shellAliases = {
-      ll = "ls -al";
+      ll = "ls -alh";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
       update = "sudo nix flake update --flake /etc/nixos";
+      boot = "sudo nixos-rebuild boot --flake /etc/nixos";
       upgrade = "update && rebuild";
     };
     
@@ -106,6 +107,6 @@
   
   # Variables
   home.sessionVariables = {
-    DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
+    # DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
   };
 }

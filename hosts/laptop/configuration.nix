@@ -46,5 +46,6 @@
   
   environment.variables.NIXOS_OZONE_WL = "1";
   
+  # Dont touch this
   system.stateVersion = "25.11";
 }

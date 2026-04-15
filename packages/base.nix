@@ -1,25 +1,49 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    # basic
     firefox
+    wget 
+    openssh
+    git
+    
+    # development
+    jq
     htop
     tree
-    gnupg
-    unzip
+    binutils # objdump, strings
+    
+    # compression
     zip
+    unzip
     unrar
     p7zip
-    zsh
-    kitty
-    gnome-keyring
-    libsecret
-    playerctl
+    
+    # security
+    gnupg
     sbctl
     sbsigntool
-    nix-index
-    geoclue2
+    gnome-keyring
+    libsecret
+    
+    # shell
+    zsh
+    kitty
+    
+    # multimedia
+    playerctl
     ffmpeg
+    
+    geoclue2
+    
+    # system
+    pciutils      # lspci
+    usbutils      # lsusb
+    psmisc        # killall, pstree
+
+    # nix
+    nix-index
+    nix-output-monitor  # Mejor salida para builds de Nix
     nix-tree
     nvd
-    openssh
   ];
 }

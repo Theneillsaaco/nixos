@@ -18,5 +18,8 @@
     nix-index
     geoclue2
     ffmpeg
+    nix-tree
+    nvd
+    openssh
   ];
 }

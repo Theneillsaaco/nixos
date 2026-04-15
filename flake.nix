@@ -10,14 +10,21 @@
     };
     
     lanzaboote.url = "github:nix-community/lanzaboote";
-    
     caelestia-shell.url = "github:caelestia-dots/shell";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 
+  let
+    system = "x86_64-linux";
+    username = "isaac";
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      inherit system;
+      
+      specialArgs = { 
+        inherit inputs username;
+      };
 
       modules = [
         ./hosts/laptop/configuration.nix
@@ -25,11 +32,16 @@
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         
-        ({ inputs, ...}: {
+        ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.isaac = import ./home/isaac.nix;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          
+          home-manager.users.${username} = 
+            import ./home/isaac.nix;
+            
+          home-manager.extraSpecialArgs = {
+            inherit inputs username;
+          };
         })
       ];
     };

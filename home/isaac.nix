@@ -1,7 +1,11 @@
-{pkgs, inputs, ... }: {
-  home.username = "isaac";
-  home.homeDirectory = "/home/isaac";
-  home.stateVersion = "25.11";
+{pkgs, inputs, username, ... }: {
+  home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
+    stateVersion = "25.11";
+  };
+  
+  programs.home-manager.enable = true;
 
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
@@ -64,7 +68,8 @@
     shellAliases = {
       ll = "ls -al";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
-      update = "nix flake update /etc/nixos";
+      update = "sudo nix flake update --flake /etc/nixos";
+      upgrade = "update && rebuild";
     };
     
     initContent = ''

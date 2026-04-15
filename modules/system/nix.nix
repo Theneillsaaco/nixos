@@ -10,6 +10,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       
       auto-optimise-store = true;
+      # lazy-trees = true;
     };
   };
   

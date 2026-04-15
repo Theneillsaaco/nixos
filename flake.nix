@@ -18,12 +18,13 @@
   let
     system = "x86_64-linux";
     username = "isaac";
+    myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       
       specialArgs = { 
-        inherit inputs username;
+        inherit inputs username myLib;
       };
 
       modules = [
@@ -40,7 +41,7 @@
             import ./home/isaac.nix;
             
           home-manager.extraSpecialArgs = {
-            inherit inputs username;
+            inherit inputs username myLib;
           };
         })
       ];

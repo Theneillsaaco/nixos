@@ -2,42 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }: {
+{ myLib, ... }: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-
-      ../../modules/system/boot.nix
-      ../../modules/system/networking.nix
-      ../../modules/system/locale.nix
-      ../../modules/system/nix.nix
-      ../../modules/system/swap.nix
-      ../../modules/system/btrfs.nix
-
-      ../../modules/desktop/plasma.nix
-      ../../modules/desktop/sddm.nix
-      ../../modules/desktop/hyprland.nix
       
       ../../modules/hardware/intel.nix
-
-      ../../modules/services/audio.nix
-      ../../modules/services/printing.nix
-      ../../modules/services/keyring.nix
-      ../../modules/services/warp.nix
-      ../../modules/services/bluetooth.nix
-      ../../modules/services/ssh.nix
-      
-      ../../modules/programs/devtools.nix
-      ../../modules/programs/java.nix
-      ../../modules/programs/postgres.nix
-      ../../modules/programs/nix-ld.nix
-      ../../modules/programs/nh.nix
       
       ../../modules/users/isaac.nix
-
-      ../../packages/base.nix
-      ../../packages/fonts.nix
-    ];
+    ] ++ myLib.importDir ../../modules/system
+      ++ myLib.importDir ../../modules/programs
+      ++ myLib.importDir ../../modules/services
+      ++ myLib.importDir ../../modules/desktop
+      ++ myLib.importDir ../../packages;
 
   nixpkgs.config.allowUnfree = true;
   

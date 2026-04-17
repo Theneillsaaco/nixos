@@ -8,91 +8,92 @@
       continuation_prompt = "[▸▹ ](dimmed white)";
 
       format = ''
-        ($nix_shell$container$fill$git_metrics\n)$cmd_duration\
-        $hostname\
-        $localip\
-        $shlvl\
-        $shell\
-        $env_var\
-        $jobs\
-        $sudo\
-        $username\
+        ($nix_shell$container$fill$git_metrics
+        )$cmd_duration
+        $hostname
+        $localip
+        $shlvl
+        $shell
+        $env_var
+        $jobs
+        $sudo
+        $username
         $character
       '';
 
-      right_format =  ''
-        $singularity\
-        $kubernetes\
-        $directory\
-        $vcsh\
-        $fossil_branch\
-        $git_branch\
-        $git_commit\
-        $git_state\
-        $git_status\
-        $hg_branch\
-        $pijul_channel\
-        $docker_context\
-        $package\
-        $c\
-        $cmake\
-        $cobol\
-        $daml\
-        $dart\
-        $deno\
-        $dotnet\
-        $elixir\
-        $elm\
-        $erlang\
-        $fennel\
-        $golang\
-        $guix_shell\
-        $haskell\
-        $haxe\
-        $helm\
-        $java\
-        $julia\
-        $kotlin\
-        $gradle\
-        $lua\
-        $nim\
-        $nodejs\
-        $ocaml\
-        $opa\
-        $perl\
-        $php\
-        $pulumi\
-        $purescript\
-        $python\
-        $raku\
-        $rlang\
-        $red\
-        $ruby\
-        $rust\
-        $scala\
-        $solidity\
-        $swift\
-        $terraform\
-        $vlang\
-        $vagrant\
-        $zig\
-        $buf\
-        $conda\
-        $meson\
-        $spack\
-        $memory_usage\
-        $aws\
-        $gcloud\
-        $openstack\
-        $azure\
-        $crystal\
-        $custom\
-        $status\
-        $os\
-        $battery\
+      right_format = ''
+        $singularity
+        $kubernetes
+        $directory
+        $vcsh
+        $fossil_branch
+        $git_branch
+        $git_commit
+        $git_state
+        $git_status
+        $hg_branch
+        $pijul_channel
+        $docker_context
+        $package
+        $c
+        $cmake
+        $cobol
+        $daml
+        $dart
+        $deno
+        $dotnet
+        $elixir
+        $elm
+        $erlang
+        $fennel
+        $golang
+        $guix_shell
+        $haskell
+        $haxe
+        $helm
+        $java
+        $julia
+        $kotlin
+        $gradle
+        $lua
+        $nim
+        $nodejs
+        $ocaml
+        $opa
+        $perl
+        $php
+        $pulumi
+        $purescript
+        $python
+        $raku
+        $rlang
+        $red
+        $ruby
+        $rust
+        $scala
+        $solidity
+        $swift
+        $terraform
+        $vlang
+        $vagrant
+        $zig
+        $buf
+        $conda
+        $meson
+        $spack
+        $memory_usage
+        $aws
+        $gcloud
+        $openstack
+        $azure
+        $crystal
+        $custom
+        $status
+        $os
+        $battery
         $time
       '';
-
+      
       fill.symbol = " ";
       
       character = {
@@ -106,7 +107,7 @@
       };
 
       env_var.VIMSHELL = {
-        format = "[$env_var]($style)";
+        format = "[$env_value]($style)";
         style = "green italic";
       };
       

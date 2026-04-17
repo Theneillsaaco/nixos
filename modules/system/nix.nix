@@ -1,10 +1,10 @@
 {
   nix = {
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "daily";
+    #   options = "--delete-older-than 7d";
+    # };
     
     optimise = {
       automatic = true;

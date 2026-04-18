@@ -102,20 +102,28 @@ in
     ];
 
     bindel = [
-      # Brillo
-      ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
-      ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      # # Brillo
+      # ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
+      # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      
       # Volumen
-      ",XF86AudioRaiseVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.5"
-      ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+      ", XF86AudioRaiseVolume, global, caelestia:volumeUp"
+      ", XF86AudioLowerVolume, global, caelestia:volumeDown" 
+      
+      # ",XF86AudioRaiseVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.5"
+      # ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     ];
 
     bindl = [
       # Caelestia
       "SUPER, SUPER_L, exec, caelestia shell drawers toggle launcher"
+      
+      # Audio
       ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
       "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      
+      # Player
       ",XF86AudioNext,  exec, playerctl next"
       ",XF86AudioPrev,  exec, playerctl previous"
       ",XF86AudioPlay,  exec, playerctl play-pause"
@@ -123,6 +131,10 @@ in
       "$shiftMod, N, exec, playerctl next"
       "$shiftMod, B, exec, playerctl previous"
       "$shiftMod, P, exec, playerctl play-pause"
+      
+      # Brightness
+      ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
+      ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
     ];
 
     binde = [

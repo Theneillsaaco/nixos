@@ -39,7 +39,8 @@
     pciutils      # lspci
     usbutils      # lsusb
     psmisc        # killall, pstree
-
+    brightnessctl
+    
     # nix
     nix-index
     nix-output-monitor  # Mejor salida para builds de Nix

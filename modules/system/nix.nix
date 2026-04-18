@@ -1,6 +1,4 @@
 {
-  nix.package = null;
-  
   nix = {
     # gc = {
     #   automatic = true;

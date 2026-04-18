@@ -6,8 +6,11 @@
       scan_timeout = 3000;
       add_newline = false;
       continuation_prompt = "[▸▹ ](dimmed white)";
-
-      format = "($nix_shell$container$fill$git_metrics)\n$cmd_duration$hostname$localip$shlvl$shell$env_var$jobs$sudo$username$character";
+      
+      format = ''
+        ($nix_shell$container$fill$git_metrics)
+        $cmd_duration$hostname$localip$shlvl$shell$env_var$jobs$sudo$username$character
+      '';
       
       right_format = "$directory$git_branch$git_commit$git_state$git_status$nodejs$python$rust$golang$status$os$battery$time";
       

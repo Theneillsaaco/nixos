@@ -1,4 +1,6 @@
 {
+  nix.package = null;
+  
   nix = {
     # gc = {
     #   automatic = true;
@@ -16,7 +18,7 @@
       max-jobs = "auto";
       
       auto-optimise-store = true;
-      # lazy-trees = true; # I don't have determinate nix :'(
+      lazy-trees = true;
       
       substituters = [
         "https://cache.nixos.org/"
@@ -29,7 +31,7 @@
         "theneillsaaco-nix.cachix.org-1:l6861n9yzzvrcRmsa8xJuF2abe8R+7j++fz3j1C1/I4="
       ];
       
-      trusted-users = [ "root" "alice" "@wheel" ];
+      trusted-users = [ "root" "@wheel" ];
     };
   };
 }

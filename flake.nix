@@ -12,9 +12,12 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     caelestia-shell.url = "github:caelestia-dots/shell/v1.5.2";
     hyprland.url = "github:hyprwm/Hyprland";
+    
+    # Determinate Systems modules
+    determinate.url = "github:DeterminateSystems/determinate/main";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, determinate, ... }: 
   let
     system = "x86_64-linux";
     username = "isaac";
@@ -32,6 +35,7 @@
       
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
+        determinate.nixosModules.default
         
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;

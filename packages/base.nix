@@ -39,7 +39,6 @@
     pciutils      # lspci
     usbutils      # lsusb
     psmisc        # killall, pstree
-    brightnessctl
     
     # nix
     nix-index

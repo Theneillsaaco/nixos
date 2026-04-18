@@ -1,6 +1,4 @@
-[![NixOS Build & Cache](https://github.com/Theneillsaaco/nixos/actions/workflows/buildCache.yml/badge.svg)](https://github.com/Theneillsaaco/nixos/actions/workflows/buildCache.yml)
-
-[![Cachix Cache](https://img.shields.io/badge/cachix-theneillsaaco--nix-blue.svg)](https://theneillsaaco-nix.cachix.org)
+[![NixOS Build & Cache](https://github.com/Theneillsaaco/nixos/actions/workflows/buildCache.yml/badge.svg)](https://github.com/Theneillsaaco/nixos/actions/workflows/buildCache.yml) [![Cachix Cache](https://img.shields.io/badge/cachix-theneillsaaco--nix-blue.svg)](https://theneillsaaco-nix.cachix.org)
 
 # Isaac's NixOS Configuration
 

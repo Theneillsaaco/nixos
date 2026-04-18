@@ -107,11 +107,8 @@ in
       # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       
       # Volumen
-      ", XF86AudioRaiseVolume, global, caelestia:volumeUp"
-      ", XF86AudioLowerVolume, global, caelestia:volumeDown" 
-      
-      # ",XF86AudioRaiseVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ -l 1.5"
-      # ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+      ",XF86AudioRaiseVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
+      ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     ];
 
     bindl = [

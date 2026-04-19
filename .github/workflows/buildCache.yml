@@ -42,7 +42,6 @@ jobs:
       - name: Configure Nix (cache priority)
         run: |
           echo "substituters = https://theneillsaaco-nix.cachix.org https://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf
-          echo "trusted-public-keys = theneillsaaco-nix.cachix.org-1:$(nix key convert-secret-to-public < /dev/null 2>/dev/null || true)" | sudo tee -a /etc/nix/nix.conf
           echo "builders-use-substitutes = true" | sudo tee -a /etc/nix/nix.conf
 
       - name: Check flake

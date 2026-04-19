@@ -16,6 +16,8 @@
       max-jobs = "auto";
       
       auto-optimise-store = true;
+      
+      # Determinate nix requires
       lazy-trees = true;
       
       substituters = [

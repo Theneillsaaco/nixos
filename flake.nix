@@ -10,7 +10,7 @@
     };
     
     lanzaboote.url = "github:nix-community/lanzaboote";
-    caelestia-shell.url = "github:caelestia-dots/shell/v1.5.2";
+    caelestia-shell.url = "github:caelestia-dots/shell";
     hyprland.url = "github:hyprwm/Hyprland";
     
     # Determinate Systems modules

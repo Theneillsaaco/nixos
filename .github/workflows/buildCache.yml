@@ -39,6 +39,12 @@ jobs:
           name: theneillsaaco-nix
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
  
+      - name: Configure Nix (cache priority)
+        run: |
+          echo "substituters = https://theneillsaaco-nix.cachix.org https://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf
+          echo "trusted-public-keys = theneillsaaco-nix.cachix.org-1:$(nix key convert-secret-to-public < /dev/null 2>/dev/null || true)" | sudo tee -a /etc/nix/nix.conf
+          echo "builders-use-substitutes = true" | sudo tee -a /etc/nix/nix.conf
+
       - name: Check flake
         run: nix flake check --no-build
  
@@ -47,4 +53,9 @@ jobs:
           nix build .#nixosConfigurations.nixos.config.system.build.toplevel \
             --no-link \
             --print-build-logs
+            --accept-flake-config
+            
+      - name: Push to Cachix
+        run: |
+          nix path-info .#nixosConfigurations.nixos.config.system.build.toplevel | cachix push theneillsaaco-nix
  

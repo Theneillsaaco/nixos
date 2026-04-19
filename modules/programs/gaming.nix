@@ -6,5 +6,7 @@
     
     lutris
     protonup-qt
+    
+    gamemode
   ];
 }

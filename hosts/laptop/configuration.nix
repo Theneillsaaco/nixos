@@ -23,6 +23,8 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
   
+  programs.gamemode.enable = true;
+  
   environment.variables.NIXOS_OZONE_WL = "1";
   
   # Dont touch this

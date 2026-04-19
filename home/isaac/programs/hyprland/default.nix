@@ -81,7 +81,6 @@
       };
 
       misc = {
-        vfr = true;
         vrr = 0;                      # Laptop → 0 a menos que tu monitor lo soporte
         disable_hyprland_logo = true;
         disable_splash_rendering = true;

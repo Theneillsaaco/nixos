@@ -8,6 +8,8 @@
 
     settings = {
       appearance = {
+        deformScale = 1;
+        
         transparency = {
           enabled = true;
           base = 0.85;

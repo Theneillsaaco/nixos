@@ -11,7 +11,11 @@
     
     lanzaboote.url = "github:nix-community/lanzaboote";
     caelestia-shell.url = "github:caelestia-dots/shell";
-    hyprland.url = "github:hyprwm/Hyprland";
+    
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     # Determinate Systems modules
     determinate.url = "github:DeterminateSystems/determinate/main";

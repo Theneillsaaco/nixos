@@ -28,7 +28,7 @@
   environment.variables.NIXOS_OZONE_WL = "1";
   
   # fix some temporal errors
-  nixpkgs.config.allowBroken = false; # ya debes tenerlo
+  nixpkgs.config.allowBroken = false;
   nixpkgs.overlays = [
     (final: prev: {
       openldap = prev.openldap.overrideAttrs (_: {

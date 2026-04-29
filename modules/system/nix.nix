@@ -12,7 +12,7 @@
     };
     
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "lazy-trees" ];
       
       max-jobs = "auto";
       cores = 0;
@@ -20,6 +20,7 @@
       
       keep-going = true;
       warn-dirty = false;
+      builders-use-substitutes = true;
       
       # Determinate nix requires
       lazy-trees = true;

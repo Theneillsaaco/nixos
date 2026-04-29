@@ -3,6 +3,7 @@
     vscode
     fastfetch
 
+    cloudflared
     curl
     wget
     nil
@@ -17,5 +18,6 @@
     arduino-ide
     arduino-cli
     screen
+    
   ];
 }

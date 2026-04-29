@@ -27,9 +27,6 @@
   
   environment.variables.NIXOS_OZONE_WL = "1";
   
-  # Temporary fix
-  nixpkgs.config.doCheck = false;
-  
   # Dont touch this
   system.stateVersion = "25.11";
 }

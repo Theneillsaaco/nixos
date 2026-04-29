@@ -41,6 +41,7 @@
         "NIXOS_OZONE_WL,1"
         "ANKI_WAYLAND,1"
         "DISABLE_QT5_COMPAT,0"
+        "QT_QPA_PLATFORMTHEME,qtengine"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"

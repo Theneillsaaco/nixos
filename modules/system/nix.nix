@@ -12,7 +12,7 @@
     };
     
     settings = {
-      experimental-features = [ "nix-command" "flakes" "lazy-trees" ];
+      experimental-features = [ "nix-command" "flakes" ];
       
       max-jobs = "auto";
       cores = 0;

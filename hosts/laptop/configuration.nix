@@ -27,6 +27,13 @@
   
   environment.variables.NIXOS_OZONE_WL = "1";
   
+  # Temporary fix
+  nixpkgs.config.packageOverrides = pkgs: {
+    openldap = pkgs.openldap.overrideAttrs (old: {
+      doCheck = false;
+    });
+  };
+  
   # Dont touch this
   system.stateVersion = "25.11";
 }

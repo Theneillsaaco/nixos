@@ -28,6 +28,7 @@
     # shell
     zsh
     kitty
+    fish
     
     # multimedia
     playerctl

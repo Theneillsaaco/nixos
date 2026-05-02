@@ -9,6 +9,7 @@
 
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
+    inputs.zen-browser.homeManagerModules.default
     ./isaac/programs/hyprland/default.nix
   ]
   ++ myLib.importDir ./isaac/programs

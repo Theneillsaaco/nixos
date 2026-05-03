@@ -6,9 +6,7 @@ let
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta-unwrapped;
 
   # ── fx-autoconfig (NECESARIO para Sine) ──
-  zen-autoconfig = zen.overrideAttrs (old: rec {
-    libName = builtins.head (builtins.attrNames (builtins.readDir "${old.out}/lib"));
-  
+  zen-autoconfig = zen.overrideAttrs (old: rec {  
     postInstall = (old.postInstall or "") + ''
       libDir=$(find $out/lib -maxdepth 1 -type d -name "zen-bin*" | head -n1)
   
@@ -78,9 +76,8 @@ in {
     installSine = ''
       mkdir -p ~/${profile}/chrome
 
-      if [ ! -d ~/${profile}/chrome/JS ]; then
-        cp -r ${sine}/chrome/* ~/${profile}/chrome/
-      fi
+      rm -rf ~/${profile}/chrome/JS
+      cp -r ${sine}/chrome/* ~/${profile}/chrome/
     '';
 
     # symlinks Caelestia → Zen

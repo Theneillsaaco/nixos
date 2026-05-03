@@ -6,19 +6,23 @@ let
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta-unwrapped;
 
   # ── fx-autoconfig (NECESARIO para Sine) ──
-  zen-autoconfig = zen.overrideAttrs (old: {
+  zen-autoconfig = zen.overrideAttrs (old: rec {
+    libName = builtins.head (builtins.attrNames (builtins.readDir "${old.out}/lib"));
+  
     postInstall = (old.postInstall or "") + ''
       libDir=$(find $out/lib -maxdepth 1 -type d -name "zen-bin*" | head -n1)
-
+  
+      echo "Using libDir: $libDir"
+  
       chmod -R u+w "$libDir"
-
+  
       cp ${pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
         sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
       }} "$libDir/config.js"
-
+  
       mkdir -p "$libDir/defaults/pref"
-
+  
       cp ${pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/defaults/pref/config-prefs.js";
         sha256 = "sha256-a/0u0TnRj/UXjg/GKjtAWFQN2+ujrckSwNae23DBfs4=";

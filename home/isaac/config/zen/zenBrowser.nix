@@ -31,7 +31,7 @@ let
     owner = "CosmoCreeper";
     repo = "Sine";
     rev = "main"; # puedes fijar commit luego
-    sha256 = "";  # deja vacío → copia el hash que te dé nix
+    sha256 = "sha256-zgqL0S9zK7SPVFqA6Qb6DgGCzNEoyk0t3EbTQ0NjiA4=";  # deja vacío → copia el hash que te dé nix
   };
 
   profile = ".config/zen/c2tfi4s0.Default Profile";

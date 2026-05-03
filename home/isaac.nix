@@ -11,6 +11,7 @@
     inputs.caelestia-shell.homeManagerModules.default
     inputs.zen-browser.homeModules.default
     ./isaac/programs/hyprland/default.nix
+    ./isaac/config/zen/zenBrowser.nix
   ]
   ++ myLib.importDir ./isaac/programs
   ++ myLib.importDir ./isaac/config;

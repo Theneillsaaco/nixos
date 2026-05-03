@@ -1,4 +1,4 @@
-{pkgs, inputs, username, myLib, ... }: {
+{ pkgs, inputs, username, myLib, ... }: {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -9,7 +9,7 @@
 
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
-    inputs.zen-browser.homeManagerModules.default
+    inputs.zen-browser.homeModules.default
     ./isaac/programs/hyprland/default.nix
   ]
   ++ myLib.importDir ./isaac/programs

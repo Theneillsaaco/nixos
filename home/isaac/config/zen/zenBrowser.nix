@@ -74,10 +74,21 @@ in {
 
     # instalar Sine engine (Nix way)
     installSine = ''
-      mkdir -p ~/${profile}/chrome
-
-      rm -rf ~/${profile}/chrome/JS
-      cp -r ${sine}/chrome/* ~/${profile}/chrome/
+      set -x
+    
+      echo "Installing Sine..."
+    
+      TARGET="$HOME/${profile}/chrome"
+    
+      mkdir -p "$TARGET"
+    
+      echo "Copying from: ${sine}/chrome"
+      ls ${sine}
+    
+      rm -rf "$TARGET/JS"
+      cp -r ${sine}/chrome/* "$TARGET/"
+    
+      echo "Done"
     '';
 
     # symlinks Caelestia → Zen

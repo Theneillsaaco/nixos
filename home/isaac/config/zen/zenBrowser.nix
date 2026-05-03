@@ -50,6 +50,8 @@ in {
   xdg.configFile."caelestia/templates/zenContent.css".source = ./zenContent.css;
 
   # ── Sine mods ────────────────────────────
+  home.file."${profile}/chrome".source = "${sine}/chrome";
+ 
   home.file."${profile}/sine-mods/css-hot-reload/css-reload.uc.js".source = ./css-reload.uc.js;
 
   home.file."${profile}/sine-mods/css-hot-reload/mod.json".source = ./mod.json;
@@ -71,10 +73,6 @@ in {
 
   # ── Activaciones ─────────────────────────
   home.activation = {
-
-    # instalar Sine engine (Nix way)
-    home.file."${profile}/chrome".source = "${sine}/chrome";
-
     # symlinks Caelestia → Zen
     zenSymlinks = ''
       mkdir -p ~/${profile}/chrome

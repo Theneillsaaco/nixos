@@ -1,0 +1,15 @@
+{
+  "id": "css-hot-reload",
+  "name": "CSS Hot Reload",
+  "description": "Automatically reloads userChrome.css and userContent.css when they change. Perfect for CSS development and theming.",
+  "version": "1.0.0",
+  "author": "Auto-generated",
+  "scripts": {
+    "css-reload.uc.js": {
+      "name": "CSS Hot Reload Script",
+      "description": "Monitors and auto-reloads CSS files",
+      "include": ["chrome://browser/content/browser.xhtml"]
+    }
+  },
+  "enabled": true
+}

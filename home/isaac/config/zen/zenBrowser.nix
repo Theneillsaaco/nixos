@@ -73,23 +73,7 @@ in {
   home.activation = {
 
     # instalar Sine engine (Nix way)
-    installSine = ''
-      set -x
-    
-      echo "Installing Sine..."
-    
-      TARGET="$HOME/${profile}/chrome"
-    
-      mkdir -p "$TARGET"
-    
-      echo "Copying from: ${sine}/chrome"
-      ls ${sine}
-    
-      rm -rf "$TARGET/JS"
-      cp -r ${sine}/chrome/* "$TARGET/"
-    
-      echo "Done"
-    '';
+    home.file."${profile}/chrome".source = "${sine}/chrome";
 
     # symlinks Caelestia → Zen
     zenSymlinks = ''

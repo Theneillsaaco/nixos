@@ -60,7 +60,7 @@ in
       "$mod, T,      exec, uwsm app -- kitty"
       "CTRL ALT, T,  exec, uwsm app -- kitty"
       "$mod, E,      exec, uwsm app -- dolphin"
-      "$mod, W,      exec, uwsm app -- firefox"
+      "$mod, W,      exec, uwsm app -- zen-beta"
       "$mod, C,      exec, uwsm app -- code"
       "CTRL $mod, V, exec, uwsm app -- pavucontrol"
 

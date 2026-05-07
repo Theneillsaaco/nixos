@@ -27,7 +27,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
-          extra-conf:
+          extra-conf: |
             lazy-trees = true
 
       - name: Setup Magic Nix Cache
@@ -41,6 +41,7 @@ jobs:
         with:
           name: theneillsaaco-nix
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pushFilter: "-source$"
  
       - name: Configure Nix (cache priority)
         run: |
@@ -59,5 +60,8 @@ jobs:
             
       - name: Push to Cachix
         run: |
-          nix path-info .#nixosConfigurations.nixos.config.system.build.toplevel | cachix push theneillsaaco-nix
- 
+          nix path-info --recursive \
+            .#nixosConfigurations.nixos.config.system.build.toplevel \
+            | grep -v "\.drv$" \
+            | cachix push theneillsaaco-nix
+

@@ -24,6 +24,9 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    # Kernel
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     # Determinate Systems modules
     determinate.url = "github:DeterminateSystems/determinate/main";

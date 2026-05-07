@@ -30,6 +30,8 @@
         "https://cache.determinate.systems"
         "https://cache.nixos.org/"
         "https://theneillsaaco-nix.cachix.org"
+        "https://attic.xuyh0120.win/lantian" 
+        "https://cache.garnix.io" 
         "https://hyprland.cachix.org"
       ];
       trusted-public-keys = [
@@ -37,6 +39,8 @@
         "cache.determinate.systems-1:wup8m09p2798f09p2798f09p2798f09p2798f09p279="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "theneillsaaco-nix.cachix.org-1:l6861n9yzzvrcRmsa8xJuF2abe8R+7j++fz3j1C1/I4="
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
       

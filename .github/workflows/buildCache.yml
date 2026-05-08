@@ -41,8 +41,7 @@ jobs:
         with:
           name: theneillsaaco-nix
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          pushFilter: "-source$"
- 
+          
       - name: Configure Nix (cache priority)
         run: |
           echo "substituters = https://theneillsaaco-nix.cachix.org https://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf
@@ -62,6 +61,5 @@ jobs:
         run: |
           nix path-info --recursive \
             .#nixosConfigurations.nixos.config.system.build.toplevel \
-            | grep -v "\.drv$" \
             | cachix push theneillsaaco-nix
 

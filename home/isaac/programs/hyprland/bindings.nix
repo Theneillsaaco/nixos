@@ -58,6 +58,9 @@ in
       "$mod, C,      exec, uwsm app -- zeditor"
       "CTRL $mod, V, exec, uwsm app -- pavucontrol"
 
+      # Caelestia
+      "SUPER, SUPER_L, global, caelestia:launcher"
+      
       # Caelestia shell
       "$mod, N,        exec, caelestia shell drawers toggle dashboard"
       "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
@@ -99,11 +102,6 @@ in
       # Volumen
       ",XF86AudioRaiseVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
       ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
-    ];
-
-    bindi = [
-      # Caelestia
-      "SUPER, SUPER_L, global, caelestia:launcher"
     ];
 
     bindl = [

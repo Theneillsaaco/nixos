@@ -122,10 +122,10 @@ in
         ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
   
         # Lock / suspend
-        # "$mod, L, exec, caelestia shell -d"
-        # "$mod, L, global, caelestia:lock"
-        "$mod, Escape, exec, loginctl lock-session"
-        "$mod, L, exec, loginctl lock-session"
+        "$mod, L, exec, caelestia shell -d"
+        "$mod, L, global, caelestia:lock"
+        # "$mod, Escape, exec, loginctl lock-session"
+        # "$mod, L, exec, loginctl lock-session"
         "$shiftMod, Escape, exec, systemctl suspend"
       ];
   
@@ -146,12 +146,6 @@ in
 
       bindi = Super, Super_L, global, caelestia:launcher
       bindin = Super, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Ctrl, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Shift, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Alt, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Ctrl Shift, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Ctrl Alt, catchall, global, caelestia:launcherInterrupt
-      bindin = Super Shift Alt, catchall, global, caelestia:launcherInterrupt
       bindin = Super, mouse:272, global, caelestia:launcherInterrupt
       bindin = Super, mouse:273, global, caelestia:launcherInterrupt
       bindin = Super, mouse:274, global, caelestia:launcherInterrupt

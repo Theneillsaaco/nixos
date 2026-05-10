@@ -19,12 +19,6 @@ in
       "$mod, Up,    movefocus, u"
       "$mod, Down,  movefocus, d"
 
-      # Foco vim-style
-      "$mod, H, movefocus, l"
-      "$mod, L, movefocus, r"
-      "$mod, K, movefocus, u"
-      "$mod, J, movefocus, d"
-
       # Mover ventanas con flechas
       "$shiftMod, Left,  movewindow, l"
       "$shiftMod, Right, movewindow, r"
@@ -61,7 +55,7 @@ in
       "CTRL ALT, T,  exec, uwsm app -- kitty"
       "$mod, E,      exec, uwsm app -- dolphin"
       "$mod, W,      exec, uwsm app -- zen-beta"
-      "$mod, C,      exec, uwsm app -- code"
+      "$mod, C,      exec, uwsm app -- zeditor"
       "CTRL $mod, V, exec, uwsm app -- pavucontrol"
 
       # Caelestia shell
@@ -71,21 +65,17 @@ in
       "CTRL ALT, C, exec, caelestia shell notifications clear"
 
       # Screenshot
-      "$shiftMod, S,     exec, hyprshot --freeze --clipboard-only --mode region --silent"
-      "$mod, Print,      exec, hyprshot -m region"
-      "$shiftMod, Print, exec, hyprshot -m output"
-      ", Print,          exec, hyprshot -m output --clipboard-only"
+      "$shiftMod, S,     global, caelestia:screenshotFreeze"
+      "$mod, Print,      global, caelestia:screenshot"
+      "$shiftMod, Print, global, caelestia:screenshot"
+      ", Print,          exec, caelestia screenshot"
 
       # Color picker
       "$shiftMod, C, exec, hyprpicker -a"
 
-      # Lock / suspend
-      "$mod, Escape, exec, loginctl lock-session"
-      "$mod, L, exec, loginctl lock-session"
-      "$shiftMod, Escape, exec, systemctl suspend"
-
-      # Restart caelestia shell
-      "CTRL $mod, R, exec, bash -c 'hyprctl reload; systemctl --user stop $(systemctl --user list-units --no-legend | grep caelestia | awk \"{print $1}\"); sleep 1; uwsm app -- caelestia shell'"
+      # Clipboard and emoji picker
+      "$mod, V, exec, pkill fuzzel || caelestia clipboard"
+      "$mod, Period, exec, pkill fuzzel || caelestia emoji -p"
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [
@@ -111,9 +101,12 @@ in
       ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     ];
 
-    bindl = [
+    bindi = [
       # Caelestia
-      "SUPER, SUPER_L, exec, caelestia shell drawers toggle launcher"
+      "SUPER, SUPER_L, global, caelestia:launcher"
+    ];
+
+    bindl = [
       
       # Audio
       ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
@@ -121,23 +114,36 @@ in
       "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
       
       # Player
-      ",XF86AudioNext,  exec, playerctl next"
-      ",XF86AudioPrev,  exec, playerctl previous"
-      ",XF86AudioPlay,  exec, playerctl play-pause"
-      ",XF86AudioPause, exec, playerctl play-pause"
-      "$shiftMod, N, exec, playerctl next"
-      "$shiftMod, B, exec, playerctl previous"
-      "$shiftMod, P, exec, playerctl play-pause"
+      ",XF86AudioNext,  global, caelestia:mediaNext"
+      ",XF86AudioPrev,  global, caelestia:mediaPrev"
+      ",XF86AudioPlay,  global, caelestia:mediaToggle"
+      ",XF86AudioPause, global, caelestia:mediaToggle"
+      "$shiftMod, N, global, caelestia:mediaNext"
+      "$shiftMod, B, global, caelestia:mediaPrev"
+      "$shiftMod, P, global, caelestia:mediaToggle"
       
       # Brightness
       ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
       ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+
+      # Lock / suspend
+      "$mod, L, exec, caelestia shell -d"
+      "$mod, L, global, caelestia:lock"
+      # "$mod, Escape, exec, loginctl lock-session"
+      # "$mod, L, exec, loginctl lock-session"
+      # "$shiftMod, Escape, exec, systemctl suspend"
+
     ];
 
     binde = [
       # Zoom
       "$mod, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
       "$mod, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
+    ];
+
+    bindr = [
+      # Restart caelestia shell
+      "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell kill; sleep .1; caelestia shell -d'"
     ];
   };
 }

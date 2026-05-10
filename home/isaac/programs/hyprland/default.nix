@@ -26,6 +26,7 @@
         "uwsm app -- discord --start-minimized"
         "uwsm app -- kdeconnect-indicator"
         "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
+        "hyprctl dispatch submap global"
         # "uwsm app -- gnome-keyring-daemon --start --components=secrets"
       ];
       

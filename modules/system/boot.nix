@@ -16,7 +16,7 @@
       "i915.enable_fastboot=1"
     ];
 
-    kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore;
+    kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
     
     loader.systemd-boot.enable = false;
     

@@ -146,6 +146,12 @@ in
 
       bindi = Super, Super_L, global, caelestia:launcher
       bindin = Super, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Ctrl, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Shift, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Alt, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Ctrl Shift, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Ctrl Alt, catchall, global, caelestia:launcherInterrupt
+      bindin = Super Shift Alt, catchall, global, caelestia:launcherInterrupt
       bindin = Super, mouse:272, global, caelestia:launcherInterrupt
       bindin = Super, mouse:273, global, caelestia:launcherInterrupt
       bindin = Super, mouse:274, global, caelestia:launcherInterrupt

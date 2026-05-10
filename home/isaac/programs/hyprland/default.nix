@@ -4,6 +4,26 @@
     ./bindings.nix
   ];
 
+  home.file.".config/hypr/launcher.conf".text = ''
+    exec = hyprctl dispatch submap global
+    submap = global
+
+    submap = global
+
+    bindi = Super, Super_L, global, caelestia:launcher
+    binditn = Super, catchall, global, caelestia:launcherInterrupt
+    bind = Ctrl, Super_L, global, caelestia:launcherInterrupt
+    bind = Ctrl, Super_R, global, caelestia:launcherInterrupt
+    bind = Super, mouse:272, global, caelestia:launcherInterrupt
+    bind = Super, mouse:273, global, caelestia:launcherInterrupt
+    bind = Super, mouse:274, global, caelestia:launcherInterrupt
+    bind = Super, mouse:275, global, caelestia:launcherInterrupt
+    bind = Super, mouse:276, global, caelestia:launcherInterrupt
+    bind = Super, mouse:277, global, caelestia:launcherInterrupt
+    bind = Super, mouse_up, global, caelestia:launcherInterrupt
+    bind = Super, mouse_down, global, caelestia:launcherInterrupt
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -18,6 +38,8 @@
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
+      source = [ "~/.config/hypr/launcher.conf" ];
+      
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
@@ -26,7 +48,6 @@
         "uwsm app -- discord --start-minimized"
         "uwsm app -- kdeconnect-indicator"
         "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
-        "hyprctl dispatch submap global"
         # "uwsm app -- gnome-keyring-daemon --start --components=secrets"
       ];
       

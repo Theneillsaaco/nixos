@@ -140,17 +140,5 @@ in
         "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
       ];
     };
-
-    extraConfig = ''
-      submap = global
-
-      bindi = Super, Super_L, global, caelestia:launcher
-      bindin = Super, catchall, global, caelestia:launcherInterrupt
-      bindin = Super, mouse:272, global, caelestia:launcherInterrupt
-      bindin = Super, mouse:273, global, caelestia:launcherInterrupt
-      bindin = Super, mouse:274, global, caelestia:launcherInterrupt
-      bindin = Super, mouse_up, global, caelestia:launcherInterrupt
-      bindin = Super, mouse_down, global, caelestia:launcherInterrupt
-    '';
   };
 }

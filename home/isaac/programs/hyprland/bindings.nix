@@ -57,9 +57,6 @@ in
       "$mod, W,      exec, uwsm app -- zen-beta"
       "$mod, C,      exec, uwsm app -- zeditor"
       "CTRL $mod, V, exec, uwsm app -- pavucontrol"
-
-      # Caelestia
-      "SUPER, SUPER_L, global, caelestia:launcher"
       
       # Caelestia shell
       "$mod, N,        exec, caelestia shell drawers toggle dashboard"
@@ -105,7 +102,6 @@ in
     ];
 
     bindl = [
-      
       # Audio
       ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
@@ -125,11 +121,11 @@ in
       ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
 
       # Lock / suspend
-      "$mod, L, exec, caelestia shell -d"
-      "$mod, L, global, caelestia:lock"
-      # "$mod, Escape, exec, loginctl lock-session"
-      # "$mod, L, exec, loginctl lock-session"
-      # "$shiftMod, Escape, exec, systemctl suspend"
+      # "$mod, L, exec, caelestia shell -d"
+      # "$mod, L, global, caelestia:lock"
+      "$mod, Escape, exec, loginctl lock-session"
+      "$mod, L, exec, loginctl lock-session"
+      "$shiftMod, Escape, exec, systemctl suspend"
 
     ];
 
@@ -140,8 +136,11 @@ in
     ];
 
     bindr = [
+      # Caelestia
+      "SUPER, SUPER_L, global, caelestia:launcher"
+
       # Restart caelestia shell
-      "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell kill; sleep .1; caelestia shell -d'"
+      "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
     ];
   };
 }

@@ -26,5 +26,8 @@
     mesa-demos
     vulkan-tools
     libva-utils
+
+    SDL
+    SDL2
   ];
 }

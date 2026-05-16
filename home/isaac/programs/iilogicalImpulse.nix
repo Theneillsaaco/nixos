@@ -9,7 +9,6 @@
 
     hyprland.plugins = with pkgs; [
       hyprlandPlugins.hyprbars
-      hyprlandPlugins.hyprexpo
     ];
   };
 }

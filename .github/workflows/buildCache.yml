@@ -44,7 +44,7 @@ jobs:
           
       - name: Configure Nix (cache priority)
         run: |
-          echo "substituters = https://theneillsaaco-nix.cachix.org https://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf
+          echo "substituters = https://theneillsaaco-nix.cachix.org https://cache.nixos.org/ https://attic.xuyh0120.win/lantian https://cache.garnix.io" | sudo tee -a /etc/nix/nix.conf
           echo "builders-use-substitutes = true" | sudo tee -a /etc/nix/nix.conf
 
       - name: Check flake

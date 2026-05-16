@@ -7,8 +7,9 @@
       starship.enable = true;
     };
 
-    hyprland.plugins = with pkgs; [
-      hyprlandPlugins.hyprbars
-    ];
+    # hyprland.plugins = with pkgs; [
+    #   hyprlandPlugins.hyprbars
+    #   hyprlandPlugins.hyprexpo
+    # ];
   };
 }

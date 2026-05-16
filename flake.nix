@@ -10,7 +10,14 @@
     };
     
     lanzaboote.url = "github:nix-community/lanzaboote";
+
+    # Shells
     caelestia-shell.url = "github:caelestia-dots/shell";
+
+    illogical-flake = {
+      url = "github:soymou/illogical-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.55.1";

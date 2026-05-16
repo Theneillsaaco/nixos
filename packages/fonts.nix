@@ -7,6 +7,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.meslo-lg
+    nerd-fonts.ubuntu
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji

@@ -17,10 +17,11 @@
     illogical-flake = {
       url = "github:soymou/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
     
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.1";
+      url = "github:hyprwm/Hyprland/v0.55.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     

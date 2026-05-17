@@ -17,7 +17,6 @@
     illogical-flake = {
       url = "github:soymou/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hyprland.follows = "hyprland";
     };
     
     hyprland = {

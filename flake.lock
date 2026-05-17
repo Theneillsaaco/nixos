@@ -186,19 +186,19 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1769126799,
-        "narHash": "sha256-v/VwDphmB+pdp51d65feDAXYLxU3juUIOIvVVT43oP4=",
+        "lastModified": 1779044463,
+        "narHash": "sha256-kqP0OFzBTtSxOMrxE9Y5cL0jZodMhD/FlE/x01H1oUI=",
         "ref": "refs/heads/main",
-        "rev": "1b4c439c3e8286809747becfc59461b484345bfa",
-        "revCount": 5856,
+        "rev": "8f19417c22c88854ed4431d02833d5e35be062d3",
+        "revCount": 6245,
         "submodules": true,
         "type": "git",
-        "url": "https://github.com/end-4/dots-hyprland"
+        "url": "https://github.com/Theneillsaaco/dots-hyprland"
       },
       "original": {
         "submodules": true,
         "type": "git",
-        "url": "https://github.com/end-4/dots-hyprland"
+        "url": "https://github.com/Theneillsaaco/dots-hyprland"
       }
     },
     "flake-compat": {
@@ -403,11 +403,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778954430,
-        "narHash": "sha256-oaNyOr05lblaQdtbkbN1wO0b2KLIL2O1LkmwDgdQp4I=",
+        "lastModified": 1779027260,
+        "narHash": "sha256-ZbgWWFQmSyM3HQ31nAZk2hJ7OSeNr9uRFHL8jCifY9M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "26aaab785b0bab4af60a2c42b22760fa906ef22a",
+        "rev": "bcb774cfc3268120cd61808629f9aa7dad3750a2",
         "type": "github"
       },
       "original": {
@@ -740,7 +740,9 @@
     },
     "illogical-flake": {
       "inputs": {
-        "dotfiles": "dotfiles",
+        "dotfiles": [
+          "dotfiles"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -1079,6 +1081,7 @@
       "inputs": {
         "caelestia-shell": "caelestia-shell",
         "determinate": "determinate",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "illogical-flake": "illogical-flake",

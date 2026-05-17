@@ -14,9 +14,15 @@
     # Shells
     caelestia-shell.url = "github:caelestia-dots/shell";
 
+    dotfiles = {
+      url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
+      flake = false;
+    };
+        
     illogical-flake = {
       url = "github:soymou/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dotfiles.follows = "dotfiles";
     };
     
     hyprland = {

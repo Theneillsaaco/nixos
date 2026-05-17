@@ -747,18 +747,20 @@
           "nixpkgs"
         ],
         "nur": "nur",
-        "quickshell": "quickshell_2"
+        "quickshell": [
+          "quickshell"
+        ]
       },
       "locked": {
-        "lastModified": 1774402626,
-        "narHash": "sha256-sksKfX5fjG+lLZBrJT8q1yGl5Y7ucUg6Eo2IOAybhBA=",
-        "owner": "soymou",
+        "lastModified": 1779046497,
+        "narHash": "sha256-yKcw+1HrvAmRAxmc68XG6SVmP9+bT0FpzZ0AvDrke1A=",
+        "owner": "Theneillsaaco",
         "repo": "illogical-flake",
-        "rev": "1dab49284ce76f3fa9ed317282ad7c94a782f6ba",
+        "rev": "134455b914d14adb4e727a0e00693cf018f595bf",
         "type": "github"
       },
       "original": {
-        "owner": "soymou",
+        "owner": "Theneillsaaco",
         "repo": "illogical-flake",
         "type": "github"
       }
@@ -976,11 +978,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769182372,
-        "narHash": "sha256-I5WJ39YMaV+psYbli6rlUaiJOSoC2OwEXOF338d7zdE=",
+        "lastModified": 1779044597,
+        "narHash": "sha256-729mr0iSYpzx9aQuq/9VfjFN9WZHrgKu1fAt7NPafvc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0e6e5ff852c442598d1ae8ca5f042947f123f798",
+        "rev": "2ef0c56172f4e7577bedc23e2b6e59b3a9bbcf50",
         "type": "github"
       },
       "original": {
@@ -1059,16 +1061,15 @@
     "quickshell_2": {
       "inputs": {
         "nixpkgs": [
-          "illogical-flake",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1768985439,
-        "narHash": "sha256-qkU4r+l+UPz4dutMMRZSin64HuVZkEv9iFpu9yMWVY0=",
+        "lastModified": 1778488696,
+        "narHash": "sha256-QSWgYuZUCNUJ/cxmaq83WkcT7lHQDDfsPVgH+96kIl0=",
         "ref": "refs/heads/master",
-        "rev": "191085a8821b35680bba16ce5411fc9dbe912237",
-        "revCount": 731,
+        "rev": "7d1c9a9c6721606b129829134d6f614f015621e2",
+        "revCount": 818,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
@@ -1088,6 +1089,7 @@
         "lanzaboote": "lanzaboote",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_6",
+        "quickshell": "quickshell_2",
         "zen-browser": "zen-browser"
       }
     },

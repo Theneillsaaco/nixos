@@ -18,11 +18,17 @@
       url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
       flake = false;
     };
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
         
     illogical-flake = {
-      url = "github:soymou/illogical-flake";
+      url = "github:Theneillsaaco/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles";
+      inputs.quickshell.follows = "quickshell";
     };
     
     hyprland = {

@@ -752,11 +752,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779058649,
-        "narHash": "sha256-/10kzovZP4tvEnkjqNOWCjAf6dsWqXVzGdc+k0/qs7A=",
+        "lastModified": 1779062953,
+        "narHash": "sha256-4KcBNxkKq6cOpBquOObU50r7tMppRIJkwo3syIu2bDw=",
         "owner": "Theneillsaaco",
         "repo": "illogical-flake",
-        "rev": "b554fab951585ce7e198d7ba06f774f79d49d261",
+        "rev": "1c71feaf2a34bbf118db619d74ec7b4de974eae4",
         "type": "github"
       },
       "original": {

@@ -8,10 +8,10 @@
   programs.home-manager.enable = true;
 
   imports = [
-    # inputs.caelestia-shell.homeManagerModules.default
+    inputs.caelestia-shell.homeManagerModules.default
     inputs.zen-browser.homeModules.default
-    inputs.illogical-flake.homeManagerModules.default
-    # ./isaac/programs/hyprland/default.nix
+    # inputs.illogical-flake.homeManagerModules.default
+    ./isaac/programs/hyprland/default.nix
   ]
   ++ myLib.importDir ./isaac/programs
   ++ myLib.importDir ./isaac/config;

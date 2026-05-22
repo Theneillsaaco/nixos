@@ -82,6 +82,7 @@
           ];
         })
 
+        # Temporal too
         ({...}: {
           nixpkgs.overlays = [
             (final: prev: { 
@@ -89,6 +90,10 @@
                 buildInputs = (old.buildInputs or []) ++ [
                   final.lm_sensors
                 ];  
+
+                cmakeFlags = (old.cmakeFlags or []) ++ [
+                  "-DSENSORS_LIBRARY=${final.lm_sensors}/lib/libsensors.so"
+                ];
               });
             })
           ];

@@ -12,7 +12,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     # Shells
-    caelestia-shell.url = "github:caelestia-dots/shell/feat/m3-revamp";
+    caelestia-shell.url = "github:caelestia-dots/shell";
     
     # dotfiles = {
     #   url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
@@ -32,7 +32,7 @@
     # };
     
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.2";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -82,23 +82,6 @@
           ];
         })
 
-        # Temporal too
-        ({...}: {
-          nixpkgs.overlays = [
-            (final: prev: { 
-              caelestia-shell = prev.caelestia-shell.overrideAttrs (old: {
-                buildInputs = (old.buildInputs or []) ++ [
-                  final.lm_sensors
-                ];  
-
-                cmakeFlags = (old.cmakeFlags or []) ++ [
-                  "-DSENSORS_LIBRARY=${final.lm_sensors}/lib/libsensors.so"
-                ];
-              });
-            })
-          ];
-        })
-        
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

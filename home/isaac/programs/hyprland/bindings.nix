@@ -51,9 +51,9 @@ in
         "$mod, apostrophe, layoutmsg, splitratio +0.1"
   
         # Apps
-        "$mod, Return, exec, uwsm app -- kitty"
-        "$mod, T,      exec, uwsm app -- kitty"
-        "CTRL ALT, T,  exec, uwsm app -- kitty"
+        "$mod, Return, exec, uwsm app -- foot"
+        "$mod, T,      exec, uwsm app -- foot"
+        "CTRL ALT, T,  exec, uwsm app -- foot"
         "$mod, E,      exec, uwsm app -- dolphin"
         "$mod, W,      exec, uwsm app -- zen-beta"
         "$mod, C,      exec, uwsm app -- zeditor"

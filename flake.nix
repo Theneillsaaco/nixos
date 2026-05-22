@@ -12,24 +12,24 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     # Shells
-    caelestia-shell.url = "github:caelestia-dots/shell";
-
-    dotfiles = {
-      url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
-      flake = false;
-    };
+    caelestia-shell.url = "github:caelestia-dots/shell/feat/m3-revamp";
+    
+    # dotfiles = {
+    #   url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
+    #   flake = false;
+    # };
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
         
-    illogical-flake = {
-      url = "github:Theneillsaaco/illogical-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dotfiles.follows = "dotfiles";
-      inputs.quickshell.follows = "quickshell";
-    };
+    # illogical-flake = {
+    #   url = "github:Theneillsaaco/illogical-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.dotfiles.follows = "dotfiles";
+    #   inputs.quickshell.follows = "quickshell";
+    # };
     
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.55.2";

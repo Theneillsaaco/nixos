@@ -4,5 +4,6 @@
     zed-editor
     opencode
     cloc
+    foot
   ];
 }

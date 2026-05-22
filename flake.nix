@@ -81,6 +81,18 @@
             })
           ];
         })
+
+        ({...}: {
+          nixpkgs.overlays = [
+            (final: prev: { 
+              caelestia-shell = prev.caelestia-shell.overrideAttrs (old: {
+                buildInputs = (old.buildInputs or []) ++ [
+                  final.lm_sensors
+                ];  
+              });
+            })
+          ];
+        })
         
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;

@@ -12,11 +12,6 @@
     shared-mime-info
     desktop-file-utils
   ];
-
-  # Temporal
-  buildInputs = with pkgs; [
-    lm_sensors
-  ];
   
   xdg = {
     mime.enable = true;

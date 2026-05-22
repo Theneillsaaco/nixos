@@ -13,6 +13,7 @@
     desktop-file-utils
   ];
 
+  # Temporal
   buildInputs = with pkgs; [
     Im_sensors
   ];

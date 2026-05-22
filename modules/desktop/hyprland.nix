@@ -12,6 +12,10 @@
     shared-mime-info
     desktop-file-utils
   ];
+
+  buildInputs = with pkgs; [
+    Im_sensors
+  ];
   
   xdg = {
     mime.enable = true;

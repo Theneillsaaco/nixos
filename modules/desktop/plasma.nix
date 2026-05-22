@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kio
     kdePackages.kio-extras
+    kdePackages.kate
   ];
   
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

@@ -15,7 +15,7 @@
 
   # Temporal
   buildInputs = with pkgs; [
-    Im_sensors
+    lm_sensors
   ];
   
   xdg = {

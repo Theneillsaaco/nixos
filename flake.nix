@@ -72,15 +72,15 @@
         determinate.nixosModules.default
         
         # Temporal fix
-        ({ ... }: {
-          nixpkgs.overlays = [
-            (_: prev: {
-              openldap = prev.openldap.overrideAttrs (old: {
-                doCheck = !prev.stdenv.hostPlatform.isi686;
-              });
-            })
-          ];
-        })
+        # ({ ... }: {
+        #   nixpkgs.overlays = [
+        #     (_: prev: {
+        #       openldap = prev.openldap.overrideAttrs (old: {
+        #         doCheck = !prev.stdenv.hostPlatform.isi686;
+        #       });
+        #     })
+        #   ];
+        # })
 
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;

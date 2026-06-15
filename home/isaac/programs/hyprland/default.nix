@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [
     ./animations.nix
     ./bindings.nix
@@ -41,18 +41,21 @@
     configType = "lua";
 
     settings = {
-      source = [ "~/.config/hypr/launcher.lua" ];
+      "_" = lib.generators.mkLuaInline ''
+        hl.source("~/.config/hypr/launcher.lua")
+      '';
       
-      exec-once = [
-        "dbus-update-activation-environment --systemd --all &"
-        "systemctl --user start hyprpolkitagent &"
-        "hyprctl setcursor phinger-cursors-light 24"
-        "uwsm app -- caelestia shell"
-        "uwsm app -- discord --start-minimized"
-        "uwsm app -- kdeconnect-indicator"
-        "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
-        # "uwsm app -- gnome-keyring-daemon --start --components=secrets"
-      ];
+      extraConfig = ''
+        hl.on("hyprland.start", function ()
+          hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+          hl.exec_cmd("systemctl --user start hyprpolkitagent")
+          hl.exec_cmd("hyprctl setcursor phinger-cursors-light 24")
+          hl.exec_cmd("uwsm app -- caelestia shell")
+          hl.exec_cmd("uwsm app -- discord --start-minimized")
+          hl.exec_cmd("uwsm app -- kdeconnect-indicator")
+          hl.exec_cmd("${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init")
+        end)
+      '';
       
       monitor = [
         ",preferred,auto,1"

@@ -3,142 +3,140 @@ let
   totalWorkspaces = 9;
 in
 {
-  wayland.windowManager.hyprland = {
-    settings = {
-      bind = [
-        "$mod, Q, killactive"
-        "$mod, F, fullscreen, 0"
-        "$mod, D, fullscreen, 1"           # Maximize
-        "ALT $mod, SPACE, togglefloating"
-        "$mod, P, pin"
-        "ALT, F4, killactive"
-        "ALT, TAB, workspace, previous"
-  
-        # Foco con flechas
-        "$mod, Left,  movefocus, l"
-        "$mod, Right, movefocus, r"
-        "$mod, Up,    movefocus, u"
-        "$mod, Down,  movefocus, d"
-  
-        # Mover ventanas con flechas
-        "$shiftMod, Left,  movewindow, l"
-        "$shiftMod, Right, movewindow, r"
-        "$shiftMod, Up,    movewindow, u"
-        "$shiftMod, Down,  movewindow, d"
-  
-        # Mover ventanas vim-style
-        "$shiftMod, H, movewindow, l"
-        "$shiftMod, L, movewindow, r"
-        "$shiftMod, K, movewindow, u"
-        "$shiftMod, J, movewindow, d"
-  
-        # Workspaces con flechas
-        "CTRL $mod, Right, workspace, r+1"
-        "CTRL $mod, Left,  workspace, r-1"
-        "$mod, mouse_up,   workspace, +1"
-        "$mod, mouse_down, workspace, -1"
-  
-        # Mover ventana a workspace
-        "$shiftMod, mouse_down, movetoworkspace, r-1"
-        "$shiftMod, mouse_up,   movetoworkspace, r+1"
-  
-        # Scratchpad
-        "$mod, S, togglespecialworkspace"
-        "$mod ALT, S, movetoworkspacesilent, special"
-  
-        # Split ratio
-        "$mod, semicolon,  layoutmsg, splitratio -0.1"
-        "$mod, apostrophe, layoutmsg, splitratio +0.1"
-  
-        # Apps
-        "$mod, Return, exec, uwsm app -- foot"
-        "$mod, T,      exec, uwsm app -- foot"
-        "CTRL ALT, T,  exec, uwsm app -- foot"
-        "$mod, E,      exec, uwsm app -- dolphin"
-        "$mod, W,      exec, uwsm app -- zen-beta"
-        "$mod, C,      exec, uwsm app -- zeditor"
-        "CTRL $mod, V, exec, uwsm app -- pavucontrol"
-        
-        # Caelestia shell
-        "$mod, N,        exec, caelestia shell drawers toggle dashboard"
-        "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
-        "$mod, K, exec, caelestia shell drawers toggle all"
-        "CTRL ALT, C, exec, caelestia shell notifications clear"
-  
-        # Screenshot
-        "$shiftMod, S,     global, caelestia:screenshotFreeze"
-        "$mod, Print,      global, caelestia:screenshot"
-        "$shiftMod, Print, global, caelestia:screenshot"
-        ", Print,          exec, caelestia screenshot"
-  
-        # Color picker
-        "$shiftMod, C, exec, hyprpicker -a"
-  
-        # Clipboard and emoji picker
-        "$mod, V, exec, pkill fuzzel || caelestia clipboard"
-        "$mod, Period, exec, pkill fuzzel || caelestia emoji -p"
-      ] ++ (builtins.concatLists (builtins.genList (i:
-        let ws = i + 1;
-        in [
-          "$mod, code:1${toString i}, workspace, ${toString ws}"
-          "$shiftMod, code:1${toString i}, movetoworkspace, ${toString ws}"
-          "$mod ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
-        ]) totalWorkspaces
-      ));
-  
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:274, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-  
-      bindel = [
-        # # Brillo
-        # ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
-        # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        
-        # Volumen
-        ",XF86AudioRaiseVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
-        ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
-      ];
-  
-      bindl = [
-        # Audio
-        ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-        "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-        
-        # Player
-        ",XF86AudioNext,  global, caelestia:mediaNext"
-        ",XF86AudioPrev,  global, caelestia:mediaPrev"
-        ",XF86AudioPlay,  global, caelestia:mediaToggle"
-        ",XF86AudioPause, global, caelestia:mediaToggle"
-        "$shiftMod, N, global, caelestia:mediaNext"
-        "$shiftMod, B, global, caelestia:mediaPrev"
-        "$shiftMod, P, global, caelestia:mediaToggle"
-        
-        # Brightness
-        ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
-        ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
-  
-        # Lock / suspend
-        "$mod, L, exec, caelestia shell -d"
-        "$mod, L, global, caelestia:lock"
-        # "$mod, Escape, exec, loginctl lock-session"
-        # "$mod, L, exec, loginctl lock-session"
-        "$shiftMod, Escape, exec, systemctl suspend"
-      ];
-  
-      binde = [
-        # Zoom
-        "$mod, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
-        "$mod, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
-      ];
-  
-      bindr = [
-        # Restart caelestia shell
-        "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
-      ];
-    };
+  wayland.windowManager.hyprland.settings = {
+    bind = [
+      "$mod, Q, killactive"
+      "$mod, F, fullscreen, 0"
+      "$mod, D, fullscreen, 1"           # Maximize
+      "ALT $mod, SPACE, togglefloating"
+      "$mod, P, pin"
+      "ALT, F4, killactive"
+      "ALT, TAB, workspace, previous"
+
+      # Foco con flechas
+      "$mod, Left,  movefocus, l"
+      "$mod, Right, movefocus, r"
+      "$mod, Up,    movefocus, u"
+      "$mod, Down,  movefocus, d"
+
+      # Mover ventanas con flechas
+      "$shiftMod, Left,  movewindow, l"
+      "$shiftMod, Right, movewindow, r"
+      "$shiftMod, Up,    movewindow, u"
+      "$shiftMod, Down,  movewindow, d"
+
+      # Mover ventanas vim-style
+      "$shiftMod, H, movewindow, l"
+      "$shiftMod, L, movewindow, r"
+      "$shiftMod, K, movewindow, u"
+      "$shiftMod, J, movewindow, d"
+
+      # Workspaces con flechas
+      "CTRL $mod, Right, workspace, r+1"
+      "CTRL $mod, Left,  workspace, r-1"
+      "$mod, mouse_up,   workspace, +1"
+      "$mod, mouse_down, workspace, -1"
+
+      # Mover ventana a workspace
+      "$shiftMod, mouse_down, movetoworkspace, r-1"
+      "$shiftMod, mouse_up,   movetoworkspace, r+1"
+
+      # Scratchpad
+      "$mod, S, togglespecialworkspace"
+      "$mod ALT, S, movetoworkspacesilent, special"
+
+      # Split ratio
+      "$mod, semicolon,  layoutmsg, splitratio -0.1"
+      "$mod, apostrophe, layoutmsg, splitratio +0.1"
+
+      # Apps
+      "$mod, Return, exec, uwsm app -- foot"
+      "$mod, T,      exec, uwsm app -- foot"
+      "CTRL ALT, T,  exec, uwsm app -- foot"
+      "$mod, E,      exec, uwsm app -- dolphin"
+      "$mod, W,      exec, uwsm app -- zen-beta"
+      "$mod, C,      exec, uwsm app -- zeditor"
+      "CTRL $mod, V, exec, uwsm app -- pavucontrol"
+      
+      # Caelestia shell
+      "$mod, N,        exec, caelestia shell drawers toggle dashboard"
+      "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
+      "$mod, K, exec, caelestia shell drawers toggle all"
+      "CTRL ALT, C, exec, caelestia shell notifications clear"
+
+      # Screenshot
+      "$shiftMod, S,     global, caelestia:screenshotFreeze"
+      "$mod, Print,      global, caelestia:screenshot"
+      "$shiftMod, Print, global, caelestia:screenshot"
+      ", Print,          exec, caelestia screenshot"
+
+      # Color picker
+      "$shiftMod, C, exec, hyprpicker -a"
+
+      # Clipboard and emoji picker
+      "$mod, V, exec, pkill fuzzel || caelestia clipboard"
+      "$mod, Period, exec, pkill fuzzel || caelestia emoji -p"
+    ] ++ (builtins.concatLists (builtins.genList (i:
+      let ws = i + 1;
+      in [
+        "$mod, code:1${toString i}, workspace, ${toString ws}"
+        "$shiftMod, code:1${toString i}, movetoworkspace, ${toString ws}"
+        "$mod ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+      ]) totalWorkspaces
+    ));
+
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:274, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
+
+    bindel = [
+      # # Brillo
+      # ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
+      # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      
+      # Volumen
+      ",XF86AudioRaiseVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
+      ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    ];
+
+    bindl = [
+      # Audio
+      ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+      ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      
+      # Player
+      ",XF86AudioNext,  global, caelestia:mediaNext"
+      ",XF86AudioPrev,  global, caelestia:mediaPrev"
+      ",XF86AudioPlay,  global, caelestia:mediaToggle"
+      ",XF86AudioPause, global, caelestia:mediaToggle"
+      "$shiftMod, N, global, caelestia:mediaNext"
+      "$shiftMod, B, global, caelestia:mediaPrev"
+      "$shiftMod, P, global, caelestia:mediaToggle"
+      
+      # Brightness
+      ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
+      ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+
+      # Lock / suspend
+      "$mod, L, exec, caelestia shell -d"
+      "$mod, L, global, caelestia:lock"
+      # "$mod, Escape, exec, loginctl lock-session"
+      # "$mod, L, exec, loginctl lock-session"
+      "$shiftMod, Escape, exec, systemctl suspend"
+    ];
+
+    binde = [
+      # Zoom
+      "$mod, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
+      "$mod, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
+    ];
+
+    bindr = [
+      # Restart caelestia shell
+      "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
+    ];
   };
 }

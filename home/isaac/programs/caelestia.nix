@@ -133,7 +133,7 @@
 
       launcher = {
         enable = true;
-        showOnHober = false;
+        showOnHover = false;
         maxShown = 7;
         maxWallpapers = 9;
         specialPrefix = "@";
@@ -266,7 +266,7 @@
         clearThreshold = 0.3;
         expandThreshold = 20;
         actionOnClick = false;
-        groupPrevievNum = 3;
+        groupPreviewNum = 3;
         openExpanded = false;
       };
 

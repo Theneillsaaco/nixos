@@ -41,9 +41,6 @@
     configType = "lua";
 
     settings = {
-      "$mod" = "SUPER";
-      "$shiftMod" = "SUPER_SHIFT";
-
       source = [ "~/.config/hypr/launcher.lua" ];
       
       exec-once = [

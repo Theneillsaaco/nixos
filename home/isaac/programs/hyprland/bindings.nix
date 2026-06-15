@@ -5,90 +5,90 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$mod, Q, killactive"
-      "$mod, F, fullscreen, 0"
-      "$mod, D, fullscreen, 1"           # Maximize
-      "ALT $mod, SPACE, togglefloating"
-      "$mod, P, pin"
+      "SUPER, Q, killactive"
+      "SUPER, F, fullscreen, 0"
+      "SUPER, D, fullscreen, 1"           # Maximize
+      "ALT SUPER, SPACE, togglefloating"
+      "SUPER, P, pin"
       "ALT, F4, killactive"
       "ALT, TAB, workspace, previous"
 
       # Foco con flechas
-      "$mod, Left,  movefocus, l"
-      "$mod, Right, movefocus, r"
-      "$mod, Up,    movefocus, u"
-      "$mod, Down,  movefocus, d"
+      "SUPER, Left,  movefocus, l"
+      "SUPER, Right, movefocus, r"
+      "SUPER, Up,    movefocus, u"
+      "SUPER, Down,  movefocus, d"
 
       # Mover ventanas con flechas
-      "$shiftMod, Left,  movewindow, l"
-      "$shiftMod, Right, movewindow, r"
-      "$shiftMod, Up,    movewindow, u"
-      "$shiftMod, Down,  movewindow, d"
+      "SUPER_SHIFT, Left,  movewindow, l"
+      "SUPER_SHIFT, Right, movewindow, r"
+      "SUPER_SHIFT, Up,    movewindow, u"
+      "SUPER_SHIFT, Down,  movewindow, d"
 
       # Mover ventanas vim-style
-      "$shiftMod, H, movewindow, l"
-      "$shiftMod, L, movewindow, r"
-      "$shiftMod, K, movewindow, u"
-      "$shiftMod, J, movewindow, d"
+      "SUPER_SHIFT, H, movewindow, l"
+      "SUPER_SHIFT, L, movewindow, r"
+      "SUPER_SHIFT, K, movewindow, u"
+      "SUPER_SHIFT, J, movewindow, d"
 
       # Workspaces con flechas
-      "CTRL $mod, Right, workspace, r+1"
-      "CTRL $mod, Left,  workspace, r-1"
-      "$mod, mouse_up,   workspace, +1"
-      "$mod, mouse_down, workspace, -1"
+      "CTRL SUPER, Right, workspace, r+1"
+      "CTRL SUPER, Left,  workspace, r-1"
+      "SUPER, mouse_up,   workspace, +1"
+      "SUPER, mouse_down, workspace, -1"
 
       # Mover ventana a workspace
-      "$shiftMod, mouse_down, movetoworkspace, r-1"
-      "$shiftMod, mouse_up,   movetoworkspace, r+1"
+      "SUPER_SHIFT, mouse_down, movetoworkspace, r-1"
+      "SUPER_SHIFT, mouse_up,   movetoworkspace, r+1"
 
       # Scratchpad
-      "$mod, S, togglespecialworkspace"
-      "$mod ALT, S, movetoworkspacesilent, special"
+      "SUPER, S, togglespecialworkspace"
+      "SUPER ALT, S, movetoworkspacesilent, special"
 
       # Split ratio
-      "$mod, semicolon,  layoutmsg, splitratio -0.1"
-      "$mod, apostrophe, layoutmsg, splitratio +0.1"
+      "SUPER, semicolon,  layoutmsg, splitratio -0.1"
+      "SUPER, apostrophe, layoutmsg, splitratio +0.1"
 
       # Apps
-      "$mod, Return, exec, uwsm app -- foot"
-      "$mod, T,      exec, uwsm app -- foot"
+      "SUPER, Return, exec, uwsm app -- foot"
+      "SUPER, T,      exec, uwsm app -- foot"
       "CTRL ALT, T,  exec, uwsm app -- foot"
-      "$mod, E,      exec, uwsm app -- dolphin"
-      "$mod, W,      exec, uwsm app -- zen-beta"
-      "$mod, C,      exec, uwsm app -- zeditor"
-      "CTRL $mod, V, exec, uwsm app -- pavucontrol"
+      "SUPER, E,      exec, uwsm app -- dolphin"
+      "SUPER, W,      exec, uwsm app -- zen-beta"
+      "SUPER, C,      exec, uwsm app -- zeditor"
+      "CTRL SUPER, V, exec, uwsm app -- pavucontrol"
       
       # Caelestia shell
-      "$mod, N,        exec, caelestia shell drawers toggle dashboard"
+      "SUPER, N,        exec, caelestia shell drawers toggle dashboard"
       "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
-      "$mod, K, exec, caelestia shell drawers toggle all"
+      "SUPER, K, exec, caelestia shell drawers toggle all"
       "CTRL ALT, C, exec, caelestia shell notifications clear"
 
       # Screenshot
-      "$shiftMod, S,     global, caelestia:screenshotFreeze"
-      "$mod, Print,      global, caelestia:screenshot"
-      "$shiftMod, Print, global, caelestia:screenshot"
+      "SUPER_SHIFT, S,     global, caelestia:screenshotFreeze"
+      "SUPER, Print,      global, caelestia:screenshot"
+      "SUPER_SHIFT, Print, global, caelestia:screenshot"
       ", Print,          exec, caelestia screenshot"
 
       # Color picker
-      "$shiftMod, C, exec, hyprpicker -a"
+      "SUPER_SHIFT, C, exec, hyprpicker -a"
 
       # Clipboard and emoji picker
-      "$mod, V, exec, pkill fuzzel || caelestia clipboard"
-      "$mod, Period, exec, pkill fuzzel || caelestia emoji -p"
+      "SUPER, V, exec, pkill fuzzel || caelestia clipboard"
+      "SUPER, Period, exec, pkill fuzzel || caelestia emoji -p"
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [
-        "$mod, code:1${toString i}, workspace, ${toString ws}"
-        "$shiftMod, code:1${toString i}, movetoworkspace, ${toString ws}"
-        "$mod ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+        "SUPER, code:1${toString i}, workspace, ${toString ws}"
+        "SUPER_SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+        "SUPER ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
       ]) totalWorkspaces
     ));
 
     bindm = [
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:274, movewindow"
-      "$mod, mouse:273, resizewindow"
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:274, movewindow"
+      "SUPER, mouse:273, resizewindow"
     ];
 
     bindel = [
@@ -112,31 +112,31 @@ in
       ",XF86AudioPrev,  global, caelestia:mediaPrev"
       ",XF86AudioPlay,  global, caelestia:mediaToggle"
       ",XF86AudioPause, global, caelestia:mediaToggle"
-      "$shiftMod, N, global, caelestia:mediaNext"
-      "$shiftMod, B, global, caelestia:mediaPrev"
-      "$shiftMod, P, global, caelestia:mediaToggle"
+      "SUPER_SHIFT, N, global, caelestia:mediaNext"
+      "SUPER_SHIFT, B, global, caelestia:mediaPrev"
+      "SUPER_SHIFT, P, global, caelestia:mediaToggle"
       
       # Brightness
       ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
       ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
 
       # Lock / suspend
-      "$mod, L, exec, caelestia shell -d"
-      "$mod, L, global, caelestia:lock"
-      # "$mod, Escape, exec, loginctl lock-session"
-      # "$mod, L, exec, loginctl lock-session"
-      "$shiftMod, Escape, exec, systemctl suspend"
+      "SUPER, L, exec, caelestia shell -d"
+      "SUPER, L, global, caelestia:lock"
+      # "SUPER, Escape, exec, loginctl lock-session"
+      # "SUPER, L, exec, loginctl lock-session"
+      "SUPER_SHIFT, Escape, exec, systemctl suspend"
     ];
 
     binde = [
       # Zoom
-      "$mod, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
-      "$mod, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
+      "SUPER, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
+      "SUPER, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
     ];
 
     bindr = [
       # Restart caelestia shell
-      "CTRL $mod, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
+      "CTRL SUPER, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
     ];
   };
 }

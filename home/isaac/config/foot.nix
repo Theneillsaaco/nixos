@@ -3,7 +3,11 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrains Mono:size=13";
+        font = "JetBrainsMono Nerd Font:size=13";
+      };
+      
+      tweak = {
+        font-monospace-warn = "no";
       };
     };
   };

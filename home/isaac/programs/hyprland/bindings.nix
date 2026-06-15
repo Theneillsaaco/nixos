@@ -80,9 +80,9 @@ in
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = i + 1;
         in [
-          "$mod,      code:1${toString i}, workspace,       ${toString ws}"
-          "$shiftMod, code:1${toString i}, movetoworkspace,  ${toString ws}"
-          "$mod ALT,  code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+          "$mod, code:1${toString i}, workspace, ${toString ws}"
+          "$shiftMod, code:1${toString i}, movetoworkspace, ${toString ws}"
+          "$mod ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
         ]) totalWorkspaces
       ));
   

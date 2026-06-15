@@ -4,24 +4,29 @@
     ./bindings.nix
   ];
 
-  home.file.".config/hypr/launcher.conf".text = ''
-    exec = hyprctl dispatch submap global
-    submap = global
+  home.file.".config/hypr/launcher.lua".text = ''
+    -- Forzar la entrada al submapa global al iniciar
+    hyprland.dispatch("submap", "global")
 
-    submap = global
-
-    bindi = Super, Super_L, global, caelestia:launcher
-    binditn = Super, catchall, global, caelestia:launcherInterrupt
-    bind = Ctrl, Super_L, global, caelestia:launcherInterrupt
-    bind = Ctrl, Super_R, global, caelestia:launcherInterrupt
-    bind = Super, mouse:272, global, caelestia:launcherInterrupt
-    bind = Super, mouse:273, global, caelestia:launcherInterrupt
-    bind = Super, mouse:274, global, caelestia:launcherInterrupt
-    bind = Super, mouse:275, global, caelestia:launcherInterrupt
-    bind = Super, mouse:276, global, caelestia:launcherInterrupt
-    bind = Super, mouse:277, global, caelestia:launcherInterrupt
-    bind = Super, mouse_up, global, caelestia:launcherInterrupt
-    bind = Super, mouse_down, global, caelestia:launcherInterrupt
+    -- Definición del submapa global
+    hyprland.submap("global", function()
+        -- Binds específicos usando el nuevo formato de Lua
+        hyprland.bindi("Super", "Super_L", "global", "caelestia:launcher")
+        hyprland.binditn("Super", "catchall", "global", "caelestia:launcherInterrupt")
+        
+        hyprland.bind("Ctrl", "Super_L", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Ctrl", "Super_R", "global", "caelestia:launcherInterrupt")
+        
+        -- Binds de ratón
+        hyprland.bind("Super", "mouse:272", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse:273", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse:274", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse:275", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse:276", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse:277", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse_up", "global", "caelestia:launcherInterrupt")
+        hyprland.bind("Super", "mouse_down", "global", "caelestia:launcherInterrupt")
+    end)
   '';
 
   wayland.windowManager.hyprland = {
@@ -33,12 +38,13 @@
       enable = false;
       variables = [ "--all" ];
     };
+    configType = "lua";
 
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      source = [ "~/.config/hypr/launcher.conf" ];
+      source = [ "~/.config/hypr/launcher.lua" ];
       
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"

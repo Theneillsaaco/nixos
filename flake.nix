@@ -48,10 +48,10 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     # Determinate Systems modules
-    determinate.url = "github:DeterminateSystems/determinate/main";
+    # determinate.url = "github:DeterminateSystems/determinate/main";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, determinate, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 
   let
     system = "x86_64-linux";
     username = "isaac";
@@ -69,7 +69,7 @@
       
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
-        determinate.nixosModules.default
+        # determinate.nixosModules.default
         
         # Temporal fix
         # ({ ... }: {

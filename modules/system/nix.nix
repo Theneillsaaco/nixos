@@ -21,9 +21,10 @@
       keep-going = true;
       warn-dirty = false;
       builders-use-substitutes = true;
+      eval-cache = true;
       
       # Determinate nix requires
-      lazy-trees = true;
+      # lazy-trees = true;
       
       substituters = [
         "https://nix-community.cachix.org"

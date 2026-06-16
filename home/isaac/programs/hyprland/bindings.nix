@@ -4,139 +4,140 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
+
+    # --- ATANJOS ESTÁNDAR (bind) ---
     bind = [
-      "SUPER, Q, killactive"
-      "SUPER, F, fullscreen, 0"
-      "SUPER, D, fullscreen, 1"           # Maximize
-      "ALT SUPER, SPACE, togglefloating"
-      "SUPER, P, pin"
-      "ALT, F4, killactive"
-      "ALT, TAB, workspace, previous"
+      { mods = [ "SUPER" ]; key = "Q"; action = "killactive"; }
+      { mods = [ "SUPER" ]; key = "F"; action = "fullscreen"; args = [ "0" ]; }
+      { mods = [ "SUPER" ]; key = "D"; action = "fullscreen"; args = [ "1" ]; }
+      { mods = [ "ALT" "SUPER" ]; key = "SPACE"; action = "togglefloating"; }
+      { mods = [ "SUPER" ]; key = "P"; action = "pin"; }
+      { mods = [ "ALT" ]; key = "F4"; action = "killactive"; }
+      { mods = [ "ALT" ]; key = "TAB"; action = "workspace"; args = [ "previous" ]; }
 
       # Foco con flechas
-      "SUPER, Left,  movefocus, l"
-      "SUPER, Right, movefocus, r"
-      "SUPER, Up,    movefocus, u"
-      "SUPER, Down,  movefocus, d"
+      { mods = [ "SUPER" ]; key = "Left"; action = "movefocus"; args = [ "l" ]; }
+      { mods = [ "SUPER" ]; key = "Right"; action = "movefocus"; args = [ "r" ]; }
+      { mods = [ "SUPER" ]; key = "Up"; action = "movefocus"; args = [ "u" ]; }
+      { mods = [ "SUPER" ]; key = "Down"; action = "movefocus"; args = [ "d" ]; }
 
       # Mover ventanas con flechas
-      "SUPER_SHIFT, Left,  movewindow, l"
-      "SUPER_SHIFT, Right, movewindow, r"
-      "SUPER_SHIFT, Up,    movewindow, u"
-      "SUPER_SHIFT, Down,  movewindow, d"
+      { mods = [ "SUPER_SHIFT" ]; key = "Left"; action = "movewindow"; args = [ "l" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "Right"; action = "movewindow"; args = [ "r" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "Up"; action = "movewindow"; args = [ "u" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "Down"; action = "movewindow"; args = [ "d" ]; }
 
       # Mover ventanas vim-style
-      "SUPER_SHIFT, H, movewindow, l"
-      "SUPER_SHIFT, L, movewindow, r"
-      "SUPER_SHIFT, K, movewindow, u"
-      "SUPER_SHIFT, J, movewindow, d"
+      { mods = [ "SUPER_SHIFT" ]; key = "H"; action = "movewindow"; args = [ "l" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "L"; action = "movewindow"; args = [ "r" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "K"; action = "movewindow"; args = [ "u" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "J"; action = "movewindow"; args = [ "d" ]; }
 
-      # Workspaces con flechas
-      "CTRL SUPER, Right, workspace, r+1"
-      "CTRL SUPER, Left,  workspace, r-1"
-      "SUPER, mouse_up,   workspace, +1"
-      "SUPER, mouse_down, workspace, -1"
+      # Workspaces con flechas / mouse
+      { mods = [ "CTRL" "SUPER" ]; key = "Right"; action = "workspace"; args = [ "r+1" ]; }
+      { mods = [ "CTRL" "SUPER" ]; key = "Left"; action = "workspace"; args = [ "r-1" ]; }
+      { mods = [ "SUPER" ]; key = "mouse_up"; action = "workspace"; args = [ "+1" ]; }
+      { mods = [ "SUPER" ]; key = "mouse_down"; action = "workspace"; args = [ "-1" ]; }
 
-      # Mover ventana a workspace
-      "SUPER_SHIFT, mouse_down, movetoworkspace, r-1"
-      "SUPER_SHIFT, mouse_up,   movetoworkspace, r+1"
+      # Mover ventana a workspace con mouse
+      { mods = [ "SUPER_SHIFT" ]; key = "mouse_down"; action = "movetoworkspace"; args = [ "r-1" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "mouse_up"; action = "movetoworkspace"; args = [ "r+1" ]; }
 
       # Scratchpad
-      "SUPER, S, togglespecialworkspace"
-      "SUPER ALT, S, movetoworkspacesilent, special"
+      { mods = [ "SUPER" ]; key = "S"; action = "togglespecialworkspace"; }
+      { mods = [ "SUPER" "ALT" ]; key = "S"; action = "movetoworkspacesilent"; args = [ "special" ]; }
 
       # Split ratio
-      "SUPER, semicolon,  layoutmsg, splitratio -0.1"
-      "SUPER, apostrophe, layoutmsg, splitratio +0.1"
+      { mods = [ "SUPER" ]; key = "semicolon"; action = "layoutmsg"; args = [ "splitratio -0.1" ]; }
+      { mods = [ "SUPER" ]; key = "apostrophe"; action = "layoutmsg"; args = [ "splitratio +0.1" ]; }
 
-      # Apps
-      "SUPER, Return, exec, uwsm app -- foot"
-      "SUPER, T,      exec, uwsm app -- foot"
-      "CTRL ALT, T,  exec, uwsm app -- foot"
-      "SUPER, E,      exec, uwsm app -- dolphin"
-      "SUPER, W,      exec, uwsm app -- zen-beta"
-      "SUPER, C,      exec, uwsm app -- zeditor"
-      "CTRL SUPER, V, exec, uwsm app -- pavucontrol"
+      # Apps (uwsm)
+      { mods = [ "SUPER" ]; key = "Return"; action = "exec"; args = [ "uwsm app -- foot" ]; }
+      { mods = [ "SUPER" ]; key = "T"; action = "exec"; args = [ "uwsm app -- foot" ]; }
+      { mods = [ "CTRL" "ALT" ]; key = "T"; action = "exec"; args = [ "uwsm app -- foot" ]; }
+      { mods = [ "SUPER" ]; key = "E"; action = "exec"; args = [ "uwsm app -- dolphin" ]; }
+      { mods = [ "SUPER" ]; key = "W"; action = "exec"; args = [ "uwsm app -- zen-beta" ]; }
+      { mods = [ "SUPER" ]; key = "C"; action = "exec"; args = [ "uwsm app -- zeditor" ]; }
+      { mods = [ "CTRL" "SUPER" ]; key = "V"; action = "exec"; args = [ "uwsm app -- pavucontrol" ]; }
       
       # Caelestia shell
-      "SUPER, N,        exec, caelestia shell drawers toggle dashboard"
-      "CTRL ALT, Delete, exec, caelestia shell drawers toggle session"
-      "SUPER, K, exec, caelestia shell drawers toggle all"
-      "CTRL ALT, C, exec, caelestia shell notifications clear"
+      { mods = [ "SUPER" ]; key = "N"; action = "exec"; args = [ "caelestia shell drawers toggle dashboard" ]; }
+      { mods = [ "CTRL" "ALT" ]; key = "Delete"; action = "exec"; args = [ "caelestia shell drawers toggle session" ]; }
+      { mods = [ "SUPER" ]; key = "K"; action = "exec"; args = [ "caelestia shell drawers toggle all" ]; }
+      { mods = [ "CTRL" "ALT" ]; key = "C"; action = "exec"; args = [ "caelestia shell notifications clear" ]; }
 
       # Screenshot
-      "SUPER_SHIFT, S,     global, caelestia:screenshotFreeze"
-      "SUPER, Print,      global, caelestia:screenshot"
-      "SUPER_SHIFT, Print, global, caelestia:screenshot"
-      ", Print,          exec, caelestia screenshot"
+      { mods = [ "SUPER_SHIFT" ]; key = "S"; action = "global"; args = [ "caelestia:screenshotFreeze" ]; }
+      { mods = [ "SUPER" ]; key = "Print"; action = "global"; args = [ "caelestia:screenshot" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "Print"; action = "global"; args = [ "caelestia:screenshot" ]; }
+      { mods = [ ]; key = "Print"; action = "exec"; args = [ "caelestia screenshot" ]; }
 
       # Color picker
-      "SUPER_SHIFT, C, exec, hyprpicker -a"
+      { mods = [ "SUPER_SHIFT" ]; key = "C"; action = "exec"; args = [ "hyprpicker -a" ]; }
 
       # Clipboard and emoji picker
-      "SUPER, V, exec, pkill fuzzel || caelestia clipboard"
-      "SUPER, Period, exec, pkill fuzzel || caelestia emoji -p"
+      { mods = [ "SUPER" ]; key = "V"; action = "exec"; args = [ "pkill fuzzel || caelestia clipboard" ]; }
+      { mods = [ "SUPER" ]; key = "Period"; action = "exec"; args = [ "pkill fuzzel || caelestia emoji -p" ]; }
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
       in [
-        "SUPER, code:1${toString i}, workspace, ${toString ws}"
-        "SUPER_SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-        "SUPER ALT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+        { mods = [ "SUPER" ]; key = "code:1${toString i}"; action = "workspace"; args = [ (toString ws) ]; }
+        { mods = [ "SUPER_SHIFT" ]; key = "code:1${toString i}"; action = "movetoworkspace"; args = [ (toString ws) ]; }
+        { mods = [ "SUPER" "ALT" ]; key = "code:1${toString i}"; action = "movetoworkspacesilent"; args = [ (toString ws) ]; }
       ]) totalWorkspaces
     ));
 
+    # --- CONTROLES DE MOUSE (bindm) ---
     bindm = [
-      "SUPER, mouse:272, movewindow"
-      "SUPER, mouse:274, movewindow"
-      "SUPER, mouse:273, resizewindow"
+      { mods = [ "SUPER" ]; key = "mouse:272"; action = "movewindow"; }
+      { mods = [ "SUPER" ]; key = "mouse:274"; action = "movewindow"; }
+      { mods = [ "SUPER" ]; key = "mouse:273"; action = "resizewindow"; }
     ];
 
+    # --- REPETICIÓN CON EVENTOS DE BLOQUEO (bindel) ---
     bindel = [
-      # # Brillo
-      # ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
-      # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      
       # Volumen
-      ",XF86AudioRaiseVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
-      ",XF86AudioLowerVolume,  exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+      { mods = [ ]; key = "XF86AudioRaiseVolume"; action = "exec"; args = [ "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+" ]; }
+      { mods = [ ]; key = "XF86AudioLowerVolume"; action = "exec"; args = [ "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-" ]; }
     ];
 
+    # --- EVENTOS DE BLOQUEO PURO (bindl) ---
     bindl = [
       # Audio
-      ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-      ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-      "ALT,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+      { mods = [ ]; key = "XF86AudioMute"; action = "exec"; args = [ "wpctl set-mute @DEFAULT_SINK@ toggle" ]; }
+      { mods = [ ]; key = "XF86AudioMicMute"; action = "exec"; args = [ "wpctl set-mute @DEFAULT_SOURCE@ toggle" ]; }
+      { mods = [ "ALT" ]; key = "XF86AudioMute"; action = "exec"; args = [ "wpctl set-mute @DEFAULT_SOURCE@ toggle" ]; }
       
-      # Player
-      ",XF86AudioNext,  global, caelestia:mediaNext"
-      ",XF86AudioPrev,  global, caelestia:mediaPrev"
-      ",XF86AudioPlay,  global, caelestia:mediaToggle"
-      ",XF86AudioPause, global, caelestia:mediaToggle"
-      "SUPER_SHIFT, N, global, caelestia:mediaNext"
-      "SUPER_SHIFT, B, global, caelestia:mediaPrev"
-      "SUPER_SHIFT, P, global, caelestia:mediaToggle"
+      # Media Player
+      { mods = [ ]; key = "XF86AudioNext"; action = "global"; args = [ "caelestia:mediaNext" ]; }
+      { mods = [ ]; key = "XF86AudioPrev"; action = "global"; args = [ "caelestia:mediaPrev" ]; }
+      { mods = [ ]; key = "XF86AudioPlay"; action = "global"; args = [ "caelestia:mediaToggle" ]; }
+      { mods = [ ]; key = "XF86AudioPause"; action = "global"; args = [ "caelestia:mediaToggle" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "N"; action = "global"; args = [ "caelestia:mediaNext" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "B"; action = "global"; args = [ "caelestia:mediaPrev" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "P"; action = "global"; args = [ "caelestia:mediaToggle" ]; }
       
-      # Brightness
-      ", XF86MonBrightnessUp,   global, caelestia:brightnessUp"
-      ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+      # Brillo (Caelestia global)
+      { mods = [ ]; key = "XF86MonBrightnessUp"; action = "global"; args = [ "caelestia:brightnessUp" ]; }
+      { mods = [ ]; key = "XF86MonBrightnessDown"; action = "global"; args = [ "caelestia:brightnessDown" ]; }
 
-      # Lock / suspend
-      "SUPER, L, exec, caelestia shell -d"
-      "SUPER, L, global, caelestia:lock"
-      # "SUPER, Escape, exec, loginctl lock-session"
-      # "SUPER, L, exec, loginctl lock-session"
-      "SUPER_SHIFT, Escape, exec, systemctl suspend"
+      # Lock / Suspend
+      { mods = [ "SUPER" ]; key = "L"; action = "exec"; args = [ "caelestia shell -d" ]; }
+      { mods = [ "SUPER" ]; key = "L"; action = "global"; args = [ "caelestia:lock" ]; }
+      { mods = [ "SUPER_SHIFT" ]; key = "Escape"; action = "exec"; args = [ "systemctl suspend" ]; }
     ];
 
+    # --- REPETICIÓN NORMAL (binde) ---
     binde = [
-      # Zoom
-      "SUPER, minus, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"
-      "SUPER, equal, exec, hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"
+      # Zoom del cursor
+      { mods = [ "SUPER" ]; key = "minus"; action = "exec"; args = [ "hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')" ]; }
+      { mods = [ "SUPER" ]; key = "equal"; action = "exec"; args = [ "hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')" ]; }
     ];
 
+    # --- EVENTOS AL SOLTAR LA TECLA (bindr) ---
     bindr = [
-      # Restart caelestia shell
-      "CTRL SUPER, R, exec, bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"      
+      # Reiniciar Caelestia Shell
+      { mods = [ "CTRL" "SUPER" ]; key = "R"; action = "exec"; args = [ "bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'" ]; }
     ];
   };
 }

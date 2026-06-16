@@ -40,7 +40,7 @@
     };
     configType = "lua";
 
-    extraConfig = lib.mkBefore ''
+    extraConfig = lib.mkOrder 50 ''
       hl.source("~/.config/hypr/launcher.lua")
 
       hl.on("hyprland.start", function ()

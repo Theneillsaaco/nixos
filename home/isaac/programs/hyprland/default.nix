@@ -53,19 +53,8 @@
         hl.exec_cmd("${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init")
       end)
     '';
+    
     settings = {
-      extraConfig = ''
-        hl.on("hyprland.start", function ()
-          hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-          hl.exec_cmd("systemctl --user start hyprpolkitagent")
-          hl.exec_cmd("hyprctl setcursor phinger-cursors-light 24")
-          hl.exec_cmd("uwsm app -- caelestia shell")
-          hl.exec_cmd("uwsm app -- discord --start-minimized")
-          hl.exec_cmd("uwsm app -- kdeconnect-indicator")
-          hl.exec_cmd("${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init")
-        end)
-      '';
-      
       monitor = [
         ",preferred,auto,1"
       ];

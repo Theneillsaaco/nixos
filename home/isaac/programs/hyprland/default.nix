@@ -39,7 +39,7 @@
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      source = [ "~/.config/hypr/launcher.lua" ];
+      source = [ "~/.config/hypr/launcher.conf" ];
       
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"

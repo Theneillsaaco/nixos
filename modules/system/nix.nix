@@ -28,7 +28,7 @@
       
       substituters = [
         "https://nix-community.cachix.org"
-        "https://cache.determinate.systems"
+        # "https://cache.determinate.systems"
         "https://cache.nixos.org/"
         "https://theneillsaaco-nix.cachix.org"
         "https://attic.xuyh0120.win/lantian" 
@@ -37,7 +37,7 @@
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "cache.determinate.systems-1:wup8m09p2798f09p2798f09p2798f09p2798f09p279="
+        # "cache.determinate.systems-1:wup8m09p2798f09p2798f09p2798f09p2798f09p279="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "theneillsaaco-nix.cachix.org-1:l6861n9yzzvrcRmsa8xJuF2abe8R+7j++fz3j1C1/I4="
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="

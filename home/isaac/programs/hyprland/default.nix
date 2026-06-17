@@ -43,6 +43,9 @@
     extraConfig = lib.mkOrder 50 ''
       hl.source("~/.config/hypr/launcher.lua")
 
+      hl.keyword("cursor:no_hardware_cursors", "false")
+      hl.keyword("debug:disable_logs", "false")
+      
       hl.on("hyprland.start", function ()
         hl.exec_cmd("dbus-update-activation-environment --systemd --all")
         hl.exec_cmd("systemctl --user start hyprpolkitagent")

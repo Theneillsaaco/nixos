@@ -79,8 +79,6 @@
         "CLUTTER_BACKEND,wayland"
       ];
 
-      cursor.no_hardware_cursors = false;  # AMD/Intel soporta hardware cursors
-
       general = {
         resize_on_border = true;
         gaps_in = 6;
@@ -130,10 +128,6 @@
           tap-to-click = true;
           drag_lock = false;
         };
-      };
-      
-      debug = {
-        disable_logs = false;
       };
     };
   };

@@ -7,7 +7,7 @@
     hl.curve("easeOutBack", { type = "bezier", points = { {0.34, 1.56}, {0.64, 1} } })
 
     -- 2. Registro de animaciones usando el nuevo método hl.animation()
-    hl.animation({ leaf = "global", enabled = true })
+    hl.animation({ leaf = "global", enabled = true, speed = 1, bezier = "linear" })
     hl.animation({ leaf = "windows", enabled = true, speed = 4, bezier = "easeOutBack", style = "slide" })
     hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "easeIn", style = "slide" })
     hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "easeOutBack" })

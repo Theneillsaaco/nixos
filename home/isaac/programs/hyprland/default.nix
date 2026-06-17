@@ -5,27 +5,26 @@
   ];
 
   home.file.".config/hypr/launcher.lua".text = ''
-    -- Forzar la entrada al submapa global al iniciar
-    hyprland.dispatch("submap", "global")
+    -- Submap global con los binds de Caelestia launcher
+    hl.define_submap("global", function()
+      hl.bind("Super_L", hl.dsp.global("caelestia:launcher"))
 
-    -- Definición del submapa global
-    hyprland.submap("global", function()
-        -- Binds específicos usando el nuevo formato de Lua
-        hyprland.bindi("Super", "Super_L", "global", "caelestia:launcher")
-        hyprland.binditn("Super", "catchall", "global", "caelestia:launcherInterrupt")
-        
-        hyprland.bind("Ctrl", "Super_L", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Ctrl", "Super_R", "global", "caelestia:launcherInterrupt")
-        
-        -- Binds de ratón
-        hyprland.bind("Super", "mouse:272", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse:273", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse:274", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse:275", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse:276", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse:277", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse_up", "global", "caelestia:launcherInterrupt")
-        hyprland.bind("Super", "mouse_down", "global", "caelestia:launcherInterrupt")
+      hl.bind("Ctrl + Super_L", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Ctrl + Super_R", hl.dsp.global("caelestia:launcherInterrupt"))
+
+      hl.bind("Super + mouse:272", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse:273", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse:274", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse:275", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse:276", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse:277", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse_up", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("Super + mouse_down", hl.dsp.global("caelestia:launcherInterrupt"))
+    end)
+
+    -- Entrar al submap "global" al iniciar Hyprland
+    hl.on("hyprland.start", function()
+      hl.dispatch(hl.dsp.submap("global"))
     end)
   '';
 
@@ -41,7 +40,7 @@
     configType = "lua";
 
     extraConfig = lib.mkOrder 50 ''
-      hl.source("~/.config/hypr/launcher.lua")
+      require("launcher")
 
       hl.config({
         monitor = { ",preferred,auto,1" },

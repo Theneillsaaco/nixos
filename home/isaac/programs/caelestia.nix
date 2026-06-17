@@ -90,20 +90,6 @@
           compact = true;
           recolour = false;
         };
-        
-        entries = [
-          { id = "logo"; enabled = true; }
-          { id = "workspaces"; enabled = true; }
-          { id = "spacer"; enabled = true; }
-          { id = "activeWindow"; enabled = true; }
-          { id = "spacer"; enabled = true; }
-          { id = "tray"; enabled = true; }
-          { id = "clock"; enabled = true; }
-          { id = "statusIcons"; enabled = true; }
-          { id = "power"; enabled = true; }
-        ];
-        
-        excludedScreens = [];
       };
 
       dashboard = {
@@ -118,19 +104,7 @@
         maxWallpapers = 9;
         specialPrefix = "@";
         actionPrefix = ">";
-        enableDangerousActions = false;
-        dragThreshold = 50;
-        vimKeybinds = false;
-        favouriteApps = [];
-        hiddenApps = [];
-        
-        useFuzzy = { 
-          apps = false; 
-          actions = false; 
-          schemes = false; 
-          variants = false; 
-          wallpapers = false; 
-        };    
+        enableDangerousActions = false; 
       
         actions = [
           { 

@@ -7,19 +7,19 @@
   home.file.".config/hypr/launcher.lua".text = ''
     -- Submap global con los binds de Caelestia launcher
     hl.define_submap("global", function()
-      hl.bind("Super_L", hl.dsp.global("caelestia:launcher"))
+      hl.bind("SUPER_L", hl.dsp.global("caelestia:launcher"))
 
-      hl.bind("Ctrl + Super_L", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Ctrl + Super_R", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("CTRL + SUPER_L", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("CTRL + SUPER_R", hl.dsp.global("caelestia:launcherInterrupt"))
 
-      hl.bind("Super + mouse:272", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse:273", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse:274", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse:275", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse:276", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse:277", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse_up", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("Super + mouse_down", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:272", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:273", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:274", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:275", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:276", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse:277", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse_up", hl.dsp.global("caelestia:launcherInterrupt"))
+      hl.bind("SUPER + mouse_down", hl.dsp.global("caelestia:launcherInterrupt"))
     end)
 
     -- Entrar al submap "global" al iniciar Hyprland
@@ -43,7 +43,7 @@
       require("launcher")
 
       hl.config({
-        monitor = { ",preferred,auto,1" },
+        monitor = { { output = "", mode = "preferred", position = "auto", scale = 1 } },
 
         env = {
           "XDG_CURRENT_DESKTOP,Hyprland",
@@ -90,7 +90,7 @@
         },
 
         master = {
-          new_status = true,
+          new_status = "master",
           allow_small_split = true,
           mfact = 0.5,
         },
@@ -112,7 +112,7 @@
 
           touchpad = {
             natural_scroll = true,
-            ["tap-to-click"] = true,
+            tap_to_click = true,
             drag_lock = false,
           },
         },

@@ -24,10 +24,6 @@
           };
           size.scale = 1;
         };
-        padding.scale = 1;
-        rounding.scale = 1;
-        spacing.scale = 1;
-        anim.durations.scale = 1;
       };
 
       general = {
@@ -65,10 +61,6 @@
           maxWindowIcons = 5;
           activeTrail = false;
           perMonitorWorkspaces = true;
-          label = "  ";
-          occupiedLabel = "󰮯";
-          activeLabel = "󰮯";
-          capitalisation = "preserve";
           
           # special icons
           specialWorkspaceIcons = [ { name = "steam"; icon = "sports_esports"; } ];
@@ -117,18 +109,6 @@
       dashboard = {
         enabled = true;
         showOnHover = true;
-        showDashboard = true;
-        showMedia = true;
-        showPerformance = true;
-        showWeather = true;
-        mediaUpdateInterval = 500;
-        resourceUpdateInterval = 1000;
-        dragThreshold = 50;
-        
-        performance = {
-          showBattery = true; showGpu = true; showCpu = true;
-          showMemory = true; showStorage = true; showNetwork = true;
-        };
       };
 
       launcher = {

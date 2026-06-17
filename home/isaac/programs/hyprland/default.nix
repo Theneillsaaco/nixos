@@ -5,27 +5,20 @@
   ];
 
   home.file.".config/hypr/launcher.lua".text = ''
-    -- Submap global con los binds de Caelestia launcher
-    hl.define_submap("global", function()
-      hl.bind("SUPER_L", hl.dsp.global("caelestia:launcher"))
+    -- Binds del Caelestia launcher (en el namespace raíz, siempre activos)
+    hl.bind("SUPER_L", hl.dsp.global("caelestia:launcher"))
 
-      hl.bind("CTRL + SUPER_L", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("CTRL + SUPER_R", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("CTRL + SUPER_L", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("CTRL + SUPER_R", hl.dsp.global("caelestia:launcherInterrupt"))
 
-      hl.bind("SUPER + mouse:272", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse:273", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse:274", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse:275", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse:276", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse:277", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse_up", hl.dsp.global("caelestia:launcherInterrupt"))
-      hl.bind("SUPER + mouse_down", hl.dsp.global("caelestia:launcherInterrupt"))
-    end)
-
-    -- Entrar al submap "global" al iniciar Hyprland
-    hl.on("hyprland.start", function()
-      hl.dispatch(hl.dsp.submap("global"))
-    end)
+    hl.bind("SUPER + mouse:272", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse:273", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse:274", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse:275", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse:276", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse:277", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse_up", hl.dsp.global("caelestia:launcherInterrupt"))
+    hl.bind("SUPER + mouse_down", hl.dsp.global("caelestia:launcherInterrupt"))
   '';
 
   wayland.windowManager.hyprland = {

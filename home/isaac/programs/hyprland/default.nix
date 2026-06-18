@@ -7,10 +7,7 @@
   home.file.".config/hypr/launcher.conf".text = ''
     exec = hyprctl dispatch submap global
     submap = global
-    
-    submap = global
 
-    bindi = Super, Super_L, global, caelestia:launcher
     binditn = Super, catchall, global, caelestia:launcherInterrupt
     bind = Ctrl, Super_L, global, caelestia:launcherInterrupt
     bind = Ctrl, Super_R, global, caelestia:launcherInterrupt
@@ -22,6 +19,7 @@
     bind = Super, mouse:277, global, caelestia:launcherInterrupt
     bind = Super, mouse_up, global, caelestia:launcherInterrupt
     bind = Super, mouse_down, global, caelestia:launcherInterrupt
+    bindi = Super, Super_L, global, caelestia:launcher
   '';
 
   wayland.windowManager.hyprland = {

@@ -1,26 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: 
+let 
+  inline = lib.generators.mkLuaInline;
+in
+{
   imports = [
+    ./launcher.nix
     ./animations.nix
     ./bindings.nix
   ];
-
-  home.file.".config/hypr/launcher.conf".text = ''
-    exec = hyprctl dispatch submap global
-    submap = global
-
-    binditn = Super, catchall, global, caelestia:launcherInterrupt
-    bind = Ctrl, Super_L, global, caelestia:launcherInterrupt
-    bind = Ctrl, Super_R, global, caelestia:launcherInterrupt
-    bind = Super, mouse:272, global, caelestia:launcherInterrupt
-    bind = Super, mouse:273, global, caelestia:launcherInterrupt
-    bind = Super, mouse:274, global, caelestia:launcherInterrupt
-    bind = Super, mouse:275, global, caelestia:launcherInterrupt
-    bind = Super, mouse:276, global, caelestia:launcherInterrupt
-    bind = Super, mouse:277, global, caelestia:launcherInterrupt
-    bind = Super, mouse_up, global, caelestia:launcherInterrupt
-    bind = Super, mouse_down, global, caelestia:launcherInterrupt
-    bindi = Super, Super_L, global, caelestia:launcher
-  '';
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -31,101 +18,112 @@
       enable = false;
       variables = [ "--all" ];
     };
-    configType = "hyprlang";
+    configType = "lua";
 
     settings = {
-      "$mod" = "SUPER";
-      "$shiftMod" = "SUPER_SHIFT";
-
-      source = [ "~/.config/hypr/launcher.conf" ];
+      mod = { _var = "SUPER"; };
+      shiftMod = { _var = "SUPER_SHIFT"; };
       
-      exec-once = [
-        "dbus-update-activation-environment --systemd --all &"
-        "systemctl --user start hyprpolkitagent &"
-        "hyprctl setcursor phinger-cursors-light 24"
-        "uwsm app -- caelestia shell"
-        "uwsm app -- discord --start-minimized"
-        "uwsm app -- kdeconnect-indicator"
-        "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
-        # "uwsm app -- gnome-keyring-daemon --start --components=secrets"
-      ];
-      
-      monitor = [
-        ",preferred,auto,1"
-      ];
-
       env = [
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        "MOZ_ENABLE_WAYLAND,1"
-        "NIXOS_OZONE_WL,1"
-        "ANKI_WAYLAND,1"
-        "DISABLE_QT5_COMPAT,0"
-        "QT_QPA_PLATFORMTHEME,qtengine"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM=wayland,xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "SDL_VIDEODRIVER,wayland,x11"
-        "CLUTTER_BACKEND,wayland"
+        { _args = [ "XDG_CURRENT_DESKTOP" "Hyprland" ]; }
+        { _args = [ "XDG_SESSION_TYPE" "wayland" ]; }
+        { _args = [ "XDG_SESSION_DESKTOP" "Hyprland" ]; }
+        { _args = [ "MOZ_ENABLE_WAYLAND" "1" ]; }
+        { _args = [ "NIXOS_OZONE_WL" "1" ]; }
+        { _args = [ "ANKI_WAYLAND" "1" ]; }
+        { _args = [ "DISABLE_QT5_COMPAT" "0" ]; }
+        { _args = [ "QT_QPA_PLATFORMTHEME" "qtengine" ]; }
+        { _args = [ "QT_AUTO_SCREEN_SCALE_FACTOR" "1" ]; }
+        { _args = [ "QT_QPA_PLATFORM" "wayland,xcb" ]; }
+        { _args = [ "QT_WAYLAND_DISABLE_WINDOWDECORATION" "1" ]; }
+        { _args = [ "ELECTRON_OZONE_PLATFORM_HINT" "auto" ]; }
+        { _args = [ "SDL_VIDEODRIVER" "wayland,x11" ]; }
+        { _args = [ "CLUTTER_BACKEND" "wayland" ]; }
       ];
 
-      cursor.no_hardware_cursors = false;  # AMD/Intel soporta hardware cursors
+      on = [
+        {
+          _args = [
+            "hyprland.start"
+            (inline ''
+              function()
+                hl.dispatch(hl.dsp.exec_cmd("dbus-update-activation-environment --systemd --all &"))
+                hl.dispatch(hl.dsp.exec_cmd("systemctl --user start hyprpolkitagent &"))
+                hl.dispatch(hl.dsp.exec_cmd("hyprctl setcursor phinger-cursors-light 24"))
+                hl.dispatch(hl.dsp.exec_cmd("uwsm app -- caelestia shell"))
+                hl.dispatch(hl.dsp.exec_cmd("uwsm app -- discord --start-minimized"))
+                hl.dispatch(hl.dsp.exec_cmd("uwsm app -- kdeconnect-indicator"))
+                hl.dispatch(hl.dsp.exec_cmd("${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"))
+                -- hl.dispatch(hl.dsp.exec_cmd("uwsm app -- gnome-keyring-daemon --start --components=secrets"))
 
-      general = {
-        resize_on_border = true;
-        gaps_in = 6;
-        gaps_out = 6;
-        border_size = 2;
-        layout = "master";
-      };
+                -- Activa el submap "global" del launcher de Caelestia
+                -- (equivalente al antiguo `exec = hyprctl dispatch submap global`)
+                hl.dispatch(hl.dsp.submap("global"))
+              end
+            '')
+          ];
+        }
+      ];
 
-      decoration = {
-        active_opacity = 1.0;
-        inactive_opacity = 0.85;
-        rounding = 17;
-        shadow = {
-          enabled = true;
-          range = 8;
-          render_power = 3;
+      config = {
+        cursor = {
+          no_hardware_cursors = false;
         };
-        blur = {
-          enabled = true;
-          size = 6;
+        
+        general = {
+          resize_on_border = true;
+          gaps_in = 6;
+          gaps_out = 6;
+          border_size = 2;
+          layout = "master";
         };
-      };
 
-      master = {
-        new_status = true;
-        allow_small_split = true;
-        mfact = 0.5;
-      };
-
-      misc = {
-        vrr = 0;                      # Laptop → 0 a menos que tu monitor lo soporte
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        focus_on_activate = true;
-        middle_click_paste = false;
-      };
-
-      input = {
-        kb_layout = "us";
-        follow_mouse = 1;
-        sensitivity = 0;
-        repeat_delay = 300;
-        repeat_rate = 50;
-    
-        touchpad = {
-          natural_scroll = true;
-          tap-to-click = true;
-          drag_lock = false;
+        decoration = {
+          active_opacity = 1.0;
+          inactive_opacity = 0.85;
+          rounding = 17;
+          shadow = {
+            enabled = true;
+            range = 8;
+            render_power = 3;
+          };
+          blur = {
+            enabled = true;
+            size = 6;
+          };
         };
-      };
-      
-      debug = {
-        disable_logs = false;
+
+        master = {
+          new_status = true;
+          allow_small_split = true;
+          mfact = 0.5;
+        };
+
+        misc = {
+          vrr = 0; # Laptop → 0 a menos que tu monitor lo soporte
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          focus_on_activate = true;
+          middle_click_paste = false;
+        };
+
+        input = {
+          kb_layout = "us";
+          follow_mouse = 1;
+          sensitivity = 0;
+          repeat_delay = 300;
+          repeat_rate = 50;
+
+          touchpad = {
+            natural_scroll = true;
+            tap_to_click = true;
+            drag_lock = false;
+          };
+        };
+
+        debug = {
+          disable_logs = false;
+        };
       };
     };
   };

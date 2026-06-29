@@ -24,7 +24,9 @@ in
       mod = { _var = "SUPER"; };
       shiftMod = { _var = "SUPER + SHIFT"; };
 
-      monitor = { name = ""; mode = "preferred"; position = "auto"; scale = 1; };
+      # FIX 2: El campo se llama 'output', no 'name'.
+      # Para el monitor genérico (catch-all) se deja output = "".
+      monitor = { output = ""; mode = "preferred"; position = "auto"; scale = 1; };
 
       env = [
         { _args = [ "XDG_CURRENT_DESKTOP" "Hyprland" ]; }
@@ -96,7 +98,10 @@ in
         };
 
         master = {
-          new_status = true;
+          # FIX 1: new_status es un string, no un bool.
+          # "master" = ventana nueva se convierte en master (equivalente al antiguo new_is_master = true)
+          # Otras opciones: "slave" (default) | "inherit"
+          new_status = "master";
           allow_small_split = true;
           mfact = 0.5;
         };

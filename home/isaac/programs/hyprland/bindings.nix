@@ -13,6 +13,14 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
+    # FIX 3: Re-declarar mod y shiftMod aquí también, como variables globales Lua.
+    # Aunque default.nix ya los define con _var, el orden de serialización en el Lua
+    # generado puede poner los binds ANTES de la asignación de la variable.
+    # Al repetirlos aquí (se mergean con el mismo valor), se garantiza que están
+    # disponibles antes de los hl.bind().
+    mod = { _var = "SUPER"; };
+    shiftMod = { _var = "SUPER + SHIFT"; };
+
     bind =
       [
         (mkBind { key = ''mod .. " + Q"'';      dispatcher = "hl.dsp.window.close()"; })

@@ -7,9 +7,9 @@ let
   # dispatcher: expresión Lua del dispatcher (o función completa)
   # flags: tabla Nix opcional de flags de hl.bind (locked, repeating, release, mouse, ignore_mods, non_consuming...)
   mkBind = { key, dispatcher, flags ? null }:
-  {
-    _args = [ (inline key) (inline dispatcher) ] ++ lib.optional (flags != null) flags;
-  };
+    {
+      _args = [ (inline key) (inline dispatcher) ] ++ lib.optional (flags != null) flags;
+    };
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -21,7 +21,7 @@ in
         (mkBind { key = ''"ALT + " .. mod .. " + SPACE"''; dispatcher = ''hl.dsp.window.float({ action = "toggle" })''; })
         (mkBind { key = ''mod .. " + P"'';      dispatcher = "hl.dsp.window.pin()"; })
         (mkBind { key = ''"ALT + F4"'';         dispatcher = "hl.dsp.window.close()"; })
-        (mkBind { key = ''"ALT + TAB"'';        dispatcher = ''hl.dsp.workspace({ workspace = "previous" })''; })
+        (mkBind { key = ''"ALT + TAB"'';        dispatcher = ''hl.dsp.workspace.change({ workspace = "previous" })''; })
 
         # Foco con flechas
         (mkBind { key = ''mod .. " + Left"'';   dispatcher = ''hl.dsp.focus({ direction = "l" })''; })
@@ -42,10 +42,10 @@ in
         (mkBind { key = ''shiftMod .. " + J"''; dispatcher = ''hl.dsp.window.move({ direction = "d" })''; })
 
         # Workspaces con flechas
-        (mkBind { key = ''"CTRL + " .. mod .. " + Right"''; dispatcher = ''hl.dsp.workspace({ workspace = "r+1" })''; })
-        (mkBind { key = ''"CTRL + " .. mod .. " + Left"'';  dispatcher = ''hl.dsp.workspace({ workspace = "r-1" })''; })
-        (mkBind { key = ''mod .. " + mouse_up"'';   dispatcher = ''hl.dsp.workspace({ workspace = "+1" })''; })
-        (mkBind { key = ''mod .. " + mouse_down"''; dispatcher = ''hl.dsp.workspace({ workspace = "-1" })''; })
+        (mkBind { key = ''"CTRL + " .. mod .. " + Right"''; dispatcher = ''hl.dsp.workspace.change({ workspace = "r+1" })''; })
+        (mkBind { key = ''"CTRL + " .. mod .. " + Left"'';  dispatcher = ''hl.dsp.workspace.change({ workspace = "r-1" })''; })
+        (mkBind { key = ''mod .. " + mouse_up"'';   dispatcher = ''hl.dsp.workspace.change({ workspace = "+1" })''; })
+        (mkBind { key = ''mod .. " + mouse_down"''; dispatcher = ''hl.dsp.workspace.change({ workspace = "-1" })''; })
 
         # Mover ventana a workspace con scroll
         (mkBind { key = ''shiftMod .. " + mouse_down"''; dispatcher = ''hl.dsp.window.move({ workspace = "r-1" })''; })
@@ -172,7 +172,7 @@ in
             key = "code:1${toString i}";
           in
           [
-            (mkBind { key = ''mod .. " + ${key}"'';            dispatcher = "hl.dsp.workspace({ workspace = ${toString ws} })"; })
+            (mkBind { key = ''mod .. " + ${key}"'';            dispatcher = "hl.dsp.workspace.change({ workspace = ${toString ws} })"; })
             (mkBind { key = ''shiftMod .. " + ${key}"'';        dispatcher = "hl.dsp.window.move({ workspace = ${toString ws} })"; })
             (mkBind { key = ''"ALT + " .. mod .. " + ${key}"''; dispatcher = "hl.dsp.window.move({ workspace = ${toString ws}, silent = true })"; })
           ])

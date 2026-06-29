@@ -22,12 +22,12 @@ in
     ];
 
     animation = [
-      { leaf = "windows";     enabled = true; speed = 4; curve = "easeOutBack"; style = "slide"; }
-      { leaf = "windowsOut";  enabled = true; speed = 3; curve = "easeIn";      style = "slide"; }
-      { leaf = "windowsMove"; enabled = true; speed = 4; curve = "easeOutBack"; }
-      { leaf = "fade";        enabled = true; speed = 4; curve = "easeInOut"; }
-      { leaf = "workspaces";  enabled = true; speed = 5; curve = "easeOutBack"; style = "slidevert"; }
-      { leaf = "layers";      enabled = true; speed = 3; curve = "easeOutBack"; style = "slide"; }
+      { leaf = "windows";     enabled = true; speed = 4; bezier = "easeOutBack"; style = "slide"; }
+      { leaf = "windowsOut";  enabled = true; speed = 3; bezier = "easeIn";      style = "slide"; }
+      { leaf = "windowsMove"; enabled = true; speed = 4; bezier = "easeOutBack"; }
+      { leaf = "fade";        enabled = true; speed = 4; bezier = "easeInOut"; }
+      { leaf = "workspaces";  enabled = true; speed = 5; bezier = "easeOutBack"; style = "slidevert"; }
+      { leaf = "layers";      enabled = true; speed = 3; bezier = "easeOutBack"; style = "slide"; }
     ];
   };
 }

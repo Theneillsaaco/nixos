@@ -22,8 +22,10 @@ in
 
     settings = {
       mod = { _var = "SUPER"; };
-      shiftMod = { _var = "SUPER_SHIFT"; };
-      
+      shiftMod = { _var = "SUPER + SHIFT"; };
+
+      monitor = { name = ""; mode = "preferred"; position = "auto"; scale = 1; };
+
       env = [
         { _args = [ "XDG_CURRENT_DESKTOP" "Hyprland" ]; }
         { _args = [ "XDG_SESSION_TYPE" "wayland" ]; }
@@ -67,9 +69,9 @@ in
 
       config = {
         cursor = {
-          no_hardware_cursors = false;
+          no_hardware_cursors = false; # AMD/Intel soporta hardware cursors
         };
-        
+
         general = {
           resize_on_border = true;
           gaps_in = 6;

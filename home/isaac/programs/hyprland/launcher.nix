@@ -15,7 +15,7 @@ in
         dispatcher = ''hl.dsp.global("caelestia:launcher")'';
         flags = { ignore_mods = true; };
       })
-
+      
       (mkBind {
         key = ''"catchall"'';
         dispatcher = ''hl.dsp.global("caelestia:launcherInterrupt")'';

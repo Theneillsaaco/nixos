@@ -1,19 +1,15 @@
 { lib, ... }:
 let
   inline = lib.generators.mkLuaInline;
-  mkCurve = name: x1: y1: x2: y2:
-    {
-      _args = [
-        name
-        (inline ''{ type = "bezier", points = { {${toString x1}, ${toString y1}}, {${toString x2}, ${toString y2}} } }'')
-      ];
-    };
+  mkCurve = name: x1: y1: x2: y2: {
+    _args = [
+      name
+      (inline ''{ type = "bezier", points = { {${toString x1}, ${toString y1}}, {${toString x2}, ${toString y2}} } }'')
+    ];
+  };
 in
 {
   wayland.windowManager.hyprland.settings = {
-    # API nueva: hl.curve(NAME, { type = "bezier", points = { {X0,Y0}, {X1,Y1} } })
-    # Los puntos X0,Y0,X1,Y1 son los mismos 2 puntos de control intermedios
-    # que ya usaba el `bezier = name, x1, y1, x2, y2` de hyprlang clásico.
     curve = [
       (mkCurve "easeOut"     0.16 1    0.3  1)
       (mkCurve "easeIn"      0.7  0    0.84 0)

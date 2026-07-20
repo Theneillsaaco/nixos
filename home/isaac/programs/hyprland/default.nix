@@ -31,7 +31,6 @@ in
         scale    = 1;
       };
 
-      # Variables de entorno
       env = [
         { _args = [ "XDG_CURRENT_DESKTOP"              "Hyprland"    ]; }
         { _args = [ "XDG_SESSION_TYPE"                 "wayland"     ]; }
@@ -49,8 +48,7 @@ in
         { _args = [ "CLUTTER_BACKEND"                  "wayland"     ]; }
       ];
 
-      # Autostart — usa hl.exec_cmd directo (sin hl.dispatch ni hl.dsp.exec_cmd)
-      # igual que el código oficial de Caelestia
+      # Autostart — usando hl.exec_cmd directo (igual que el código oficial de Caelestia)
       on = [
         {
           _args = [
@@ -74,7 +72,6 @@ in
         cursor = {
           no_hardware_cursors = false;
         };
-
         general = {
           resize_on_border = true;
           gaps_in          = 6;
@@ -82,7 +79,6 @@ in
           border_size      = 2;
           layout           = "master";
         };
-
         decoration = {
           active_opacity   = 1.0;
           inactive_opacity = 0.85;
@@ -97,13 +93,11 @@ in
             size    = 6;
           };
         };
-
         master = {
           new_status       = "master"; # string desde Hyprland 0.55+
           allow_small_split = true;
           mfact            = 0.5;
         };
-
         misc = {
           vrr                      = 0;
           disable_hyprland_logo    = true;
@@ -111,7 +105,6 @@ in
           focus_on_activate        = true;
           middle_click_paste       = false;
         };
-
         input = {
           kb_layout    = "us";
           follow_mouse = 1;
@@ -124,7 +117,6 @@ in
             drag_lock      = false;
           };
         };
-
         debug = {
           disable_logs = false;
         };

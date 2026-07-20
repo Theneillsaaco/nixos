@@ -1,10 +1,12 @@
 { lib, ... }:
 let
   inline = lib.generators.mkLuaInline;
-  # Bind simple: key string literal, dispatcher inline
+
+  # Bind simple: key y dispatcher como expresiones Lua inline
   b = key: dispatcher: {
     _args = [ (inline key) (inline dispatcher) ];
   };
+
   # Bind con flags
   bf = key: dispatcher: flags: {
     _args = [ (inline key) (inline dispatcher) flags ];
@@ -13,20 +15,19 @@ in
 {
   wayland.windowManager.hyprland.settings.bind =
     [
-      # Launcher de Caelestia — confirmado desde el código oficial de Caelestia:
-      # hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
-      # NO usa submap, solo un bind directo con { release = true }
+      # Launcher de Caelestia — un bind directo con release = true
+      # (ya no usa el submap "global" de la versión legacy)
       (bf ''"SUPER + SUPER_L"''     ''hl.dsp.global("caelestia:launcher")''  { release = true; })
 
       # Ventanas
       (b  ''mod .. " + Q"''         ''hl.dsp.window.close()'')
       (b  ''mod .. " + F"''         ''hl.dsp.window.fullscreen({ mode = "maximized" })'')
       (b  ''mod .. " + D"''         ''hl.dsp.window.fullscreen({ mode = "fullscreen" })'')
-      (b  ''"ALT + " .. mod .. " + SPACE"'' ''hl.dsp.window.float()'') # sin args = toggle
+      (b  ''"ALT + " .. mod .. " + SPACE"'' ''hl.dsp.window.float()'')
       (b  ''mod .. " + P"''         ''hl.dsp.window.pin()'')
       (b  ''"ALT + F4"''            ''hl.dsp.window.close()'')
 
-      # Workspaces — confirmado: hl.dsp.focus({ workspace = X })
+      # Workspaces
       (b  ''"ALT + TAB"''           ''hl.dsp.focus({ workspace = "previous" })'')
       (b  ''"CTRL + " .. mod .. " + Right"'' ''hl.dsp.focus({ workspace = "r+1" })'')
       (b  ''"CTRL + " .. mod .. " + Left"''  ''hl.dsp.focus({ workspace = "r-1" })'')
@@ -71,10 +72,10 @@ in
       (b  ''"CTRL + " .. mod .. " + V"'' ''hl.dsp.exec_cmd("uwsm app -- pavucontrol")'')
 
       # Caelestia shell
-      (b  ''mod .. " + N"''           ''hl.dsp.exec_cmd("caelestia shell drawers toggle dashboard")'')
-      (b  ''"CTRL + ALT + Delete"''   ''hl.dsp.exec_cmd("caelestia shell drawers toggle session")'')
-      (b  ''mod .. " + K"''           ''hl.dsp.exec_cmd("caelestia shell drawers toggle all")'')
-      (b  ''"CTRL + ALT + C"''        ''hl.dsp.exec_cmd("caelestia shell notifications clear")'')
+      (b  ''mod .. " + N"''         ''hl.dsp.exec_cmd("caelestia shell drawers toggle dashboard")'')
+      (b  ''"CTRL + ALT + Delete"'' ''hl.dsp.exec_cmd("caelestia shell drawers toggle session")'')
+      (b  ''mod .. " + K"''         ''hl.dsp.exec_cmd("caelestia shell drawers toggle all")'')
+      (b  ''"CTRL + ALT + C"''      ''hl.dsp.exec_cmd("caelestia shell notifications clear")'')
 
       # Screenshot
       (b  ''shiftMod .. " + S"''     ''hl.dsp.global("caelestia:screenshotFreeze")'')
@@ -101,52 +102,77 @@ in
           { locked = true; repeating = true; })
 
       # Audio (locked)
-      (bf ''"XF86AudioMute"''    ''hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")'' { locked = true; })
+      (bf ''"XF86AudioMute"''    ''hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")''   { locked = true; })
       (bf ''"XF86AudioMicMute"'' ''hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")'' { locked = true; })
 
-      # Media player — confirmado desde Caelestia: hl.dsp.global("caelestia:media*")
-      (bf ''"XF86AudioNext"''  ''hl.dsp.global("caelestia:mediaNext")''   { locked = true; })
-      (bf ''"XF86AudioPrev"''  ''hl.dsp.global("caelestia:mediaPrev")''   { locked = true; })
-      (bf ''"XF86AudioPlay"''  ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
-      (bf ''"XF86AudioPause"'' ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
-      (bf ''shiftMod .. " + N"'' ''hl.dsp.global("caelestia:mediaNext")''   { locked = true; })
-      (bf ''shiftMod .. " + B"'' ''hl.dsp.global("caelestia:mediaPrev")''   { locked = true; })
-      (bf ''shiftMod .. " + P"'' ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+      # Media player
+      (bf ''"XF86AudioNext"''      ''hl.dsp.global("caelestia:mediaNext")''   { locked = true; })
+      (bf ''"XF86AudioPrev"''      ''hl.dsp.global("caelestia:mediaPrev")''   { locked = true; })
+      (bf ''"XF86AudioPlay"''      ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+      (bf ''"XF86AudioPause"''     ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+      (bf ''shiftMod .. " + N"''   ''hl.dsp.global("caelestia:mediaNext")''   { locked = true; })
+      (bf ''shiftMod .. " + B"''   ''hl.dsp.global("caelestia:mediaPrev")''   { locked = true; })
+      (bf ''shiftMod .. " + P"''   ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
 
       # Brillo
-      (bf ''"XF86MonBrightnessUp"''   ''hl.dsp.global("caelestia:brightnessUp")'   { locked = true; })
+      (bf ''"XF86MonBrightnessUp"''   ''hl.dsp.global("caelestia:brightnessUp")''   { locked = true; })
       (bf ''"XF86MonBrightnessDown"'' ''hl.dsp.global("caelestia:brightnessDown")'' { locked = true; })
 
-      # Lock/suspend — doble dispatch con función Lua
-      (bf ''mod .. " + L"''
-          ''function()
-            hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
-            hl.dispatch(hl.dsp.global("caelestia:lock"))
-          end''
-          { locked = true; })
+      # Lock/suspend
+      # FIX: bind con función Lua inline. El string multilínea ''...'' de Nix
+      # no puede contener ''function()...end'' con comillas dobles internas
+      # — usamos inline explícito para evitar el error de sintaxis
+      # "unexpected '.', expecting identifier"
+      {
+        _args = [
+          (inline ''mod .. " + L"'')
+          (inline ''
+            function()
+              hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
+              hl.dispatch(hl.dsp.global("caelestia:lock"))
+            end
+          '')
+          { locked = true; }
+        ];
+      }
       (bf ''shiftMod .. " + Escape"'' ''hl.dsp.exec_cmd("systemctl suspend")'' { locked = true; })
 
       # Zoom (repeating)
-      (bf ''mod .. " + minus"''
-          ''hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')")''
-          { repeating = true; })
-      (bf ''mod .. " + equal"''
-          ''hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')")''
-          { repeating = true; })
+      {
+        _args = [
+          (inline ''mod .. " + minus"'')
+          (inline ''hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')")'')
+          { repeating = true; }
+        ];
+      }
+      {
+        _args = [
+          (inline ''mod .. " + equal"'')
+          (inline ''hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')")'')
+          { repeating = true; }
+        ];
+      }
 
       # Reload (release)
-      (bf ''"CTRL + " .. mod .. " + R"''
-          ''hl.dsp.exec_cmd("bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'")''
-          { release = true; })
+      {
+        _args = [
+          (inline ''"CTRL + " .. mod .. " + R"'')
+          (inline ''hl.dsp.exec_cmd("bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'")'')
+          { release = true; }
+        ];
+      }
     ]
-    # Workspaces 1-9: hl.dsp.focus({ workspace = N }) — confirmado en el código oficial
+    # Workspaces 1-9
     ++ (lib.concatLists (lib.genList
       (i:
-        let ws = i + 1; key = "code:1${toString i}"; in
+        let
+          ws  = i + 1;
+          key = "code:1${toString i}";
+        in
         [
-          (b  ''mod .. " + ${key}"''              ''hl.dsp.focus({ workspace = ${toString ws} })'')
-          (b  ''shiftMod .. " + ${key}"''          ''hl.dsp.window.move({ workspace = ${toString ws} })'')
-          (b  ''"ALT + " .. mod .. " + ${key}"''  ''hl.dsp.window.move({ workspace = ${toString ws}, silent = true })'')
+          (b  ''mod .. " + ${key}"''             ''hl.dsp.focus({ workspace = ${toString ws} })'')
+          (b  ''shiftMod .. " + ${key}"''         ''hl.dsp.window.move({ workspace = ${toString ws} })'')
+          (b  ''"ALT + " .. mod .. " + ${key}"'' ''hl.dsp.window.move({ workspace = ${toString ws}, silent = true })'')
         ])
       9));
 }

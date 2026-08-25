@@ -21,7 +21,7 @@ jobs:
       - name: Setup nixbuild.net
         uses: nixbuild/nixbuild-action@v27
         with:
-          auth_token: ${{ secrets.NIXBUILD_SSH_KEY }}
+          nixbuild_token: ${{ secrets.NIXBUILD_SSH_KEY }}
 
       # 4. Ejecutar la construcción (se enviará automáticamente a nixbuild.net)
       - name: Build Nix outputs

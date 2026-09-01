@@ -8,7 +8,7 @@
       ./hardware-configuration.nix
       ../../modules/hardware/amd.nix
       ../../modules/users/isaac.nix
-      ../../modules/optional/tmp-unlock.nix
+      ../../modules/optional/tpm-unlock.nix
     ] ++ myLib.importDir ../../modules/system
       ++ myLib.importDir ../../modules/programs
       ++ myLib.importDir ../../modules/services

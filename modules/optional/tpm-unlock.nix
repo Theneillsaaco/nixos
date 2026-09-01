@@ -4,5 +4,5 @@
   boot.initrd.systemd.enable = true;
 
   # tpm2-tools, tpm2-abrmd y las reglas udev necesarias
-  security.tmp2.enable = true;
+  security.tpm2.enable = true;
 }

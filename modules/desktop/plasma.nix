@@ -6,11 +6,11 @@
   programs.partition-manager.enable = true;
   programs.kdeconnect.enable = true;
 
-  security.pam.services.login.kwallet = with pkgs.kdePackages; {
+  security.pam.services.login.kwallet = {
     enable = true;
-    package = kdePackages.kwallet-pam;
+    package = pkgs.kdePackages.kwallet-pam;
   };
-
+  
   environment.systemPackages = with pkgs; [
     kdePackages.kio
     kdePackages.kio-extras

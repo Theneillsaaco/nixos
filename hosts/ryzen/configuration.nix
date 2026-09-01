@@ -23,6 +23,7 @@
   programs.appimage.binfmt = true;
   
   programs.gamemode.enable = true;
+  security.allowUserNamespaces = true;
   
   environment.variables.NIXOS_OZONE_WL = "1";
 

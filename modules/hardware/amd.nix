@@ -1,34 +1,26 @@
 { pkgs, ... }: {
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
+  # Zen mobile power management (5825U)
   boot.kernelParams = [
-    "i915.enable_fbc=1"
-    "i915.enable_psr=1"
-    "i915.enable_fastboot=1"
+    "amd_pstate=active"
   ];
 
   # Power management daemon
   powerManagement.enable = true;
-  
+
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-  services.thermald.enable = true;
-  
-  # Drivers
+
+  # Drivers (Vega 8 iGPU via amdgpu)
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      libva-vdpau-driver
-      libvdpau-va-gl
-      intel-compute-runtime
-    ];
   };
 
   # some utils
   environment.systemPackages = with pkgs; [
-    intel-gpu-tools
+    radeontop
     mesa-demos
     vulkan-tools
     libva-utils

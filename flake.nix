@@ -56,17 +56,17 @@
     system = "x86_64-linux";
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
-  in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+
+    mkHost = hostPath: nixpkgs.lib.nixosSystem {
       inherit system;
-      
-      specialArgs = { 
+
+      specialArgs = {
         inherit inputs username myLib;
       };
 
       modules = [
-        ./hosts/laptop/configuration.nix
-      
+        hostPath
+
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         # determinate.nixosModules.default
@@ -97,5 +97,12 @@
         })
       ];
     };
+  in {
+    # Laptop viejo (Intel i5-7200U)
+
+    nixosConfigurations.nixos = mkHost ./hosts/laptop/configuration.nix;
+
+    # Equipo nuevo (Ryzen 7 5825U)
+    nixosConfigurations.ryzen = mkHost ./hosts/ryzen/configuration.nix;
   };
 }

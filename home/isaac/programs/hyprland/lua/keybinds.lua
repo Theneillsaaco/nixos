@@ -1,13 +1,15 @@
 local vars = require("vars")
-local mod, shiftMod = vars.mod, vars.shiftMod
+local mod = vars.mod or "SUPER"
+local shiftMod = vars.shiftMod or (mod .. " + SHIFT")
 
+-- Flags
 local locked = { locked = true }
 local mouse = { mouse = true }
 local repeating = { repeating = true }
 local locked_repeating = { locked = true, repeating = true }
 
--- Launcher / caelestia globals
-hl.bind(mod .. " + " .. mod .. "_L", hl.dsp.global("caelestia:launcher"), { release = true })
+-- Launcher / Caelestia globals
+hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
 hl.bind(mod .. " + N", hl.dsp.exec_cmd("caelestia shell drawers toggle dashboard"))
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("caelestia shell drawers toggle session"))
 hl.bind(mod .. " + K", hl.dsp.exec_cmd("caelestia shell drawers toggle all"))
@@ -21,35 +23,39 @@ hl.bind("ALT + " .. mod .. " + SPACE", hl.dsp.window.float())
 hl.bind(mod .. " + P", hl.dsp.window.pin())
 hl.bind("ALT + F4", hl.dsp.window.close())
 
--- Workspaces
+-- Acciones de ratón (Arrastrar / Redimensionar)
+hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), mouse)
+hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), mouse)
+
+-- Workspaces (Navegación general)
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
 hl.bind("CTRL + " .. mod .. " + Right", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind("CTRL + " .. mod .. " + Left", hl.dsp.focus({ workspace = "r-1" }))
-hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "-1" }))
-hl.bind(shiftMod .. " + mouse_down", hl.dsp.window.move({ workspace = "r-1" }))
-hl.bind(shiftMod .. " + mouse_up", hl.dsp.window.move({ workspace = "r+1" }))
+hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "+1" }), mouse)
+hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "-1" }), mouse)
+hl.bind(shiftMod .. " + mouse_down", hl.dsp.window.move({ workspace = "r-1" }), mouse)
+hl.bind(shiftMod .. " + mouse_up", hl.dsp.window.move({ workspace = "r+1" }), mouse)
 
--- Foco / mover
+-- Foco / Mover ventanas con flechas
 for _, dir in ipairs({ "l", "r", "u", "d" }) do
     local key = ({ l = "Left", r = "Right", u = "Up", d = "Down" })[dir]
     hl.bind(mod .. " + " .. key, hl.dsp.focus({ direction = dir }))
     hl.bind(shiftMod .. " + " .. key, hl.dsp.window.move({ direction = dir }))
 end
 
--- Mover ventana (HJKL, alternativa)
+-- Mover ventanas (HJKL)
 hl.bind(shiftMod .. " + H", hl.dsp.window.move({ direction = "l" }))
 hl.bind(shiftMod .. " + L", hl.dsp.window.move({ direction = "r" }))
 hl.bind(shiftMod .. " + K", hl.dsp.window.move({ direction = "u" }))
 hl.bind(shiftMod .. " + J", hl.dsp.window.move({ direction = "d" }))
 
--- Scratchpad / special workspace
+-- Scratchpad / Special workspace
 hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special())
-hl.bind("ALT + " .. mod .. " + S", hl.dsp.window.move({ workspace = "special", silent = true }))
+hl.bind("ALT + " .. mod .. " + S", hl.dsp.window.move({ workspace = "special:special", follow = false }))
 
 -- Master layout split ratio
-hl.bind(mod .. " + semicolon", hl.dsp.layout("splitratio -0.1"))
-hl.bind(mod .. " + apostrophe", hl.dsp.layout("splitratio +0.1"))
+hl.bind(mod .. " + semicolon", hl.dsp.layout("splitratio -0.1"), repeating)
+hl.bind(mod .. " + apostrophe", hl.dsp.layout("splitratio +0.1"), repeating)
 
 -- Apps
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(vars.terminal))
@@ -60,7 +66,7 @@ hl.bind(mod .. " + W", hl.dsp.exec_cmd(vars.browser))
 hl.bind(mod .. " + C", hl.dsp.exec_cmd(vars.editor))
 hl.bind("CTRL + " .. mod .. " + V", hl.dsp.exec_cmd(vars.audioSettings))
 
--- Screenshot / utilidades
+-- Screenshot / Utilidades
 hl.bind(shiftMod .. " + S", hl.dsp.global("caelestia:screenshotFreeze"))
 hl.bind(mod .. " + Print", hl.dsp.global("caelestia:screenshot"))
 hl.bind(shiftMod .. " + Print", hl.dsp.global("caelestia:screenshot"))
@@ -92,7 +98,7 @@ hl.bind(shiftMod .. " + P", hl.dsp.global("caelestia:mediaToggle"), locked)
 hl.bind("XF86MonBrightnessUp", hl.dsp.global("caelestia:brightnessUp"), locked)
 hl.bind("XF86MonBrightnessDown", hl.dsp.global("caelestia:brightnessDown"), locked)
 
--- Lock / reload
+-- Lock / Suspend
 hl.bind(mod .. " + L", function()
     hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
     hl.dispatch(hl.dsp.global("caelestia:lock"))
@@ -107,15 +113,21 @@ hl.bind(mod .. " + equal",
     hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"),
     repeating)
 
--- Reload
+-- Reload Shell/Hyprland
 hl.bind("CTRL + " .. mod .. " + R",
     hl.dsp.exec_cmd("bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"),
     { release = true })
 
--- Workspaces 1-9
-for i = 1, 9 do
-    local key = "code:1" .. tostring(i - 1)
+-- Workspaces 1-10
+for i = 1, 10 do
+    local key = tostring(i % 10)
+    
+    -- Ir al escritorio (SUPER + 1..0)
     hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    
+    -- Mover ventana E IR AL ESCRITORIO (SUPER + SHIFT + 1..0)
     hl.bind(shiftMod .. " + " .. key, hl.dsp.window.move({ workspace = i }))
-    hl.bind("ALT + " .. mod .. " + " .. key, hl.dsp.window.move({ workspace = i, silent = true }))
+    
+    -- Mover ventana EN SILENCIO (SUPER + ALT + 1..0)
+    hl.bind("ALT + " .. mod .. " + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end

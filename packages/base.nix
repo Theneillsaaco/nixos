@@ -40,6 +40,7 @@
     pciutils      # lspci
     usbutils      # lsusb
     psmisc        # killall, pstree
+    iw
     
     # nix
     nix-index

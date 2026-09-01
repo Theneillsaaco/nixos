@@ -41,6 +41,7 @@
     usbutils      # lsusb
     psmisc        # killall, pstree
     iw
+    bubblewrap
     
     # nix
     nix-index

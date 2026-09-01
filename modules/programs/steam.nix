@@ -5,4 +5,6 @@
     dedicatedServer.openFirewall = true; # Para servidores locales
     gamescopeSession.enable = true; # Útil si usas Gamescope o Hyprland
   };
+
+  security.chromiumSuidSandbox.enable = true;
 }

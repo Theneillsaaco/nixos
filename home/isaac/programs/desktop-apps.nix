@@ -5,7 +5,6 @@
     signal-desktop
     
     brave
-    steam
     pear-desktop # Youtube music
     onlyoffice-desktopeditors
     

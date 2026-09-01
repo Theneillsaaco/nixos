@@ -138,10 +138,10 @@
         vimKeybinds = false;
         
         commands = {
-          logout = [ "hyprctl" "dispatch" "exit" ];
-          shutdown = [ "systemctl" "poweroff" ];
-          reboot = [ "systemctl" "reboot" ];
-          hibernate = [ "systemctl" "hibernate" ];
+          logout = [ "logout" ];
+          shutdown = [ "poweroff" ];
+          reboot = [ "reboot" ];
+          hibernate = [ "hibernate" ];
         };
       };
       

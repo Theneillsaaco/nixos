@@ -7,7 +7,7 @@
   };
 
   security.pam.services.hyprland.kwallet.enable = true;
-  
+
   environment.systemPackages = with pkgs; [  
     qtengine
     xdg-utils

@@ -24,8 +24,6 @@
   
   programs.gamemode.enable = true;
   
-  security.pam.services.login.kwallet.enable = true;
-  
   environment.variables.NIXOS_OZONE_WL = "1";
 
   boot.loader.efi.canTouchEfiVariables = true;

@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 let
   inline = lib.generators.mkLuaInline;
+
+  pamKwalletInit = "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init";
 in
 {
   imports = [
@@ -19,6 +21,7 @@ in
     configType = "lua";
 
     extraLuaFiles = {
+      "kwallet_path" = { autoLoad = false; content = ''return "${pamKwalletInit}"''; };
       "vars" = { autoLoad = false; content = builtins.readFile ./lua/vars.lua; };
       "execs" = { autoLoad = true; content = builtins.readFile ./lua/execs.lua; };
       "keybinds" = { autoLoad = true; content = builtins.readFile ./lua/keybinds.lua; };

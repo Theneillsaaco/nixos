@@ -26,7 +26,7 @@ Here you can find screenshots or descriptions of how your NixOS configuration lo
 - **Display Server**: Hyprland ([Caelestia Shell](https://github.com/caelestia-dots/shell)) / Plasma fallback
 - **File System**: Btrfs with zstd compression, Snapper snapshots, and auto-scrub
 - **Window Managers**: Hyprland (primary), KDE Plasma (backup)
-- **Display Manager**: SDDM
+- **Display Manager**: Plasma Login Manager
 - **Shell**: Zsh with Starship prompt
 - **Package Management**: Nix Flakes + Home Manager
 - **Keyring**: KDE Wallet (KWallet)
@@ -61,7 +61,7 @@ Here you can find screenshots or descriptions of how your NixOS configuration lo
 - **Hyprland**: Tiling Wayland compositor with custom animations, keybindings, and workspace management
 - **[Caelestia Shell](https://github.com/caelestia-dots/shell)**: Enhanced shell experience for Hyprland (themes, widgets, utilities)
 - **KDE Plasma**: Full-featured desktop environment as stable backup
-- **SDDM**: Display manager with theme customization
+- **Plasma Login Manager**: Display manager with theme customization
 - **Starship Prompt**: Cross-shell prompt with rich customization
 - **Font Collection**: Custom curated fonts for optimal readability
 

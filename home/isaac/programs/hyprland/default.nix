@@ -39,7 +39,6 @@ in
         { _args = [ "XDG_SESSION_DESKTOP" "Hyprland" ]; }
         { _args = [ "MOZ_ENABLE_WAYLAND" "1" ]; }
         { _args = [ "NIXOS_OZONE_WL" "1" ]; }
-        { _args = [ "QT_QPA_PLATFORMTHEME" "qtengine" ]; }
         { _args = [ "QT_QPA_PLATFORM" "wayland,xcb" ]; }
         { _args = [ "QT_WAYLAND_DISABLE_WINDOWDECORATION" "1" ]; }
         { _args = [ "ELECTRON_OZONE_PLATFORM_HINT" "auto" ]; }

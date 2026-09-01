@@ -8,6 +8,10 @@
       {
         name = "zsh-autocomplete";
         src = pkgs.zsh-autocomplete;
+
+        # fix in the new version
+        # src = "${pkgs.zsh-autocomplete}/share/zsh-autocomplete";
+        # file = "zsh-autocomplete.plugin.zsh";
       }
     ];
 
@@ -27,7 +31,6 @@
     };
 
     initContent = ''
-
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
 
@@ -38,8 +41,6 @@
       _mark_prompt_start() {
         printf '\e]133;A\e\\'
       }
-
-      source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
       precmd_functions+=(_mark_prompt_start)
     '';

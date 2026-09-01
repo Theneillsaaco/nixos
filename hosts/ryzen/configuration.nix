@@ -26,10 +26,6 @@
   
   environment.variables.NIXOS_OZONE_WL = "1";
 
-  # Secure Boot (lanzaboote) not set up yet on this machine (sbctl keys not
-  # enrolled). Use plain systemd-boot for now; switch back once sbctl is set up.
-  boot.lanzaboote.enable = lib.mkForce false;
-  boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Dont touch this

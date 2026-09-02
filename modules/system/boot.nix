@@ -28,12 +28,8 @@
         enable = false;
 
         configurationLimit = 5;
-        
-        # Directivas escritas directamente en /boot/loader/loader.conf
-        extraConfig = ''
-          console-mode max
-          sort-key nixos
-        '';
+        consoleMode = "max";
+        sortKey = "nixos";
       };
 
       efi.canTouchEfiVariables = true;

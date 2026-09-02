@@ -4,7 +4,6 @@
     discord
     signal-desktop
     
-    brave
     pear-desktop # Youtube music
     onlyoffice-desktopeditors
     

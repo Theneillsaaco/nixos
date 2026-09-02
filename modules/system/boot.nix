@@ -4,12 +4,13 @@
     consoleLogLevel = 3;
     initrd = {
       verbose = false;
-      kernelModules = [ "amdgpu" ];
+      # kernelModules = [ "amdgpu" ];
     };
     
     kernelParams = [
       "quiet"
       "splash"
+      "plymouth.use-simpledrm"
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
@@ -24,12 +25,10 @@
     kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
     
     loader = {
+      timeout = 0;
+      
       systemd-boot = {
         enable = false;
-
-        configurationLimit = 5;
-        consoleMode = "max";
-        sortKey = "nixos";
       };
 
       efi.canTouchEfiVariables = true;

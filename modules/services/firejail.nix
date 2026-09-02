@@ -3,7 +3,6 @@ let
   # Lista centralizada de aplicaciones a envolver con su perfil por defecto
   sandboxedApps = [
     "firefox"
-    "brave"
     "discord"
     "signal-desktop"
     "pear-desktop"
@@ -26,6 +25,12 @@ in
     wrappedBinaries = mkWrappedBinaries sandboxedApps // {
 
       # Aquí defines ÚNICAMENTE las apps que necesitan argumentos adicionales
+      brave = {
+        executable = "${pkgs.brave}/bin/brave";
+        profile = "${pkgs.firejail}/etc/firejail/brave.profile";
+        desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
+      };
+     
       discord = {
         executable = "${pkgs.discord}/bin/discord";
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";

@@ -1,9 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 let
   # Lista centralizada de aplicaciones a envolver con su perfil por defecto
   sandboxedApps = [
     "firefox"
     "discord"
+    "brave"
     "signal-desktop"
     "pear-desktop"
     "onlyoffice-desktopeditors"
@@ -14,7 +15,6 @@ let
     lib.genAttrs apps (name: {
       executable = "${pkgs.${name}}/bin/${name}";
       profile = "${pkgs.firejail}/etc/firejail/${name}.profile";
-      desktop = "${pkgs.${name}}/share/applications/${name}.desktop";
     });
 in
 {
@@ -24,18 +24,16 @@ in
     # Se aplican automáticamente todas las apps de la lista
     wrappedBinaries = mkWrappedBinaries sandboxedApps // {
 
-      # Aquí defines ÚNICAMENTE las apps que necesitan argumentos adicionales
-      brave = {
-        executable = "${pkgs.brave}/bin/brave";
-        profile = "${pkgs.firejail}/etc/firejail/brave.profile";
-        desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
-      };
-     
+      # Aquí defines ÚNICAMENTE las apps que necesitan argumentos adicionales     
       discord = {
         executable = "${pkgs.discord}/bin/discord";
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";
-        desktop = "${pkgs.discord}/share/applications/discord.desktop";
-        extraArgs = [ "--env=NIXOS_OZONE_WL=1" ]; # Soporte Wayland si lo usas
+        extraArgs = [ "--env=NIXOS_OZONE_WL=1" ];
+      };
+
+      zen = {
+        executable = "${inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/zen";
+        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
       };
     };
   };

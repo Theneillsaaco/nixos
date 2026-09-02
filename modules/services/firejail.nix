@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 let
   # Lista centralizada de aplicaciones a envolver con su perfil por defecto
   sandboxedApps = [
@@ -25,16 +25,6 @@ in
     wrappedBinaries = mkWrappedBinaries sandboxedApps // {
 
       # Aquí defines ÚNICAMENTE las apps que necesitan argumentos adicionales     
-      discord = {
-        executable = "${pkgs.discord}/bin/discord";
-        profile = "${pkgs.firejail}/etc/firejail/discord.profile";
-        extraArgs = [ "--env=NIXOS_OZONE_WL=1" ];
-      };
-
-      zen = {
-        executable = "${inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/zen";
-        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-      };
     };
   };
 }

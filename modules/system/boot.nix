@@ -10,6 +10,13 @@
       "plymouth.use-simpledrm"
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
+
+      # Cifra la memoria RAM vía hardware en procesadores AMD (AMD Memory Guard / SME)
+      "mem_encrypt=on"
+
+      # Evita que procesos sin privilegios lean la memoria RAM o variables del Kernel
+      "page_alloc.shuffle=1"
+      "ptdump_vma.ptdump_vma=0"
     ];
 
     kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
@@ -31,4 +38,7 @@
       })
     ];
   };
+
+  security.protectKernelImage = true;
+  security.lockKernelModules = false;
 }

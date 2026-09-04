@@ -4,6 +4,7 @@
     consoleLogLevel = 3;
     initrd = {
       verbose = false;
+      kernelModules = [ "nvme" ];
       # kernelModules = [ "amdgpu" ];
     };
     

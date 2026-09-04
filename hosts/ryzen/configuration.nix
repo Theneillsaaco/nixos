@@ -30,7 +30,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Resume from swap on boot
-  boot.resumeDevice = "/dev/disk/by-uuid/727b471b-de73-46f0-9028-f7a31e900851";
+  boot.resumeDevice = "/dev/disk/by-uuid/2350b033-c332-4a13-9397-ab471fc83723";
   
   # Dont touch this
   system.stateVersion = "26.05";

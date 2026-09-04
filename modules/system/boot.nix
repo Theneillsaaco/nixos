@@ -5,7 +5,9 @@
     initrd = {
       verbose = false;
       kernelModules = [ "nvme" ];
+      supportedFilesystems = [ "btrfs" ];
       # kernelModules = [ "amdgpu" ];
+      systemd.enable = true;
     };
     
     kernelParams = [
@@ -15,6 +17,9 @@
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
+
+      "resume_offset=31237376"
+      "lockdown=none"
       
       # Cifra la memoria RAM vía hardware en procesadores AMD (AMD Memory Guard / SME)
       "mem_encrypt=on"
@@ -51,6 +56,6 @@
     ];
   };
 
-  security.protectKernelImage = true;
+  security.protectKernelImage = false;
   security.lockKernelModules = false;
 }

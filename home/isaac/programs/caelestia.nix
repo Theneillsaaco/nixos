@@ -15,14 +15,21 @@
           base = 0.85;
           layers = 0.8;
         };
+        
         font = {
-          family = {
-            clock = "Rubik";
-            sans = "Rubik";
-            mono = "JetBrains Mono";
-            material = "Material Symbols Rounded";
+          scale = 1;
+          clock = "Rubik";
+          workspaces = "Rubik";
+          
+          body = {
+            family = "Rubik";
           };
-          size.scale = 1;
+          mono = {
+            family = "JetBrains Mono";
+          };
+          icon = {
+            family = "Material Symbols Rounded";
+          };
         };
       };
 
@@ -68,16 +75,15 @@
           windowIcons = [ { regex = "steam(_app_(default|[0-9]+))?"; icon = "sports_esports"; } ];
         };
         
-        status = {
-          showAudio = true;
-          showBattery = true;
-          
-          showNetwork = true;
-
-          showBluetooth = true;
-          showLockStatus = false;
-          showKbLayout = false;
-        };
+        statusIcons = [
+          { id = "lockStatus"; enabled = false; }
+          { id = "microphone"; enabled = false; }
+          { id = "kbLayout"; enabled = false; }
+          { id = "network"; enabled = true; }
+          { id = "audio"; enabled = true; }
+          { id = "bluetooth"; enabled = true; }
+          { id = "battery"; enabled = true; }
+        ];
         
         scrollActions = {
           volume = true;
@@ -99,7 +105,7 @@
       };
 
       launcher = {
-        enable = true;
+        enabled = true;
         showOnHover = false;
         maxShown = 7;
         maxWallpapers = 9;
@@ -110,7 +116,7 @@
 
       notifs = {
         expire = true;
-        fullscreen = "on";
+        fullscreen = "On";
         defaultExpireTimeout = 3000;
         fullscreenExpireTimeout = 2000;
         clearThreshold = 0.3;
@@ -130,7 +136,7 @@
         useFahrenheit = false;
         useTwelveHourClock = false;
         smartScheme = true;
-        gpuType = "Intel";
+        gpuType = "Auto";
       };
       
       session = {
@@ -143,21 +149,6 @@
           shutdown = [ "poweroff" ];
           reboot = [ "reboot" ];
           hibernate = [ "systemctl hibernate" ];
-        };
-      };
-      
-      utilities = {
-        enable = true;
-        maxToasts = 4;
-        
-        vpn = {
-          enable = true;
-          provider = [
-            {
-              name = "warp";
-              displayName = "Cloudflare WARP";
-            }
-          ];
         };
       };
       

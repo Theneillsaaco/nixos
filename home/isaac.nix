@@ -1,8 +1,8 @@
-{ pkgs, inputs, username, myLib, ... }: {
+{ pkgs, inputs, username, myLib, stateVersion ? "25.11", ... }: {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = "25.11";
+    stateVersion = stateVersion;
   };
   
   programs.home-manager.enable = true;

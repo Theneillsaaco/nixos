@@ -57,11 +57,12 @@
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
 
-    mkHost = hostPath: nixpkgs.lib.nixosSystem {
+    mkHost = hostPath: stateVer: nixpkgs.lib.nixosSystem {
       inherit system;
 
       specialArgs = {
         inherit inputs username myLib;
+        stateVersion = stateVer;
       };
 
       modules = [
@@ -88,9 +89,9 @@
     };
   in {
     # old laptop hp (Intel i5-7200U)
-    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix;
+    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix "25.11";
 
     # lenovo new (Ryzen 7 5825U)
-    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix;
+    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix "26.05";
   };
 }

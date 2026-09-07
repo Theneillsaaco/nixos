@@ -91,6 +91,6 @@
     nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix;
 
     # lenovo new (Ryzen 7 5825U)
-    nixosConfigurations.lenovo = mkHost ./hosts/ryzen/lenovo/configuration.nix;
+    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix;
   };
 }

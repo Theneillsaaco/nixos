@@ -6,14 +6,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/hardware/amd.nix
-      ../../modules/users/isaac.nix
-      ../../modules/optional/tpm-unlock.nix
-    ] ++ myLib.importDir ../../modules/system
-      ++ myLib.importDir ../../modules/programs
-      ++ myLib.importDir ../../modules/services
-      ++ myLib.importDir ../../modules/desktop
-      ++ myLib.importDir ../../packages;
+      ../../../modules/hardware/amd.nix
+      ../../../modules/users/isaac.nix
+      ../../../modules/optional/tpm-unlock.nix
+    ] ++ myLib.importDir ../../../modules/system
+      ++ myLib.importDir ../../../modules/programs
+      ++ myLib.importDir ../../../modules/services
+      ++ myLib.importDir ../../../modules/desktop
+      ++ myLib.importDir ../../../packages;
 
   nixpkgs.config.allowUnfree = true;
   

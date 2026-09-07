@@ -18,8 +18,8 @@
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
 
+      # Hibernation
       "resume_offset=31237376"
-      "lockdown=none"
       
       # Cifra la memoria RAM vía hardware en procesadores AMD (AMD Memory Guard / SME)
       "mem_encrypt=on"

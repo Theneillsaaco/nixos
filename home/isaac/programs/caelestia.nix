@@ -43,6 +43,7 @@
           timeouts = [
             { timeout = 300; idleAction = "lock"; }
             { timeout = 300; idleAction = "dpms off"; returnAction = "dpms on"; }
+            { timeout = 600; idleAction = ["suspendThenHibernate"]; }
           ];
         };
       };

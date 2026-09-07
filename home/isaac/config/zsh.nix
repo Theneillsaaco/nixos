@@ -24,9 +24,9 @@
 
     shellAliases = {
       ll = "ls -alh";
-      rebuild = "nh os switch /etc/nixos#ryzen";
+      rebuild = "nh os switch /etc/nixos#lenovo";
       update = "sudo nix flake update --flake /etc/nixos";
-      boot = "nh os boot /etc/nixos#ryzen";
+      boot = "nh os boot /etc/nixos#lenovo";
       upgrade = "update && rebuild";
     };
 

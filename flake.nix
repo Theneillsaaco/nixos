@@ -70,17 +70,6 @@
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         # determinate.nixosModules.default
-        
-        # Temporal fix
-        # ({ ... }: {
-        #   nixpkgs.overlays = [
-        #     (_: prev: {
-        #       openldap = prev.openldap.overrideAttrs (old: {
-        #         doCheck = !prev.stdenv.hostPlatform.isi686;
-        #       });
-        #     })
-        #   ];
-        # })
 
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;
@@ -98,11 +87,10 @@
       ];
     };
   in {
-    # Laptop viejo (Intel i5-7200U)
+    # old laptop hp (Intel i5-7200U)
+    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix;
 
-    nixosConfigurations.nixos = mkHost ./hosts/laptop/configuration.nix;
-
-    # Equipo nuevo (Ryzen 7 5825U)
-    nixosConfigurations.ryzen = mkHost ./hosts/ryzen/configuration.nix;
+    # lenovo new (Ryzen 7 5825U)
+    nixosConfigurations.lenovo = mkHost ./hosts/ryzen/lenovo/configuration.nix;
   };
 }

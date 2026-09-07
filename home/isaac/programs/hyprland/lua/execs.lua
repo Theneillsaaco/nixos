@@ -7,10 +7,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
     -- Keyring: Invocar el binario dentro del mismo subshell pasando la variable
-    local cmd = string.format("sh -c 'export PAM_KWALLET6_LOGIN=\"${PAM_KWALLET6_LOGIN:-$PAM_KWALLET5_LOGIN}\"; %s'", pam_kwallet_path)
-    hl.exec_cmd(cmd)
-    hl.exec_cmd("uwsm app -- kwalletd6")
-        
+    hl.exec_cmd(kwallet_path)
+
     -- Apps
     hl.exec_cmd("uwsm app -- discord --start-minimized")
     hl.exec_cmd("uwsm app -- kdeconnect-indicator")

@@ -2,7 +2,7 @@
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = stateVersion;
+    inherit stateVersion;
   };
   
   programs.home-manager.enable = true;

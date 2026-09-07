@@ -57,12 +57,11 @@
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
 
-    mkHost = hostPath: stateVer: nixpkgs.lib.nixosSystem {
+    mkHost = hostPath: stateVersion: nixpkgs.lib.nixosSystem {
       inherit system;
 
       specialArgs = {
-        inherit inputs username myLib;
-        stateVersion = stateVer;
+        inherit inputs username myLib stateVersion;
       };
 
       modules = [
@@ -75,15 +74,14 @@
         ({ inputs, username, ...}: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          
           home-manager.backupFileExtension = "hm-backup";
           
+          home-manager.extraSpecialArgs = {
+            inherit inputs username myLib stateVersion;
+          };
+
           home-manager.users.${username} = 
             import ./home/isaac.nix;
-            
-          home-manager.extraSpecialArgs = {
-            inherit inputs username myLib;
-          };
         })
       ];
     };

@@ -43,6 +43,8 @@ in
         { _args = [ "MOZ_ENABLE_WAYLAND" "1" ]; }
         { _args = [ "NIXOS_OZONE_WL" "1" ]; }
         { _args = [ "QT_QPA_PLATFORM" "wayland;xcb" ]; }
+        { _args = [ "QT_QPA_PLATFORMTHEME" "kde" ]; }
+        { _args = [ "XDG_MENU_PREFIX" "plasma-" ]; }
         { _args = [ "QT_WAYLAND_DISABLE_WINDOWDECORATION" "1" ]; }
         { _args = [ "ELECTRON_OZONE_PLATFORM_HINT" "auto" ]; }
         { _args = [ "SDL_VIDEODRIVER" "wayland,x11" ]; }

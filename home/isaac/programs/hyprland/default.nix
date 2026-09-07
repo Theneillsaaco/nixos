@@ -1,7 +1,5 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
-  inline = lib.generators.mkLuaInline;
-
   pamKwalletInit = "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init";
 in
 {

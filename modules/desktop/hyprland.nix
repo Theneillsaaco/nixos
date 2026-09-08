@@ -7,7 +7,6 @@
   };
 
   environment.systemPackages = with pkgs; [  
-    qtengine
     xdg-utils
     shared-mime-info
     desktop-file-utils

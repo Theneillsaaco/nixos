@@ -9,7 +9,6 @@
       package = pkgs.kdePackages.kwallet-pam;  # este SÍ hace falta
     };
   };
-  services.desktopManager.plasma6.enable = true;
   
   services.gnome.gnome-keyring.enable = false;
 

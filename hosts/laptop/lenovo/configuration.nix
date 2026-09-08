@@ -27,10 +27,9 @@
   
   environment.variables.NIXOS_OZONE_WL = "1";
 
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Resume from swap on boot
   boot.resumeDevice = "/dev/mapper/luks-d7768ef2-4c7b-4d66-acec-96bd52f82e5b";
+  boot.kernelParams = [ "resume_offset=31237376" ];
   
   # Dont touch this
   system.stateVersion = "26.05";

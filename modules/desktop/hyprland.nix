@@ -6,8 +6,6 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-  security.pam.services.hyprland.kwallet.enable = true;
-
   environment.systemPackages = with pkgs; [  
     qtengine
     xdg-utils
@@ -29,10 +27,8 @@
       ];
       
       config = {
-        common = {
-          default = [ "gtk" ];
-          "org.freedesktop.impl.portal.FileChooser" = ["kde"];
-        };
+        common.default = [ "gtk" ];
+        hyprland."org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
       };
     };
   };

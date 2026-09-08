@@ -17,13 +17,7 @@
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
-
-      # Hibernation
-      "resume_offset=31237376"
       
-      # Cifra la memoria RAM vía hardware en procesadores AMD (AMD Memory Guard / SME)
-      "mem_encrypt=on"
-
       # Evita que procesos sin privilegios lean la memoria RAM o variables del Kernel
       "page_alloc.shuffle=1"
     ];

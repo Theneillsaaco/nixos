@@ -19,5 +19,11 @@
     arduino-cli
     screen
     
+    cmake
+    ninja
+    pkg-config
+    lua
+    qt6.qtbase
+    qt6.qtdeclarative
   ];
 }

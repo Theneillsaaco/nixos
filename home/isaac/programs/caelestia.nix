@@ -132,9 +132,11 @@
       };
 
       services = {
-        useFahrenheit = false;
+        weatherUnits = "Celsius";
+        sensorUnits = "Celsius";
         useTwelveHourClock = false;
         smartScheme = true;
+        playerAliases = [{ from = "com.github.th_ch.youtube_music"; to = "YT Music"; }];
         gpuType = "Auto";
       };
       

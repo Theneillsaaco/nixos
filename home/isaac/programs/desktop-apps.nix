@@ -3,6 +3,7 @@
     # Chats
     discord
     signal-desktop
+    element-desktop
     
     pear-desktop # Youtube music
     onlyoffice-desktopeditors

@@ -67,7 +67,6 @@
           showWindowsOnSpecialWorkspaces = true;
           maxWindowIcons = 5;
           activeTrail = false;
-          perMonitorWorkspaces = true;
           
           # special icons
           specialWorkspaceIcons = [ { name = "steam"; icon = "sports_esports"; } ];

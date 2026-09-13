@@ -5,8 +5,6 @@
 
   programs.partition-manager.enable = true;
   programs.kdeconnect.enable = true;
-
-  security.pam.services.login.kwallet.enable = true;
   
   environment.systemPackages = with pkgs; [
     kdePackages.kio

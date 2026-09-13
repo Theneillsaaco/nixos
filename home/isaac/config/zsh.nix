@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, hostName, ... }: {
   programs.zsh = {
     enable = true;
 
@@ -21,9 +21,9 @@
 
     shellAliases = {
       ll = "ls -alh";
-      rebuild = "nh os switch /etc/nixos#lenovo";
+      rebuild = "nh os switch /etc/nixos#${hostName}";
       update = "sudo nix flake update --flake /etc/nixos";
-      boot = "nh os boot /etc/nixos#lenovo";
+      boot = "nh os boot /etc/nixos#${hostName}";
       upgrade = "update && rebuild";
     };
 

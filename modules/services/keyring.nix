@@ -1,12 +1,12 @@
 { pkgs, ... }: {
   security.pam.services = {
-    login.kwallet.enable = true;  # package ya lo fuerza plasma6.nix a Qt6, no lo repitas
+    login.kwallet.enable = true;
     sddm.kwallet.enable = true;
     hyprland.kwallet.enable = true;
     
     plasma-login-manager.kwallet = {
       enable = true;
-      package = pkgs.kdePackages.kwallet-pam;  # este SÍ hace falta
+      package = pkgs.kdePackages.kwallet-pam;
     };
   };
   
@@ -15,7 +15,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kwallet-pam
     kdePackages.kwalletmanager
-    libsecret # Útil para probar con 'secret-tool'
+    libsecret
   ];
 
   systemd.services."drkonqi-coredump-processor@".enable = false;

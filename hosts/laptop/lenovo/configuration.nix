@@ -6,26 +6,18 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common.nix
+      ../../../modules/optional/tpm-unlock.nix
+
       ../../../modules/hardware/amd.nix
       ../../../modules/users/isaac.nix
-      ../../../modules/optional/tpm-unlock.nix
     ] ++ myLib.importDir ../../../modules/system
       ++ myLib.importDir ../../../modules/programs
       ++ myLib.importDir ../../../modules/services
       ++ myLib.importDir ../../../modules/desktop
       ++ myLib.importDir ../../../packages;
 
-  nixpkgs.config.allowUnfree = true;
-  
-  programs.zsh.enable = true;
-  services.flatpak.enable = true;
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
-  
-  programs.gamemode.enable = true;
   security.allowUserNamespaces = true;
-  
-  environment.variables.NIXOS_OZONE_WL = "1";
 
   # Resume from swap on boot
   boot.resumeDevice = "/dev/mapper/luks-d7768ef2-4c7b-4d66-acec-96bd52f82e5b";

@@ -57,11 +57,11 @@
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
 
-    mkHost = hostPath: stateVersion: nixpkgs.lib.nixosSystem {
+    mkHost = hostPath: hostName: stateVersion: nixpkgs.lib.nixosSystem {
       inherit system;
 
       specialArgs = {
-        inherit inputs username myLib stateVersion;
+        inherit inputs username myLib stateVersion hostName;
       };
 
       modules = [
@@ -77,7 +77,7 @@
           home-manager.backupFileExtension = "hm-backup";
           
           home-manager.extraSpecialArgs = {
-            inherit inputs username myLib stateVersion;
+            inherit inputs username myLib stateVersion hostName;
           };
 
           home-manager.users.${username} = 
@@ -87,9 +87,9 @@
     };
   in {
     # old laptop hp (Intel i5-7200U)
-    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix "25.11";
+    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix "hp" "25.11";
 
     # lenovo new (Ryzen 7 5825U)
-    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix "26.05";
+    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix "lenovo" "26.05";
   };
 }

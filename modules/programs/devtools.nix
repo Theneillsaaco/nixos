@@ -4,8 +4,6 @@
     fastfetch
 
     cloudflared
-    curl
-    wget
     nil
     nixd
     alejandra

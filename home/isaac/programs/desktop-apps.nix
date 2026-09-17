@@ -13,6 +13,5 @@
     # office
     onlyoffice-desktopeditors
     obsidian
-    google-drive-ocamlfuse
   ];
 }

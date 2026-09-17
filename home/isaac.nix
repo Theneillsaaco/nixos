@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, myLib, stateVersion ? "25.11", ... }: {
+{ pkgs, inputs, username, myLib, lib, stateVersion ? "25.11", ... }: {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -34,8 +34,14 @@
     glib
   ];
 
+  # Clean up old backups
+  home.activation.cleanOldBackups = lib.hm.dag.entryBefore [ "linkGeneration" ] ''
+    $DRY_RUN_CMD find "$HOME/.config" -maxdepth 3 -name "*.backup" -type f -delete 2>/dev/null || true
+  '';
+    
   # Variables
   home.sessionVariables = {
     # DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
+    ELECTRON_EXTRA_FLAGS = "--password-store=kwallet6";
   };
 }

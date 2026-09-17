@@ -13,17 +13,11 @@
   services.gnome.gnome-keyring.enable = false;
 
   environment.systemPackages = with pkgs; [
+    kdePackages.kwallet
     kdePackages.kwallet-pam
     kdePackages.kwalletmanager
     libsecret
   ];
 
   systemd.services."drkonqi-coredump-processor@".enable = false;
-
-  systemd.user.services."dbus-:1.2-org.kde.kwalletd6@3.service" = {
-    serviceConfig = {
-      Restart = "on-failure";
-      RestartSec = "1";
-    };
-  };
 }

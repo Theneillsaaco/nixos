@@ -6,8 +6,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd --all WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
-    -- Keyring: Invocar el binario dentro del mismo subshell pasando la variable
+    -- Keyring
     hl.exec_cmd(kwallet_path)
+    hl.exec_cmd("kwalletd6")
 
     -- Apps
     hl.exec_cmd("uwsm app -- discord --start-minimized")

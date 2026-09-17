@@ -21,13 +21,16 @@
       enable = true;
 
       extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
         kdePackages.xdg-desktop-portal-kde
         xdg-desktop-portal-gtk
       ];
 
       config = {
-        common.default = [ "gtk" ];
-        hyprland."org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+        common.default = [ "hyprland" "gtk" ];
+        hyprland = {
+          "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+        };
       };
     };
   };

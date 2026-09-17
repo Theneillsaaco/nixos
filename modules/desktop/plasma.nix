@@ -5,7 +5,7 @@
 
   programs.partition-manager.enable = true;
   programs.kdeconnect.enable = true;
-  
+
   environment.systemPackages = with pkgs; [
     kdePackages.kio
     kdePackages.kio-extras

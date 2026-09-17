@@ -4,7 +4,7 @@
     homeDirectory = "/home/${username}";
     inherit stateVersion;
   };
-  
+
   programs.home-manager.enable = true;
 
   imports = [
@@ -28,12 +28,12 @@
     hyprshot
     hyprpicker
     cliphist
-    
+
     # Misc
     dconf
     glib
   ];
-  
+
   # Variables
   home.sessionVariables = {
     # DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";

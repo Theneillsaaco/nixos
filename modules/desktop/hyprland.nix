@@ -6,25 +6,25 @@
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
-  environment.systemPackages = with pkgs; [  
+  environment.systemPackages = with pkgs; [
     xdg-utils
     shared-mime-info
     desktop-file-utils
   ];
-  
+
   xdg = {
     mime.enable = true;
     icons.enable = true;
     menus.enable = true;
-    
+
     portal = {
       enable = true;
-      
-      extraPortals = with pkgs; [ 
+
+      extraPortals = with pkgs; [
         kdePackages.xdg-desktop-portal-kde
         xdg-desktop-portal-gtk
       ];
-      
+
       config = {
         common.default = [ "gtk" ];
         hyprland."org.freedesktop.impl.portal.FileChooser" = [ "kde" ];

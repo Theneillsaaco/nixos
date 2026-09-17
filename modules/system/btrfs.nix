@@ -22,7 +22,7 @@
       };
     };
   };
-  
+
   # btrfs config
   services.btrfs.autoScrub = {
     enable = true;

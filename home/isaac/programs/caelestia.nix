@@ -9,18 +9,18 @@
     settings = {
       appearance = {
         deformScale = 1;
-        
+
         transparency = {
           enabled = true;
           base = 0.85;
           layers = 0.8;
         };
-        
+
         font = {
           scale = 1;
           clock = "Rubik";
           workspaces = "Rubik";
-          
+
           body = {
             family = "Rubik";
           };
@@ -37,13 +37,13 @@
         showOverFullscreen = false;
         mediaGifSpeedAdjustment = 300;
         sessionGifSpeed = 0.7;
-        
+
         apps = {
           terminal = [ "foot" ];
           audio = [ "pavucontrol" ];
           explorer = [ "dolphin" ];
         };
-        
+
         idle = {
           lockBeforeSleep = true;
           inhibitWhenAudio = true;
@@ -58,7 +58,7 @@
         persistent = true;
         showOnHover = true;
         dragThreshold = 20;
-        
+
         workspaces = {
           shown = 5;
           activeIndicator = true;
@@ -67,12 +67,12 @@
           showWindowsOnSpecialWorkspaces = true;
           maxWindowIcons = 5;
           activeTrail = false;
-          
+
           # special icons
           specialWorkspaceIcons = [ { name = "steam"; icon = "sports_esports"; } ];
           windowIcons = [ { regex = "steam(_app_(default|[0-9]+))?"; icon = "sports_esports"; } ];
         };
-        
+
         statusIcons = [
           { id = "lockStatus"; enabled = false; }
           { id = "microphone"; enabled = false; }
@@ -82,13 +82,13 @@
           { id = "bluetooth"; enabled = true; }
           { id = "battery"; enabled = true; }
         ];
-        
+
         scrollActions = {
           volume = true;
           workspaces = true;
           brightness = true;
         };
-        
+
         # Iconos pequenos
         tray = {
           background = false;
@@ -109,7 +109,7 @@
         maxWallpapers = 9;
         specialPrefix = "@";
         actionPrefix = ">";
-        enableDangerousActions = false; 
+        enableDangerousActions = false;
       };
 
       notifs = {
@@ -138,12 +138,12 @@
         playerAliases = [{ from = "com.github.th_ch.youtube_music"; to = "YT Music"; }];
         gpuType = "Auto";
       };
-      
+
       session = {
         enabled = true;
         dragThreshold = 30;
         vimKeybinds = false;
-        
+
         commands = {
           logout = [ "logout" ];
           shutdown = [ "poweroff" ];
@@ -151,14 +151,14 @@
           hibernate = [ "systemctl hibernate" ];
         };
       };
-      
+
       background.desktopClock = {
         enabled = true;
         position = "bottom-right";
         scale = 1.0;
       };
     };
-    
+
     systemd = {
       enable = false;
     };

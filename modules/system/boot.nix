@@ -9,7 +9,7 @@
       # kernelModules = [ "amdgpu" ];
       systemd.enable = true;
     };
-    
+
     kernelParams = [
       "quiet"
       "splash"
@@ -17,16 +17,16 @@
       "rd.systemd.show_status=auto"
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
-      
+
       # Evita que procesos sin privilegios lean la memoria RAM o variables del Kernel
       "page_alloc.shuffle=1"
     ];
 
     kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
-    
+
     loader = {
       timeout = 0;
-      
+
       systemd-boot = {
         enable = false;
       };
@@ -39,7 +39,7 @@
       pkiBundle = "/var/lib/sbctl";
     };
   };
-  
+
   boot.plymouth = {
     enable = true;
     theme = "sphere";

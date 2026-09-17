@@ -1,8 +1,7 @@
 { pkgs, ... }:
 let
   pamKwalletInit = "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init";
-in
-{
+in {
   imports = [
     ./animations.nix
   ];
@@ -24,7 +23,7 @@ in
       "execs" = { autoLoad = true; content = builtins.readFile ./lua/execs.lua; };
       "keybinds" = { autoLoad = true; content = builtins.readFile ./lua/keybinds.lua; };
     };
-    
+
     settings = {
       # Monitor — confirmado: output = "" como catch-all
       monitor = {
@@ -51,7 +50,7 @@ in
 
       config = {
         cursor.no_hardware_cursors = false;
-        
+
         general = {
           resize_on_border = true;
           gaps_in = 6;
@@ -59,7 +58,7 @@ in
           border_size = 2;
           layout = "master";
         };
-        
+
         decoration = {
           active_opacity = 1.0;
           inactive_opacity = 0.85;
@@ -74,13 +73,13 @@ in
             size = 6;
           };
         };
-        
+
         master = {
           new_status = "master"; # string desde Hyprland 0.55+
           allow_small_split = true;
           mfact = 0.5;
         };
-        
+
         misc = {
           vrr = 0;
           disable_hyprland_logo = true;
@@ -88,7 +87,7 @@ in
           focus_on_activate = true;
           middle_click_paste = false;
         };
-        
+
         input = {
           kb_layout = "us";
           follow_mouse = 1;
@@ -101,7 +100,7 @@ in
             drag_lock = false;
           };
         };
-        
+
         debug.disable_logs = false;
       };
     };

@@ -26,7 +26,7 @@
       fmt = "nix fmt /etc/nixos";
       check = "nix flake check /etc/nixos";
       lint = "statix check /etc/nixos && deadnix /etc/nixos";
-      
+
       rebuild = "nh os switch /etc/nixos#${hostName}";
       boot = "nh os boot /etc/nixos#${hostName}";
       update = "sudo nix flake update --flake /etc/nixos";

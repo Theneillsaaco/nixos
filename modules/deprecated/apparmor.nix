@@ -2,8 +2,8 @@
   security.apparmor = {
     enable = true;
     killUnconfinedConfinables = true;
-    
-    packages = with pkgs; [ 
+
+    packages = with pkgs; [
       apparmor-profiles
     ];
   };

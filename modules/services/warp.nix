@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     cloudflare-warp
-    
+
     # fix warp
     (writeShellScriptBin "warp-off" ''
       warp-cli disconnect
@@ -12,12 +12,12 @@
       warp-cli connect
     '')
   ];
-  
+
   services.cloudflare-warp = {
     enable = true;
     openFirewall = true;
   };
-  
+
   # Unfortunately, this is necessary for it to work
   networking.firewall.checkReversePath = "loose";
 }

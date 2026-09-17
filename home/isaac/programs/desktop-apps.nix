@@ -4,10 +4,9 @@
     discord
     signal-desktop
     element-desktop
-    
+
     pear-desktop # Youtube music
-    
-    
+
     # Audio tools
     pwvucontrol
 

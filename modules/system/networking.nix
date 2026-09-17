@@ -1,19 +1,23 @@
 {
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    networkmanager.enable = true;
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 4321 54321 ];
-  };
-  
-  services.resolved = {
-    enable = true;
-    settings.Resolve = {
-      DNSSEC = "allow-downgrade";
-      FallbackDNS = [ "1.1.1.1" "8.8.8.8" ];
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 4321 54321 ];
     };
   };
 
-  services.geoclue2.enable = true;
+  services = {
+    resolved = {
+      enable = true;
+      settings.Resolve = {
+        DNSSEC = "allow-downgrade";
+        FallbackDNS = [ "1.1.1.1" "8.8.8.8" ];
+      };
+    };
+
+    geoclue2.enable = true;
+  };
 }

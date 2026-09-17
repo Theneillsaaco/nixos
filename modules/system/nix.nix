@@ -5,33 +5,33 @@
     #   dates = "daily";
     #   options = "--delete-older-than 7d";
     # };
-    
+
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
-    
+
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       
       max-jobs = "auto";
       cores = 0;
       auto-optimise-store = true;
-      
+
       keep-going = true;
       warn-dirty = false;
       builders-use-substitutes = true;
       eval-cache = true;
-      
+
       # Determinate nix requires
       # lazy-trees = true;
-      
+
       substituters = [
         "https://nix-community.cachix.org"
         # "https://cache.determinate.systems"
         "https://cache.nixos.org/"
         "https://theneillsaaco-nix.cachix.org"
-        "https://attic.xuyh0120.win/lantian" 
+        "https://attic.xuyh0120.win/lantian"
         "https://hyprland.cachix.org"
       ];
       trusted-public-keys = [

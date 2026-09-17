@@ -9,11 +9,11 @@
 
   # Power management daemon
   powerManagement.enable = true;
-  
+
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
   services.thermald.enable = true;
-  
+
   # Drivers
   hardware.graphics = {
     enable = true;

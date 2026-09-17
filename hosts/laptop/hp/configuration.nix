@@ -9,13 +9,14 @@
       ../../common.nix
 
       ../../../modules/hardware/intel.nix
-      
+
       ../../../modules/users/isaac.nix
-    ] ++ myLib.importDir ../../../modules/system
-      ++ myLib.importDir ../../../modules/programs
-      ++ myLib.importDir ../../../modules/services
-      ++ myLib.importDir ../../../modules/desktop
-      ++ myLib.importDir ../../../packages;
+    ]
+    ++ myLib.importDir ../../../modules/system
+    ++ myLib.importDir ../../../modules/programs
+    ++ myLib.importDir ../../../modules/services
+    ++ myLib.importDir ../../../modules/desktop
+    ++ myLib.importDir ../../../packages;
 
   # Dont touch this
   system.stateVersion = "25.11";

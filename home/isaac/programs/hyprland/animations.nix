@@ -7,8 +7,7 @@ let
       (inline ''{ type = "bezier", points = { {${toString x1}, ${toString y1}}, {${toString x2}, ${toString y2}} } }'')
     ];
   };
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     curve = [
       (mkCurve "easeOut" 0.16 1 0.3 1)

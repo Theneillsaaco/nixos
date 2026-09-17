@@ -1,21 +1,21 @@
 {
   programs.starship = {
     enable = true;
-    
+
     settings = {
       scan_timeout = 3000;
       add_newline = false;
       continuation_prompt = "[▸▹ ](dimmed white)";
-      
+
       format = ''
         ($nix_shell$container$fill$git_metrics)
         $cmd_duration$hostname$localip$shlvl$shell$env_var$jobs$sudo$username$character
       '';
-      
+
       right_format = "$directory$git_branch$git_commit$git_state$git_status$nodejs$python$rust$golang$status$os$battery$time";
-      
+
       fill.symbol = " ";
-      
+
       character = {
         format = "$symbol ";
         success_symbol = "[◎](bold italic bright-yellow)";
@@ -30,14 +30,14 @@
         format = "[$env_value]($style)";
         style = "green italic";
       };
-      
+
       sudo = {
         format = "[$symbol]($style)";
         style = "bold italic bright-purple";
         symbol = "⋈┈";
         disabled = false;
       };
-      
+
       username = {
         style_user = "bright-yellow bold italic";
         style_root = "purple bold italic";
@@ -45,7 +45,7 @@
         disabled = false;
         show_always = false;
       };
-      
+
       directory = {
         home_symbol = "⌂";
         truncation_length = 2;
@@ -57,12 +57,12 @@
         repo_root_style = "bold blue";
         repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-blue)";
       };
-      
+
       cmd_duration = {
         min_time = 0;
         format = "[◄ $duration ](italic white)";
       };
-      
+
       jobs = {
         format = "[$symbol$number]($style) ";
         style = "white";
@@ -97,7 +97,7 @@
           { threshold = 70; style = "italic dimmed yellow"; }
         ];
       };
-      
+
       git_branch = {
         format = " [$branch(:$remote_branch)]($style)";
         symbol = "[△](bold italic bright-blue)";

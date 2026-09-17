@@ -8,12 +8,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     # Shells
     caelestia-shell.url = "github:caelestia-dots/shell";
-    
+
     # dotfiles = {
     #   url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
     #   flake = false;
@@ -23,19 +23,19 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-        
+
     # illogical-flake = {
     #   url = "github:Theneillsaaco/illogical-flake";
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.dotfiles.follows = "dotfiles";
     #   inputs.quickshell.follows = "quickshell";
     # };
-    
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -46,7 +46,7 @@
 
     # Kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    
+
     # Determinate Systems modules
     # determinate.url = "github:DeterminateSystems/determinate/main";
   };
@@ -57,35 +57,40 @@
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
     pkgs = nixpkgs.legacyPackages.${system};
-    
-    mkHost = hostPath: hostName: stateVersion: nixpkgs.lib.nixosSystem {
-      inherit system;
 
-      specialArgs = {
-        inherit inputs username myLib stateVersion hostName;
+    mkHost = hostPath: hostName: stateVersion:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = {
+          inherit inputs username myLib stateVersion hostName;
+        };
+
+        modules = [
+          hostPath
+
+          lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          # determinate.nixosModules.default
+
+          ({
+            inputs,
+            username,
+            ...
+          }: {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+
+            home-manager.extraSpecialArgs = {
+              inherit inputs username myLib stateVersion hostName;
+            };
+
+            home-manager.users.${username} =
+              import ./home/isaac.nix;
+          })
+        ];
       };
-
-      modules = [
-        hostPath
-
-        lanzaboote.nixosModules.lanzaboote
-        home-manager.nixosModules.home-manager
-        # determinate.nixosModules.default
-
-        ({ inputs, username, ...}: {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hm-backup";
-          
-          home-manager.extraSpecialArgs = {
-            inherit inputs username myLib stateVersion hostName;
-          };
-
-          home-manager.users.${username} = 
-            import ./home/isaac.nix;
-        })
-      ];
-    };
   in {
     # old laptop hp (Intel i5-7200U)
     nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix "hp" "25.11";

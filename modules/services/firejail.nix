@@ -16,8 +16,7 @@ let
       executable = "${pkgs.${name}}/bin/${name}";
       profile = "${pkgs.firejail}/etc/firejail/${name}.profile";
     });
-in
-{
+in {
   programs.firejail = {
     enable = true;
 

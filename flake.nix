@@ -56,7 +56,8 @@
     system = "x86_64-linux";
     username = "isaac";
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
-
+    pkgs = nixpkgs.legacyPackages.${system};
+    
     mkHost = hostPath: hostName: stateVersion: nixpkgs.lib.nixosSystem {
       inherit system;
 
@@ -91,5 +92,23 @@
 
     # lenovo new (Ryzen 7 5825U)
     nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix "lenovo" "26.05";
+
+    formatter.${system} = pkgs.alejandra;
+
+    checks.${system} = {
+      statix = pkgs.runCommand "statix-check" { nativeBuildInputs = [ pkgs.statix ]; } ''
+        statix check ${./.}
+        touch $out
+      '';
+
+      deadnix = pkgs.runCommand "deadnix-check" { nativeBuildInputs = [ pkgs.deadnix ]; } ''
+        deadnix --fail ${./.}
+        touch $out
+      '';
+    };
+
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [ statix deadnix alejandra ];
+    };
   };
 }

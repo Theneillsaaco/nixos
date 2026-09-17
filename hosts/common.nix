@@ -1,6 +1,7 @@
 { ... }: {
     nixpkgs.config.allowUnfree = true;
-
+    
+    programs.fuse.userAllowOther = true;
     programs.zsh.enable = true;
     programs.appimage.enable = true;
     programs.appimage.binfmt = true;

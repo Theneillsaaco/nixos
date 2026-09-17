@@ -21,10 +21,17 @@
 
     shellAliases = {
       ll = "ls -alh";
+      dev = "nix develop";
+
+      fmt = "nix fmt /etc/nixos";
+      check = "nix flake check /etc/nixos";
+      lint = "statix check /etc/nixos && deadnix /etc/nixos";
+      
       rebuild = "nh os switch /etc/nixos#${hostName}";
-      update = "sudo nix flake update --flake /etc/nixos";
       boot = "nh os boot /etc/nixos#${hostName}";
+      update = "sudo nix flake update --flake /etc/nixos";
       upgrade = "update && rebuild";
+      gc = "nh clean all";
     };
 
     initContent = ''

@@ -6,9 +6,14 @@
     element-desktop
     
     pear-desktop # Youtube music
-    onlyoffice-desktopeditors
+    
     
     # Audio tools
     pwvucontrol
+
+    # office
+    onlyoffice-desktopeditors
+    obsidian
+    google-drive-ocamlfuse
   ];
 }

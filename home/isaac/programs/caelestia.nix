@@ -133,7 +133,7 @@
       services = {
         weatherUnits = "Celsius";
         sensorUnits = "Celsius";
-        useTwelveHourClock = false;
+        clockFormat = "TwentyFourHour";
         smartScheme = true;
         playerAliases = [{ from = "com.github.th_ch.youtube_music"; to = "YT Music"; }];
         gpuType = "Auto";

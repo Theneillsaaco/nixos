@@ -14,26 +14,14 @@
     # Shells
     caelestia-shell.url = "github:caelestia-dots/shell";
 
-    # dotfiles = {
-    #   url = "git+https://github.com/Theneillsaaco/dots-hyprland?submodules=1";
-    #   flake = false;
-    # };
-
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # illogical-flake = {
-    #   url = "github:Theneillsaaco/illogical-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.dotfiles.follows = "dotfiles";
-    #   inputs.quickshell.follows = "quickshell";
-    # };
-
     hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/Hyprland/2eb5180c6f258bb73c4b9b71a1361dede0e1453e";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {

@@ -66,7 +66,8 @@
           showWindows = true;
           showWindowsOnSpecialWorkspaces = true;
           maxWindowIcons = 5;
-          activeTrail = false;
+          activeTrail = true;
+          showUnoccupied = false;
 
           # special icons
           specialWorkspaceIcons = [ { name = "steam"; icon = "sports_esports"; } ];
@@ -137,6 +138,7 @@
         smartScheme = true;
         playerAliases = [{ from = "com.github.th_ch.youtube_music"; to = "YT Music"; }];
         gpuType = "Auto";
+        dataUnits = "Decimal";
       };
 
       session = {

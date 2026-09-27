@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, lib, inputs, ... }: {
   
   boot = {
     consoleLogLevel = 3;
@@ -22,7 +22,7 @@
       "page_alloc.shuffle=1"
     ];
 
-    kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
+    kernelPackages = lib.mkDefault inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto;
 
     loader = {
       timeout = 0;

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ myLib, ... }: {
+{ pkgs, myLib, inputs, ... }: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -21,8 +21,12 @@
   security.allowUserNamespaces = true;
 
   # Resume from swap on boot
-  boot.resumeDevice = "/dev/mapper/luks-d7768ef2-4c7b-4d66-acec-96bd52f82e5b";
-  boot.kernelParams = [ "resume_offset=31237376" ];
+  boot = {
+    resumeDevice = "/dev/mapper/luks-d7768ef2-4c7b-4d66-acec-96bd52f82e5b";
+    kernelParams = [ "resume_offset=31237376" ];
+
+    kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto-x86_64-v3;
+  };
   
   # Dont touch this
   system.stateVersion = "26.05";

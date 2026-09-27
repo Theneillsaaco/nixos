@@ -12,5 +12,7 @@
 
     # office
     onlyoffice-desktopeditors
+
+    brave
   ];
 }

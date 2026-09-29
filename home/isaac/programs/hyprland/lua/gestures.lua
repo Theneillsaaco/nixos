@@ -9,9 +9,9 @@ hl.config({
     },
 })
 
-hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
-hl.gesture({ fingers = 3, direction = "up", action = "special", workspace_name = "special" })
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 4, direction = "up", action = "special", workspace_name = "special" })
 hl.gesture({
-    fingers = 3, direction = "down",
+    fingers = 4, direction = "down",
     action = function() hl.dispatch(hl.dsp.workspace.toggle_special("special")) end,
 })

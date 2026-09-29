@@ -52,8 +52,8 @@ hl.window_rule({ match = { class = "blueman-manager|yad|zenity|wev" }, float = t
 hl.window_rule({ match = { title = "File (Operation|Upload)( Progress)?|.* Properties|Rename \".*\"" }, float = true })
 
 -- Gaps mayores con una sola ventana
-hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 20 })
-hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 20 })
+hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 15 })
+hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 15 })
 
 -- Layer rules
 hl.layer_rule({ match = { namespace = "hyprpicker" }, animation = "fade" })

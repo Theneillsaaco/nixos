@@ -10,19 +10,23 @@ let
 in {
   wayland.windowManager.hyprland.settings = {
     curve = [
-      (mkCurve "easeOut" 0.16 1 0.3 1)
-      (mkCurve "easeIn" 0.7 0 0.84 0)
-      (mkCurve "easeInOut" 0.37 0 0.63 1)
-      (mkCurve "easeOutBack" 0.34 1.56 0.64 1)
+      (mkCurve "standard" 0.2 0 0 1)
+      (mkCurve "emphasizedAccel" 0.3 0 0.8 0.15)
+      (mkCurve "emphasizedDecel" 0.05 0.7 0.1 1)
     ];
 
     animation = [
-      { leaf = "windows"; enabled = true; speed = 4; bezier = "easeOutBack"; style = "slide"; }
-      { leaf = "windowsOut"; enabled = true; speed = 3; bezier = "easeIn";      style = "slide"; }
-      { leaf = "windowsMove"; enabled = true; speed = 4; bezier = "easeOutBack"; }
-      { leaf = "fade"; enabled = true; speed = 4; bezier = "easeInOut"; }
-      { leaf = "workspaces"; enabled = true; speed = 5; bezier = "easeOutBack"; style = "slidevert"; }
-      { leaf = "layers"; enabled = true; speed = 3; bezier = "easeOutBack"; style = "slide"; }
+      { leaf = "layersIn";  enabled = true; speed = 5; bezier = "emphasizedDecel"; style = "slide"; }
+      { leaf = "layersOut"; enabled = true; speed = 4; bezier = "emphasizedAccel"; style = "slide"; }
+      { leaf = "fadeLayers"; enabled = true; speed = 5; bezier = "standard"; }
+      { leaf = "windowsIn";  enabled = true; speed = 5; bezier = "emphasizedDecel"; }
+      { leaf = "windowsOut"; enabled = true; speed = 3; bezier = "emphasizedAccel"; }
+      { leaf = "windowsMove"; enabled = true; speed = 6; bezier = "standard"; }
+      { leaf = "workspaces"; enabled = true; speed = 5; bezier = "standard"; style = "slidevert"; }
+      { leaf = "specialWorkspace"; enabled = true; speed = 4; bezier = "emphasizedDecel"; style = "slidefadevert 15%"; }
+      { leaf = "fade";    enabled = true; speed = 6; bezier = "standard"; }
+      { leaf = "fadeDim"; enabled = true; speed = 6; bezier = "standard"; }
+      { leaf = "border";  enabled = true; speed = 6; bezier = "standard"; }
     ];
   };
 }

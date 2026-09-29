@@ -75,6 +75,8 @@ hl.bind("Print", hl.dsp.exec_cmd("caelestia screenshot"))
 hl.bind(shiftMod .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mod .. " + V", hl.dsp.exec_cmd("pkill fuzzel || caelestia clipboard"))
 hl.bind(mod .. " + Period", hl.dsp.exec_cmd("pkill fuzzel || caelestia emoji -p"))
+hl.bind(mod .. " + M", hl.dsp.workspace.toggle_special("music"))
+hl.bind(shiftMod .. " + D", hl.dsp.workspace.toggle_special("communication"))
 
 -- Volumen
 hl.bind("XF86AudioRaiseVolume",

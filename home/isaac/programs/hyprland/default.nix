@@ -22,6 +22,8 @@ in {
       "vars" = { autoLoad = false; content = builtins.readFile ./lua/vars.lua; };
       "execs" = { autoLoad = true; content = builtins.readFile ./lua/execs.lua; };
       "keybinds" = { autoLoad = true; content = builtins.readFile ./lua/keybinds.lua; };
+      "rules" = { autoLoad = true; content = builtins.readFile ./lua/rules.lua; };
+      "gestures" = { autoLoad = true; content = builtins.readFile ./lua/gestures.lua; };
     };
 
     settings = {
@@ -45,6 +47,9 @@ in {
         { _args = [ "ELECTRON_OZONE_PLATFORM_HINT" "auto" ]; }
         { _args = [ "SDL_VIDEODRIVER" "wayland,x11" ]; }
         { _args = [ "CLUTTER_BACKEND" "wayland" ]; }
+        { _args = [ "_JAVA_AWT_WM_NONREPARENTING" "1" ]; }
+        { _args = [ "XCURSOR_THEME" "phinger-cursors-light" ]; }
+        { _args = [ "XCURSOR_SIZE" "24" ]; }
       ];
 
       config = {
@@ -62,14 +67,22 @@ in {
           active_opacity = 1.0;
           inactive_opacity = 0.85;
           rounding = 17;
+          rounding_power = 2;
           shadow = {
             enabled = true;
-            range = 8;
-            render_power = 3;
+            range = 15;
+            render_power = 4;
           };
+          
           blur = {
             enabled = true;
-            size = 6;
+            size = 8;
+            passes = 2;
+            xray = false;
+            ignore_opacity = true;
+            new_optimizations = true;
+            popups = true; 
+            input_methods = true;
           };
         };
 
@@ -85,18 +98,29 @@ in {
           disable_splash_rendering = true;
           focus_on_activate = true;
           middle_click_paste = false;
+          force_default_wallpaper = 0;
+          allow_session_lock_restore = true;
+          animate_manual_resizes = false;
+          animate_mouse_windowdragging = false;
+          on_focus_under_fullscreen = 2;
+          mouse_move_enables_dpms = true;
+          key_press_enables_dpms = true;
         };
 
+        binds.scroll_event_delay = 0; 
+        
         input = {
           kb_layout = "us";
           follow_mouse = 1;
           sensitivity = 0;
           repeat_delay = 300;
           repeat_rate = 50;
+          focus_on_close = 1;
           touchpad = {
             natural_scroll = true;
             tap_to_click = true;
             drag_lock = false;
+            scroll_factor = 0.3;
           };
         };
 

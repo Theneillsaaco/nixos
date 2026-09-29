@@ -24,10 +24,9 @@ tag("float", "class", { "blueman-manager", "org.quickshell", "yad|zenity", "wev"
 tag("float", "title", { "File (Operation|Upload)( Progress)?", ".* Properties", 'Rename ".*"' })
 tag("float_60_70", "title", { "(Select|Open)( a)? (File|Folder)(s)?", "Save As" })
 tag("float_60_70", "class", { "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" })
-tag("game", "class", { "steam_app_[0-9]+", "steam_app_default", "gamescope" })
+tag("game", "class", { "steam_app_[0-9]+", "steam_app_default", "gamescope", "org.vinegarhq.Sober" })
 tag("xwl_popup", "title", { "win[0-9]+" })
 tag("music", "class", { "com.github.th[-_]ch.youtube[-_]music" })  -- verifica con `hyprctl clients`
-tag("comms", "class", { "discord" })
 
 -- Definiciones (van DESPUÉS de todos los usos)
 hl.window_rule({ match = { tag = "opaque" }, opaque = true })
@@ -36,7 +35,21 @@ hl.window_rule({ match = { tag = "float_60_70" }, float = true, size = "(monitor
 hl.window_rule({ match = { tag = "game" }, opaque = true, immediate = true, idle_inhibit = "always" })
 hl.window_rule({ match = { tag = "xwl_popup" }, no_dim = true, no_shadow = true, no_blur = true, opaque = true, rounding = 10 })
 hl.window_rule({ match = { tag = "music" }, workspace = "special:music" })
-hl.window_rule({ match = { tag = "comms" }, workspace = "special:communication" })
+hl.window_rule({
+    match = { class = "(?i).*discord.*" },
+    workspace = "special:communication silent",
+})
+hl.window_rule({
+    match = { title = "(?i).*discord.*" },
+    workspace = "special:communication silent",
+})
+
+-- Diálogos flotantes
+hl.window_rule({ match = { title = "(Select|Open)( a)? (File|Folder)(s)?" }, float = true, size = "(monitor_w*0.6) (monitor_h*0.7)", center = true })
+hl.window_rule({ match = { title = "Save As" }, float = true, size = "(monitor_w*0.6) (monitor_h*0.7)", center = true })
+hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" }, float = true, size = "(monitor_w*0.6) (monitor_h*0.7)", center = true })
+hl.window_rule({ match = { class = "blueman-manager|yad|zenity|wev" }, float = true, center = true })
+hl.window_rule({ match = { title = "File (Operation|Upload)( Progress)?|.* Properties|Rename \".*\"" }, float = true })
 
 -- Gaps mayores con una sola ventana
 hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 20 })

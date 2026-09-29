@@ -6,4 +6,5 @@ return {
     editor = "uwsm app -- zeditor",
     fileExplorer = "uwsm app -- dolphin",
     audioSettings = "uwsm app -- pavucontrol",
+    youtube = "uwsm app -- pear-desktop"
 }

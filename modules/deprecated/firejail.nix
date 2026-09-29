@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 let
-  # Lista centralizada de aplicaciones a envolver con su perfil por defecto
   sandboxedApps = [
     "firefox"
     "discord"
@@ -10,7 +9,6 @@ let
     "onlyoffice-desktopeditors"
   ];
 
-  # Genera dinámicamente la estructura que requiere NixOS sin repetir código
   mkWrappedBinaries = apps:
     lib.genAttrs apps (name: {
       executable = "${pkgs.${name}}/bin/${name}";
@@ -20,10 +18,7 @@ in {
   programs.firejail = {
     enable = true;
 
-    # Se aplican automáticamente todas las apps de la lista
     wrappedBinaries = mkWrappedBinaries sandboxedApps // {
-
-      # Aquí defines ÚNICAMENTE las apps que necesitan argumentos adicionales     
     };
   };
 }

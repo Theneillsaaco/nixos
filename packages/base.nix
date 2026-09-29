@@ -46,7 +46,7 @@
 
     # nix
     nix-index
-    nix-output-monitor # Mejor salida para builds de Nix
+    nix-output-monitor
     nix-tree
     nvd
   ];

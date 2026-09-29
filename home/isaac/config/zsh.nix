@@ -38,7 +38,7 @@
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
 
-      # Colores Caelestia
+      # Caelestia
       cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
 
       # Marcadores

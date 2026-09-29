@@ -20,8 +20,8 @@
 
   security.allowUserNamespaces = true;
 
-  # Resume from swap on boot
   boot = {
+    # Resume from swap on boot
     resumeDevice = "/dev/mapper/luks-d7768ef2-4c7b-4d66-acec-96bd52f82e5b";
     kernelParams = [ "resume_offset=31237376" ];
 

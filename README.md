@@ -36,7 +36,7 @@ Rebuild/boot commands are host-aware: the `rebuild`/`boot`/`upgrade` shell alias
 - **File System**: Btrfs with zstd compression, Snapper snapshots, and auto-scrub
 - **Shell**: Zsh with Starship prompt
 - **Keyring**: KDE Wallet (KWallet)
-- **Additional Services**: Bluetooth, PipeWire (audio), Warp VPN, Printing, firejail sandboxing for select GUI apps
+- **Additional Services**: Bluetooth, PipeWire (audio), Warp VPN, Printing, sandboxing for select GUI apps
 - **Development**: .NET SDK, Java, PostgreSQL, Node.js/Bun, Arduino, general C/C++ toolchain and essential dev tools
 - **Security**: LUKS full-disk encryption, Secure Boot + TPM2 auto-unlock 
 - **Universal Package Support**: Flatpak & AppImage
@@ -66,7 +66,7 @@ Rebuild/boot commands are host-aware: the `rebuild`/`boot`/`upgrade` shell alias
 │   ├── system/                 # Boot, networking, locale, swap, wifi, nix settings, btrfs
 │   ├── desktop/                 # Hyprland, Plasma 6, Plasma Login Manager
 │   ├── hardware/                # amd.nix / intel.nix per-platform driver & power tuning
-│   ├── services/                # audio, bluetooth, printing, ssh, keyring, firejail, warp
+│   ├── services/                # audio, bluetooth, printing, ssh, keyring, warp
 │   ├── programs/                # java, postgres, steam, gaming, devtools, nh, nix-ld
 │   ├── users/                   # User account definitions
 │   ├── optional/                # Opt-in modules explicitly imported by a host (e.g. tpm-unlock.nix)

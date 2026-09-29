@@ -65,6 +65,7 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd(vars.fileExplorer))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd(vars.browser))
 hl.bind(mod .. " + C", hl.dsp.exec_cmd(vars.editor))
 hl.bind("CTRL + " .. mod .. " + V", hl.dsp.exec_cmd(vars.audioSettings))
+hl.bind(mod .. " + Y", hl.dsp.exec_cmd(vars.youtube))
 
 -- Screenshot / Utilidades
 hl.bind(shiftMod .. " + S", hl.dsp.global("caelestia:screenshotFreeze"))

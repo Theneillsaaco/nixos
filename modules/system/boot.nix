@@ -18,7 +18,6 @@
       "udev.log_priority=3"
       "vt.global_cursor_default=0"
 
-      # Evita que procesos sin privilegios lean la memoria RAM o variables del Kernel
       "page_alloc.shuffle=1"
     ];
 

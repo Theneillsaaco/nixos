@@ -25,7 +25,6 @@ in {
     };
 
     settings = {
-      # Monitor — confirmado: output = "" como catch-all
       monitor = {
         output = "";
         mode = "preferred";
@@ -75,7 +74,7 @@ in {
         };
 
         master = {
-          new_status = "master"; # string desde Hyprland 0.55+
+          new_status = "master";
           allow_small_split = true;
           mfact = 0.5;
         };

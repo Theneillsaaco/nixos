@@ -1,4 +1,3 @@
-local vars = require("vars")
 local kwallet_path = require("kwallet_path")
 
 hl.on("hyprland.start", function()

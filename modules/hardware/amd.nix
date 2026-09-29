@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
 
   # Zen mobile power management (5825U)
@@ -16,6 +17,10 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
   };
 
   # some utils
@@ -24,7 +29,8 @@
     mesa-demos
     vulkan-tools
     libva-utils
-
+    clinfo
+    
     SDL
     SDL2
   ];

@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     jetbrains-toolbox
-    jetbrains.clion
+    jetbrains.rider
 
     zed-editor
     opencode

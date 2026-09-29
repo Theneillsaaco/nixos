@@ -4,13 +4,14 @@
     firefox
     wget
     openssh
-    git
+    fastfetch
 
     # development
     jq
     htop
     tree
     binutils # objdump, strings
+    git
 
     # compression
     zip

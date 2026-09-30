@@ -151,7 +151,7 @@
           logout = [ "logout" ];
           shutdown = [ "poweroff" ];
           reboot = [ "reboot" ];
-          hibernate = [ "systemctl suspend-then-hibernate" ];
+          hibernate = [ "systemctl hibernate" ];
         };
       };
 

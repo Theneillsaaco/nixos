@@ -4,7 +4,7 @@
 
   # Zen mobile power management (5825U)
   boot.kernelParams = [
-    "amd_pstate=active"
+    "amd_pstate=guided"
   ];
 
   # Power management daemon

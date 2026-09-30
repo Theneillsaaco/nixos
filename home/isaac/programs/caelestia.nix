@@ -48,8 +48,9 @@
           lockBeforeSleep = true;
           inhibitWhenAudio = true;
           timeouts = [
-            { timeout = 300; idleAction = "lock"; }
+            { timeout = 180; idleAction = "lock"; inhibitWhenAudio = true; inhibitWhenCharging = true; respectInhibitors = true; }
             { timeout = 300; idleAction = "dpms off"; returnAction = "dpms on"; }
+            { timeout = 600; idleAction = [ "suspendThenHibernate" ];  }
           ];
         };
       };
@@ -136,7 +137,7 @@
         sensorUnits = "Celsius";
         clockFormat = "TwentyFourHour";
         smartScheme = true;
-        playerAliases = [{ from = "com.github.th_ch.youtube_music"; to = "YT Music"; }];
+        playerAliases = [{ from = "com.github.th-ch.youtube-music"; to = "YT Music"; }];
         gpuType = "Auto";
         dataUnits = "Decimal";
       };

@@ -1,4 +1,4 @@
-{ ... }: {
+{
   # Necesario para que el token TPM2 embebido en el header LUKS2
   # se detecte y use automáticamente durante el initrd.
   boot.initrd.systemd.enable = true;

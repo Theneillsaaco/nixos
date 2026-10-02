@@ -7,6 +7,5 @@
   environment.systemPackages = with pkgs; [
     jdk25
     jdk21
-    jdk17
   ];
 }

@@ -16,7 +16,6 @@
       
       max-jobs = "auto";
       cores = 0;
-      auto-optimise-store = true;
 
       keep-going = true;
       warn-dirty = false;

@@ -23,8 +23,8 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/2eb5180c6f258bb73c4b9b71a1361dede0e1453e";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {

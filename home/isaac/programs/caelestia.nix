@@ -50,7 +50,6 @@
           timeouts = [
             { timeout = 180; idleAction = "lock"; inhibitWhenAudio = true; inhibitWhenCharging = true; respectInhibitors = true; }
             { timeout = 300; idleAction = "dpms off"; returnAction = "dpms on"; }
-            { timeout = 600; idleAction = [ "suspendThenHibernate" ];  }
           ];
         };
       };

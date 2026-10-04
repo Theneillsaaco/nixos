@@ -3,7 +3,8 @@
     enable = true;
 
     syntaxHighlighting.enable = true;
-
+    autosuggestion.enable = true;
+    
     plugins = [
       {
         name = "zsh-autocomplete";
@@ -21,6 +22,7 @@
 
     shellAliases = {
       ll = "ls -alh";
+      cat = "bat --paging=never";
       dev = "nix develop";
 
       fmt = "nix fmt /etc/nixos";
@@ -35,9 +37,6 @@
     };
 
     initContent = ''
-      eval "$(starship init zsh)"
-      eval "$(direnv hook zsh)"
-
       # Caelestia
       cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
 
@@ -47,6 +46,18 @@
       }
 
       precmd_functions+=(_mark_prompt_start)
+
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+      bindkey "^[[3;5~" kill-word
+      bindkey "^H" backward-kill-word
+      setopt NO_CASE_GLOB
+      ${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin
     '';
+  };
+
+  programs = {
+    fzf.enable = true;
+    bat.enable = true;
   };
 }

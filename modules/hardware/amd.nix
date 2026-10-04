@@ -1,7 +1,10 @@
 { pkgs, ... }: {
-  hardware.enableRedistributableFirmware = true;
-  hardware.cpu.amd.updateMicrocode = true;
-
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode = true;
+    amdgpu.initrd.enable = true;
+  };
+  
   # Zen mobile power management (5825U)
   boot.kernelParams = [
     "amd_pstate=guided"

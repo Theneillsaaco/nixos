@@ -14,7 +14,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- kdeconnect-indicator")
 
     -- Cursor
-    hl.exec_cmd("hyprctl setcursor phinger-cursors-light 24")
+    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
 
     -- Bluetooth media
     hl.exec_cmd("mpris-proxy")

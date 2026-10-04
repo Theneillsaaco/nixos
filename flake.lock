@@ -505,7 +505,9 @@
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "pre-commit": "pre-commit",
         "rust-overlay": "rust-overlay"
       },
@@ -549,7 +551,7 @@
       "inputs": {
         "flake-compat": "flake-compat_3",
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1790564970,
@@ -568,16 +570,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790463110,
-        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
+        "lastModified": 1790505892,
+        "narHash": "sha256-/pAz2XfqHS//WRn2xRjoqes7Z92qZ0Q1gufZZ3PtuwA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
+        "rev": "545c226a9af7f59fba5c3873f7c6a65e014c8f5f",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixos-unstable-small",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -598,22 +600,6 @@
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1790505892,
-        "narHash": "sha256-/pAz2XfqHS//WRn2xRjoqes7Z92qZ0Q1gufZZ3PtuwA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "545c226a9af7f59fba5c3873f7c6a65e014c8f5f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1790822859,
         "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
@@ -721,7 +707,7 @@
         "hyprland": "hyprland",
         "lanzaboote": "lanzaboote",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "quickshell": "quickshell_2",
         "zen-browser": "zen-browser"
       }

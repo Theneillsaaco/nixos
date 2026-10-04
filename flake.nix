@@ -9,8 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote.url = "github:nix-community/lanzaboote";
-
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # Shells
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
@@ -37,9 +40,6 @@
 
     # Kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
-    # Determinate Systems modules
-    # determinate.url = "github:DeterminateSystems/determinate/main";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 
@@ -49,45 +49,45 @@
     myLib = import ./lib/importModules.nix { lib = nixpkgs.lib; };
     pkgs = nixpkgs.legacyPackages.${system};
 
-    mkHost = hostPath: hostName: stateVersion:
+    homeManagerBaseModule = { hostName, stateVersion, ... }: {
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        backupFileExtension = "backup";
+        users.${username} = import ./home/isaac.nix;
+        extraSpecialArgs = { 
+          inherit inputs username myLib stateVersion hostName;
+        };
+      };
+    };
+    
+    mkHost = { hostName, hostPath, stateVersion, arch ? system }:
       nixpkgs.lib.nixosSystem {
-        inherit system;
-
+        system = arch;
         specialArgs = {
           inherit inputs username myLib stateVersion hostName;
         };
-
         modules = [
           hostPath
-
           lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
-          # determinate.nixosModules.default
-
-          ({
-            inputs,
-            username,
-            ...
-          }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-
-            home-manager.extraSpecialArgs = {
-              inherit inputs username myLib stateVersion hostName;
-            };
-
-            home-manager.users.${username} =
-              import ./home/isaac.nix;
-          })
+          homeManagerBaseModule
         ];
       };
   in {
     # old laptop hp (Intel i5-7200U)
-    nixosConfigurations.hp = mkHost ./hosts/laptop/hp/configuration.nix "hp" "25.11";
+    nixosConfigurations.hp = mkHost {
+      hostName = "hp";
+      hostPath = ./hosts/laptop/hp/configuration.nix;
+      stateVersion = "25.11";
+    };
 
     # lenovo new (Ryzen 7 5825U)
-    nixosConfigurations.lenovo = mkHost ./hosts/laptop/lenovo/configuration.nix "lenovo" "26.05";
+    nixosConfigurations.lenovo = mkHost {
+      hostName = "lenovo";
+      hostPath = ./hosts/laptop/lenovo/configuration.nix;
+      stateVersion = "26.05";
+    };
 
     formatter.${system} = pkgs.alejandra;
 

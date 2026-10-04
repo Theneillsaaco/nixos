@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, myLib, inputs, ... }: {
+{ pkgs, myLib, inputs, lib, ... }: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -27,6 +27,8 @@
 
     kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-bore-lto-x86_64-v3;
   };
+
+  fileSystems."/nix".options = lib.mkAfter [ "compress=zstd" "noatime" ];
   
   # Dont touch this
   system.stateVersion = "26.05";

@@ -13,6 +13,9 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Kernel
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     # Shells
     caelestia-shell = {
@@ -33,8 +36,10 @@
       };
     };
 
-    # Kernel
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    sung = {
+      url = "github:theneillsaaco/sung";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 

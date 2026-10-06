@@ -6,6 +6,6 @@
       ];
     })
 
-    inputs.sung.packages.${pkgs.system}.default
+    inputs.sung.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

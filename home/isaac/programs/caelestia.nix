@@ -48,7 +48,7 @@
           lockBeforeSleep = true;
           inhibitWhenAudio = true;
           timeouts = [
-            { timeout = 180; idleAction = "lock"; inhibitWhenAudio = true; inhibitWhenCharging = true; respectInhibitors = true; }
+            { timeout = 180; idleAction = "lock"; inhibitWhenAudio = true; respectInhibitors = true; }
             { timeout = 300; idleAction = "dpms off"; returnAction = "dpms on"; }
           ];
         };

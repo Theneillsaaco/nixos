@@ -36,8 +36,8 @@
       };
     };
 
-    sung = {
-      url = "github:theneillsaaco/sung";
+    media-player = {
+      url = "github:Theneillsaaco/media-player-m3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

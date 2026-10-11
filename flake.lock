@@ -576,6 +576,26 @@
         "type": "github"
       }
     },
+    "media-player": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791742817,
+        "narHash": "sha256-VxpjoUhF1fc4mRuGL9btd554hL0xmevYqpQsikuycHg=",
+        "owner": "Theneillsaaco",
+        "repo": "media-player-m3",
+        "rev": "6246f9d636401d209045fa83a87140334d6eb3c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Theneillsaaco",
+        "repo": "media-player-m3",
+        "type": "github"
+      }
+    },
     "nix-cachyos-kernel": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -715,9 +735,9 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "lanzaboote": "lanzaboote",
+        "media-player": "media-player",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
-        "sung": "sung",
         "zen-browser": "zen-browser"
       }
     },
@@ -739,26 +759,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sung": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791165583,
-        "narHash": "sha256-odPHpt6SJ7CTH00CwXJEF5S/gMT0BSTot8UzurC6Y9k=",
-        "owner": "theneillsaaco",
-        "repo": "sung",
-        "rev": "78bf93de9a2ad11ad827a7eabc2f803b412f0ba2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "theneillsaaco",
-        "repo": "sung",
         "type": "github"
       }
     },

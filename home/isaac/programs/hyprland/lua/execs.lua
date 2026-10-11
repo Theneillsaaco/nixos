@@ -7,6 +7,7 @@ hl.on("hyprland.start", function()
 
     -- Keyring
     hl.exec_cmd(kwallet_path)
+    hl.exec_cmd("ksecretd")
     hl.exec_cmd("kwalletd6")
 
     -- Apps

@@ -6,6 +6,6 @@
       ];
     })
 
-    inputs.sung.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.media-player.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

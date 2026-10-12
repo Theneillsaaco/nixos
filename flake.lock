@@ -583,11 +583,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791742817,
-        "narHash": "sha256-VxpjoUhF1fc4mRuGL9btd554hL0xmevYqpQsikuycHg=",
+        "lastModified": 1791771148,
+        "narHash": "sha256-7ITtQ0gfw6U8ae4z/HEPYu4wpp43StQeHcMu6lsPABM=",
         "owner": "Theneillsaaco",
         "repo": "media-player-m3",
-        "rev": "6246f9d636401d209045fa83a87140334d6eb3c6",
+        "rev": "64e609ee56b8fe279f8d65fe1dc0543cb519329f",
         "type": "github"
       },
       "original": {

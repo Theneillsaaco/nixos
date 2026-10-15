@@ -26,7 +26,8 @@ tag("float_60_70", "title", { "(Select|Open)( a)? (File|Folder)(s)?", "Save As" 
 tag("float_60_70", "class", { "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol" })
 tag("game", "class", { "steam_app_[0-9]+", "steam_app_default", "gamescope", "org.vinegarhq.Sober" })
 tag("xwl_popup", "title", { "win[0-9]+" })
-tag("music", "class", { "com.github.th[-_]ch.youtube[-_]music" })  -- verifica con `hyprctl clients`
+tag("music", "class", { "com.github.th[-_]ch.youtube[-_]music", "Player" }) -- verifica con `hyprctl clients`
+
 
 -- Definiciones (van DESPUÉS de todos los usos)
 hl.window_rule({ match = { tag = "opaque" }, opaque = true })

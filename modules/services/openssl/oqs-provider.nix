@@ -22,12 +22,15 @@ in {
     curves = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [
-        "p256_frodo640aes"
-        "x25519_frodo640aes"
-        "p256_bikel1"
-        "x25519_bikel1"
+        "p256_mlkem768"
+        "x25519_mlkem768"
+        "p384_mlkem1024"
         "p256_kyber90s512"
         "x25519_kyber90s512"
+        "p256_bikel1"
+        "x25519_bikel1"
+        "p256_frodo640aes"
+        "x25519_frodo640aes"
         "prime256v1"
         "secp384r1"
         "x25519"

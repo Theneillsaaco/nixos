@@ -7,5 +7,6 @@
     })
 
     inputs.media-player.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.ktabletop.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

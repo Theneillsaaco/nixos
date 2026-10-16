@@ -47,6 +47,11 @@
       url = "github:Theneillsaaco/media-player-m3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ktabletop = {
+      url = "git+https://invent.kde.org/theneillsaaco/ktabletop.git?dir=contrib/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, nur-xddxdd, ... }: 

@@ -23,7 +23,6 @@
     ninja
     pkg-config
 
-    lua
     lua5_5
 
     qt6.qtbase

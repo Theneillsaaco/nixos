@@ -28,14 +28,12 @@
 
     # shell
     zsh
-    kitty
     fish
-
+    kitty
+    
     # multimedia
     playerctl
     ffmpeg
-
-    geoclue2
 
     # system
     pciutils # lspci

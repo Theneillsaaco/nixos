@@ -3,6 +3,8 @@
     wineWow64Packages.stable
     winetricks
 
+    mangohud
+    
     (pkgs.lutris.override {
       extraPkgs = pkgs: with pkgs; [
         zenity

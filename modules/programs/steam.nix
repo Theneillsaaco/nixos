@@ -5,7 +5,7 @@
     dedicatedServer.openFirewall = true;
     gamescopeSession.enable = true;
     protontricks.enable = true;
-    extraPackages = with pkgs; [
+    extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
   };

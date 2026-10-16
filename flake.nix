@@ -14,9 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Database nix-index
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # Kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    
+
+    nur-xddxdd.url = "github:xddxdd/nur-packages";
     # Shells
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
@@ -42,7 +49,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, nur-xddxdd, ... }: 
   let
     system = "x86_64-linux";
     username = "isaac";
@@ -54,6 +61,7 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
+        overwriteBackup = true;
         users.${username} = import ./home/isaac.nix;
         extraSpecialArgs = { 
           inherit inputs username myLib stateVersion hostName;
@@ -72,6 +80,7 @@
           lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           homeManagerBaseModule
+          { nixpkgs.overlays = [ nur-xddxdd.overlays.default ]; }
         ];
       };
   in {
@@ -103,8 +112,22 @@
       '';
     };
 
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [ statix deadnix alejandra ];
+    devShells.${system} = {
+      default = pkgs.mkShell {
+        packages = with pkgs; [ statix deadnix alejandra ];
+      };
+
+      dotnet = pkgs.mkShell {
+        packages = with pkgs; [ dotnet-sdk_10 ];
+      };
+
+      web = pkgs.mkShell {
+        packages = with pkgs; [ nodejs bun ];
+      };
+
+      cpp = pkgs.mkShell {
+        packages = with pkgs; [ gcc cmake ninja pkg-config ];
+      };
     };
   };
 }

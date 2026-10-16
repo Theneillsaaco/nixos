@@ -106,7 +106,7 @@ hl.bind(mod .. " + L", function()
     hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
     hl.dispatch(hl.dsp.global("caelestia:lock"))
 end, locked)
-hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd("systemctl suspend"), locked)
+hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd("sleep-now"), locked)
 
 -- Zoom
 hl.bind(mod .. " + minus",

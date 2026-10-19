@@ -578,16 +578,17 @@
       },
       "locked": {
         "dir": "contrib/nix",
-        "lastModified": 1792155788,
-        "narHash": "sha256-ZeuwYUqwKfyefnyoEFdQkCjVLfK4ZR6CTAmArGceykE=",
-        "ref": "refs/heads/master",
-        "rev": "d0db739190eb9a77f4d03fe68e52b774e3e8621e",
-        "revCount": 273,
+        "lastModified": 1792282014,
+        "narHash": "sha256-KG+40CP1q3Dq3ySUcnN5ihpeNy7bTEZ5GTwyqU7RsvM=",
+        "ref": "nix-and-docker",
+        "rev": "5331bc82f909a1f9dbefe230879b39c4bf7c4545",
+        "revCount": 292,
         "type": "git",
         "url": "https://invent.kde.org/theneillsaaco/ktabletop.git"
       },
       "original": {
         "dir": "contrib/nix",
+        "ref": "nix-and-docker",
         "type": "git",
         "url": "https://invent.kde.org/theneillsaaco/ktabletop.git"
       }
@@ -644,11 +645,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792152720,
-        "narHash": "sha256-AdFxUpOS9iASS8BfHk1653/0r6i6KyOgPVGYycwyUhI=",
+        "lastModified": 1792423732,
+        "narHash": "sha256-WiRuoHn5t7tWy0dJtQ0UqNHcOZHw10Ml8OSWHzLA5YY=",
         "owner": "Theneillsaaco",
         "repo": "media-player-m3",
-        "rev": "9ea403443222f797f48f3f50d1033b671210d5fd",
+        "rev": "557f64d9a83e5d8de3491f425b8908da2e9e8d55",
         "type": "github"
       },
       "original": {

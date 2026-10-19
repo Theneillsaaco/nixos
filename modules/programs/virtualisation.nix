@@ -1,10 +1,8 @@
 { pkgs, ... }: {
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
+  virtualisation = {
+    podman.enable = true;
+    docker.enable = true;
   };
-
-  virtualisation.containers.registries.search = [ "docker.io" ];
   
   environment.systemPackages = [ pkgs.distrobox ];
 }

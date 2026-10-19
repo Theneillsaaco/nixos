@@ -49,7 +49,7 @@
     };
 
     ktabletop = {
-      url = "git+https://invent.kde.org/theneillsaaco/ktabletop.git?dir=contrib/nix";
+      url = "git+https://invent.kde.org/theneillsaaco/ktabletop.git?ref=nix-and-docker&dir=contrib/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

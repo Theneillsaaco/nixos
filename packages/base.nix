@@ -34,6 +34,7 @@
     # multimedia
     playerctl
     ffmpeg
+    easyeffects
 
     # system
     pciutils # lspci

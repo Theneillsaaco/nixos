@@ -19,6 +19,7 @@ hl.on("hyprland.start", function()
 
     -- Bluetooth media
     hl.exec_cmd("mpris-proxy")
+    hl.exec_cmd("uwsm app -- easyeffects --gapplication-service")
 
     -- Shell de Caelestia
     hl.exec_cmd("pkill caelestia; uwsm app -- caelestia shell")

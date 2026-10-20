@@ -14,20 +14,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Database nix-index
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
     # Kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nur-xddxdd.url = "github:xddxdd/nur-packages";
+    
     # Shells
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.caelestia-cli.follows = "caelestia-cli";
+    };
+
+    caelestia-cli = {
+      url = "github:theneillsaaco/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.caelestia-shell.follows = "";
     };
 
     hyprland = {

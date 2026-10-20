@@ -10,7 +10,6 @@
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
     inputs.zen-browser.homeModules.default
-    inputs.nix-index-database.homeModules.nix-index
     ./isaac/programs/hyprland/default.nix
   ]
   ++ myLib.importDir ./isaac/programs
@@ -31,6 +30,4 @@
     dconf
     glib
   ];
-
-  programs.nix-index-database.comma.enable = true;
 }

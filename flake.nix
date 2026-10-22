@@ -56,7 +56,7 @@
     };
 
     app-manager = {
-      url = "github:theneillsaaco/AppManager";
+      url = "github:kem-a/AppManager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

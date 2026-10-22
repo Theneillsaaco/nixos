@@ -7,15 +7,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1792698209,
+        "lastModified": 1792699731,
         "narHash": "sha256-aKUMAXVozUJfJlwBUTBF7eQIO8SYBXo1xtQQy9tfJ8Q=",
-        "owner": "theneillsaaco",
+        "owner": "kem-a",
         "repo": "AppManager",
-        "rev": "2cf412aaf3479f89a2ff6c61069de95fbe5e6e66",
+        "rev": "751cc3d2e1c3535a34e87cf78a4310e88c926371",
         "type": "github"
       },
       "original": {
-        "owner": "theneillsaaco",
+        "owner": "kem-a",
         "repo": "AppManager",
         "type": "github"
       }

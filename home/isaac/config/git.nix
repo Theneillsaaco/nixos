@@ -3,19 +3,17 @@
     enable = true;
 
     ignores = [ ".direnv/" ".idea/" ];
-    
+
     settings = {
       user = {
         name = "Theneillsaaco";
         email = "isaacdepena18@gmail.com";
+        signingkey = "~/.ssh/id_ed25519.pub";
       };
 
-      extraConfig = {
-        gpg.format = "ssh";
-        user.signingkey = "~/.ssh/id_ed25519.pub";
-        commit.gpgsign = true;
-      };
-        
+      gpg.format = "ssh";
+      commit.gpgsign = true;
+
       init.defaultBranch = "master";
 
       pull.rebase = true;

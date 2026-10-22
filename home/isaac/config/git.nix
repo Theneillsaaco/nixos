@@ -10,6 +10,12 @@
         email = "isaacdepena18@gmail.com";
       };
 
+      extraConfig = {
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/id_ed25519.pub";
+        commit.gpgsign = true;
+      };
+        
       init.defaultBranch = "master";
 
       pull.rebase = true;

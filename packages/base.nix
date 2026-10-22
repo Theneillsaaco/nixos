@@ -25,6 +25,7 @@
     sbsigntool
     gnome-keyring
     libsecret
+    cacert
 
     # shell
     zsh

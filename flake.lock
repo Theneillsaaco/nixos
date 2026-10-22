@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "app-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792698209,
+        "narHash": "sha256-aKUMAXVozUJfJlwBUTBF7eQIO8SYBXo1xtQQy9tfJ8Q=",
+        "owner": "theneillsaaco",
+        "repo": "AppManager",
+        "rev": "2cf412aaf3479f89a2ff6c61069de95fbe5e6e66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "theneillsaaco",
+        "repo": "AppManager",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -643,11 +663,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792610265,
-        "narHash": "sha256-467Fi0OX5bT6E+4Hk83uE4Z46M8lWy1+BB5heriNB+c=",
+        "lastModified": 1792694093,
+        "narHash": "sha256-E9h9b79s5QwR2GK1d8Y8NWmrs4gdqgFRXIWqAySoWpI=",
         "owner": "Theneillsaaco",
         "repo": "media-player-m3",
-        "rev": "1505b8f1b813e33f32b7d2a08f223ab6807480fd",
+        "rev": "01af2c0a05c99a1a3956882963f699b0688506da",
         "type": "github"
       },
       "original": {
@@ -955,6 +975,7 @@
     },
     "root": {
       "inputs": {
+        "app-manager": "app-manager",
         "caelestia-cli": "caelestia-cli",
         "caelestia-shell": "caelestia-shell",
         "home-manager": "home-manager",

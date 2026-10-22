@@ -54,6 +54,11 @@
       url = "git+https://invent.kde.org/notifyctrl/ktabletop.git?dir=contrib/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    app-manager = {
+      url = "github:theneillsaaco/AppManager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, nur-xddxdd, ... }: 

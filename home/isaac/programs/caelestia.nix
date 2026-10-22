@@ -162,7 +162,7 @@
     };
 
     systemd = {
-      enable = false;
+      enable = true;
     };
   };
 }

@@ -577,19 +577,18 @@
       },
       "locked": {
         "dir": "contrib/nix",
-        "lastModified": 1792605086,
-        "narHash": "sha256-WhwcVwssvIRmd2Ujpc3DRiZRl4xxQNFwQrib5hDBimI=",
-        "ref": "nix-and-docker",
-        "rev": "2bac66c01a4f4e6517597e89f1f109469cff52ca",
-        "revCount": 303,
+        "lastModified": 1792668382,
+        "narHash": "sha256-c41O+mB3gg0NUJhL4maw1OOTCXzNSabv4qliJyRGmDw=",
+        "ref": "refs/heads/master",
+        "rev": "79ddec083110fa0c4e9e8af7f98ec112dafb1974",
+        "revCount": 296,
         "type": "git",
-        "url": "https://invent.kde.org/theneillsaaco/ktabletop.git"
+        "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       },
       "original": {
         "dir": "contrib/nix",
-        "ref": "nix-and-docker",
         "type": "git",
-        "url": "https://invent.kde.org/theneillsaaco/ktabletop.git"
+        "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       }
     },
     "lanzaboote": {

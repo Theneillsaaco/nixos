@@ -1,3 +1,7 @@
+-- Copyright (C) Caelestia Development Team
+-- Adapted from caelestia-dots/caelestia (hypr/utils/functions.lua)
+-- Licensed under the GNU General Public License v3.0 (GPLv3)
+
 local function wsaction(action, range, i)
     return function()
         local activews = hl.get_active_workspace()

@@ -1,136 +1,185 @@
 local vars = require("vars")
-local mod = vars.mod or "SUPER"
-local shiftMod = vars.shiftMod or (mod .. " + SHIFT")
+local fn = require("utils.functions")
 
 -- Flags
 local locked = { locked = true }
 local mouse = { mouse = true }
+local release = { release = true }
 local repeating = { repeating = true }
 local locked_repeating = { locked = true, repeating = true }
 
--- Launcher / Caelestia globals
-hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
-hl.bind(mod .. " + N", hl.dsp.exec_cmd("caelestia shell drawers toggle dashboard"))
-hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("caelestia shell drawers toggle session"))
-hl.bind(mod .. " + K", hl.dsp.exec_cmd("caelestia shell drawers toggle all"))
-hl.bind("CTRL + ALT + C", hl.dsp.exec_cmd("caelestia shell notifications clear"))
-
--- Ventanas
-hl.bind(mod .. " + Q", hl.dsp.window.close())
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(mod .. " + D", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind("ALT + " .. mod .. " + SPACE", hl.dsp.window.float())
-hl.bind(mod .. " + P", hl.dsp.window.pin())
-hl.bind("ALT + F4", hl.dsp.window.close())
-
--- Acciones de ratón (Arrastrar / Redimensionar)
-hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), mouse)
-hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), mouse)
-
--- Workspaces (Navegación general)
-hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
-hl.bind("CTRL + " .. mod .. " + Right", hl.dsp.focus({ workspace = "r+1" }))
-hl.bind("CTRL + " .. mod .. " + Left", hl.dsp.focus({ workspace = "r-1" }))
-hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "+1" }), mouse)
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "-1" }), mouse)
-hl.bind(shiftMod .. " + mouse_down", hl.dsp.window.move({ workspace = "r-1" }), mouse)
-hl.bind(shiftMod .. " + mouse_up", hl.dsp.window.move({ workspace = "r+1" }), mouse)
-
--- Foco / Mover ventanas con flechas
-for _, dir in ipairs({ "l", "r", "u", "d" }) do
-    local key = ({ l = "Left", r = "Right", u = "Up", d = "Down" })[dir]
-    hl.bind(mod .. " + " .. key, hl.dsp.focus({ direction = dir }))
-    hl.bind(shiftMod .. " + " .. key, hl.dsp.window.move({ direction = dir }))
+local function normalise_keybind(key)
+  return key:gsub("%s+", ""):lower()
 end
 
--- Mover ventanas (HJKL)
-hl.bind(shiftMod .. " + H", hl.dsp.window.move({ direction = "l" }))
-hl.bind(shiftMod .. " + L", hl.dsp.window.move({ direction = "r" }))
-hl.bind(shiftMod .. " + K", hl.dsp.window.move({ direction = "u" }))
-hl.bind(shiftMod .. " + J", hl.dsp.window.move({ direction = "d" }))
+local function valid_keybind(key)
+  return type(key) == "string" and key:match("%S") ~= nil
+end
 
--- Scratchpad / Special workspace
-hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special())
-hl.bind("ALT + " .. mod .. " + S", hl.dsp.window.move({ workspace = "special:special", follow = false }))
+local function repeating_unless_mouse(key)
+    return not normalise_keybind(key):find("mouse", 1, true) and repeating or nil
+end
 
--- Master layout split ratio
-hl.bind(mod .. " + semicolon", hl.dsp.layout("splitratio -0.1"), repeating)
-hl.bind(mod .. " + apostrophe", hl.dsp.layout("splitratio +0.1"), repeating)
+local function flatten_keybinds(keybinds, keys)
+  keys = keys or {}
 
--- Apps
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd(vars.terminal))
-hl.bind(mod .. " + T", hl.dsp.exec_cmd(vars.terminal))
-hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(vars.terminal))
-hl.bind(mod .. " + E", hl.dsp.exec_cmd(vars.fileExplorer))
-hl.bind(mod .. " + W", hl.dsp.exec_cmd(vars.browser))
-hl.bind(mod .. " + C", hl.dsp.exec_cmd(vars.editor))
-hl.bind("CTRL + " .. mod .. " + V", hl.dsp.exec_cmd(vars.audioSettings))
-hl.bind(mod .. " + Y", hl.dsp.exec_cmd(vars.youtube))
+  if type(keybinds) == "table" then
+    for _, keybinds in pairs(keybinds) do
+      flatten_keybinds(keybinds, keys)
+    end
+  elseif valid_keybind(keybinds) then
+    keys[#keys + 1] = keybinds
+  end
 
--- Screenshot / Utilidades
-hl.bind(shiftMod .. " + S", hl.dsp.global("caelestia:screenshotFreeze"))
-hl.bind(mod .. " + Print", hl.dsp.global("caelestia:screenshot"))
-hl.bind(shiftMod .. " + Print", hl.dsp.global("caelestia:screenshot"))
-hl.bind("Print", hl.dsp.exec_cmd("caelestia screenshot"))
-hl.bind(shiftMod .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("pkill fuzzel || caelestia clipboard"))
-hl.bind(mod .. " + Period", hl.dsp.exec_cmd("pkill fuzzel || caelestia emoji -p"))
-hl.bind(mod .. " + M", hl.dsp.workspace.toggle_special("music"))
-hl.bind(shiftMod .. " + D", hl.dsp.workspace.toggle_special("communication"))
+  return keys
+end
 
--- Volumen
-hl.bind("XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"),
-    locked_repeating)
-hl.bind("XF86AudioLowerVolume",
-    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),
-    locked_repeating)
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), locked)
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), locked)
+local function create_bind(keybinds, action, flags)
+    local get_flags = type(flags) == "function" and flags or function()
+        return flags
+    end
 
--- Media
-hl.bind("XF86AudioNext", hl.dsp.global("caelestia:mediaNext"), locked)
-hl.bind("XF86AudioPrev", hl.dsp.global("caelestia:mediaPrev"), locked)
-hl.bind("XF86AudioPlay", hl.dsp.global("caelestia:mediaToggle"), locked)
-hl.bind("XF86AudioPause", hl.dsp.global("caelestia:mediaToggle"), locked)
-hl.bind(shiftMod .. " + N", hl.dsp.global("caelestia:mediaNext"), locked)
-hl.bind(shiftMod .. " + B", hl.dsp.global("caelestia:mediaPrev"), locked)
-hl.bind(shiftMod .. " + P", hl.dsp.global("caelestia:mediaToggle"), locked)
+    for _, key in ipairs(flatten_keybinds(keybinds)) do
+        hl.bind(key, action, get_flags(key))
+    end	
+end
 
--- Brillo
-hl.bind("XF86MonBrightnessUp", hl.dsp.global("caelestia:brightnessUp"), locked)
-hl.bind("XF86MonBrightnessDown", hl.dsp.global("caelestia:brightnessDown"), locked)
+local function extend_keybind(base, suffix)
+    return valid_keybind(base) and base .. " + " .. suffix or nil
+end
 
--- Lock / Suspend
-hl.bind(mod .. " + L", function()
-    hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
-    hl.dispatch(hl.dsp.global("caelestia:lock"))
-end, locked)
-hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd("sleep-now"), locked)
+-- Launcher 
+local launcher_default = normalise_keybind("SUPER + SUPER_L")
+create_bind(
+    vars.kbLauncher,
+    hl.dsp.global("caelestia:launcher"),
+    function(key)
+        return normalise_keybind(key) == launcher_default and release or nil
+    end
+)
 
--- Zoom
-hl.bind(mod .. " + minus",
-    hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"),
-    repeating)
-hl.bind(mod .. " + equal",
-    hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"),
-    repeating)
-
--- Reload Shell/Hyprland
-hl.bind("CTRL + " .. mod .. " + R",
-    hl.dsp.exec_cmd("bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"),
-    { release = true })
+-- Caelestia globals
+create_bind(vars.kbClearNotifs, hl.dsp.global("caelestia:clearNotifs"), locked)
+create_bind(vars.kbLock, hl.dsp.global("caelestia:lock"))
+create_bind(vars.kbShowPanels, hl.dsp.global("caelestia:showall"))
+create_bind(vars.kbShowSidebar, hl.dsp.global("caelestia:sidebar"))
+create_bind(vars.kbSession, hl.dsp.global("caelestia:session"))
 
 -- Workspaces 1-10
 for i = 1, 10 do
-    local key = tostring(i % 10)
-    
-    -- Ir al escritorio (SUPER + 1..0)
-    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    
-    -- Mover ventana E IR AL ESCRITORIO (SUPER + SHIFT + 1..0)
-    hl.bind(shiftMod .. " + " .. key, hl.dsp.window.move({ workspace = i }))
-    
-    -- Mover ventana EN SILENCIO (SUPER + ALT + 1..0)
-    hl.bind("ALT + " .. mod .. " + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+    local key = i % 10
+
+    create_bind(extend_keybind(vars.kbGoToWs, key), hl.dsp.focus({ workspace = i }))
+    create_bind(extend_keybind(vars.kbMoveWinToWs, key), hl.dsp.window.move({ workspace = i }))
+    create_bind(extend_keybind(vars.kbMoveWinToWsSilent, key), hl.dsp.window.move({ workspace = i, follow = false }))
+    create_bind(extend_keybind(vars.kbGoToWsGroup, key), fn.wsaction("focus", "group", i))
+    create_bind(extend_keybind(vars.kbMoveWinToWsGroup, key), fn.wsaction("move", "group", i))
 end
+
+-- Workspaces Navegation
+create_bind(vars.kbPrevWs, hl.dsp.focus({ workspace = "-1" }), repeating_unless_mouse)
+create_bind(vars.kbNextWs, hl.dsp.focus({ workspace = "+1" }), repeating_unless_mouse)
+create_bind(vars.kbMoveWinToWsNext, hl.dsp.window.move({ workspace = "r+1" }), repeating_unless_mouse)
+create_bind(vars.kbMoveWinToWsPrev, hl.dsp.window.move({ workspace = "r-1" }), repeating_unless_mouse)
+create_bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
+
+-- Focus
+for _, dir in ipairs({ "left", "right", "up", "down" }) do
+    local key = dir:sub(1, 1):upper() .. dir:sub(2)
+    create_bind(vars.mod .. " + " .. key, hl.dsp.focus({ direction = dir:sub(1, 1) }))
+    create_bind(vars.shiftMod .. " + " .. key, hl.dsp.window.move({ direction = dir:sub(1, 1) }))
+end
+
+-- Movimiento estilo Vim (HJKL)
+create_bind(vars.shiftMod .. " + H", hl.dsp.window.move({ direction = "l" }))
+create_bind(vars.shiftMod .. " + L", hl.dsp.window.move({ direction = "r" }))
+create_bind(vars.shiftMod .. " + K", hl.dsp.window.move({ direction = "u" }))
+create_bind(vars.shiftMod .. " + J", hl.dsp.window.move({ direction = "d" }))
+
+-- Grupos de Ventanas
+create_bind(vars.kbWindowCycleNext, hl.dsp.window.cycle_next(), repeating)
+create_bind(vars.kbWindowCyclePrev, hl.dsp.window.cycle_next({ next = false }), repeating)
+create_bind(vars.kbWindowGroupCycleNext, hl.dsp.group.next(), repeating)
+create_bind(vars.kbWindowGroupCyclePrev, hl.dsp.group.prev(), repeating)
+create_bind(vars.kbToggleGroup, hl.dsp.group.toggle())
+create_bind(vars.kbUngroup, hl.dsp.window.move({ out_of_group = true }))
+create_bind(vars.kbGroupLockActive, hl.dsp.group.lock_active())
+
+-- Acciones de Ventana
+create_bind(vars.kbWindowDecreaseWidth, hl.dsp.layout("splitratio -0.1"), repeating)
+create_bind(vars.kbWindowIncreaseWidth, hl.dsp.layout("splitratio +0.1"), repeating)
+create_bind(vars.kbMoveWindow, hl.dsp.window.drag(), mouse)
+create_bind(vars.kbResizeWindow, hl.dsp.window.resize(), mouse)
+create_bind(vars.kbPinWindow, hl.dsp.window.pin())
+create_bind(vars.kbWindowFullscreen, hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+create_bind(vars.kbWindowBorderedFullscreen, hl.dsp.window.fullscreen({ mode = "maximized" }))
+create_bind(vars.kbToggleWindowFloating, hl.dsp.window.float())
+create_bind(vars.kbCloseWindow, hl.dsp.window.close())
+
+-- Scratchpad / Special Workspaces
+create_bind(vars.kbSpecialWs, hl.dsp.workspace.toggle_special())
+create_bind(vars.kbMoveWinToWsSpecial, hl.dsp.window.move({ workspace = "special:special", follow = false }))
+create_bind(vars.kbMusicWs, hl.dsp.workspace.toggle_special("music"))
+create_bind(vars.kbCommunicationWs, hl.dsp.workspace.toggle_special("communication"))
+
+-- Apps
+create_bind(vars.kbTerminal, hl.dsp.exec_cmd(vars.terminal))
+create_bind(vars.kbBrowser, hl.dsp.exec_cmd(vars.browser))
+create_bind(vars.kbEditor, hl.dsp.exec_cmd(vars.editor))
+create_bind(vars.kbFileExplorer, hl.dsp.exec_cmd(vars.fileExplorer))
+create_bind(vars.kbAudioSettings, hl.dsp.exec_cmd(vars.audioSettings))
+create_bind(vars.kbYouTube, hl.dsp.exec_cmd(vars.youtube))
+
+-- Screenshots / Utilidades
+create_bind(vars.kbScreenshot, hl.dsp.exec_cmd("caelestia screenshot"))
+create_bind(vars.kbScreenshotFreeze, hl.dsp.global("caelestia:screenshotFreeze"))
+create_bind(vars.kbScreenshotRegion, hl.dsp.global("caelestia:screenshot"))
+create_bind(vars.kbRecord, hl.dsp.exec_cmd("caelestia record"))
+create_bind(vars.kbColorPicker, hl.dsp.exec_cmd("hyprpicker -a"))
+create_bind(vars.kbClipboard, hl.dsp.exec_cmd("pkill fuzzel || caelestia clipboard"))
+create_bind(vars.kbEmoji, hl.dsp.exec_cmd("pkill fuzzel || caelestia emoji -p"))
+
+-- Control de Audio (WirePlumber)
+create_bind(
+    "XF86AudioRaiseVolume",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"),
+    locked_repeating
+)
+create_bind(
+    "XF86AudioLowerVolume",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),
+    locked_repeating
+)
+create_bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), locked)
+create_bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), locked)
+
+-- Control de Media
+create_bind({ vars.kbMediaToggle, "XF86AudioPlay", "XF86AudioPause" }, hl.dsp.global("caelestia:mediaToggle"), locked)
+create_bind({ vars.kbMediaNext, "XF86AudioNext" }, hl.dsp.global("caelestia:mediaNext"), locked)
+create_bind({ vars.kbMediaPrev, "XF86AudioPrev" }, hl.dsp.global("caelestia:mediaPrev"), locked)
+
+-- Brillo
+create_bind("XF86MonBrightnessUp", hl.dsp.global("caelestia:brightnessUp"), locked)
+create_bind("XF86MonBrightnessDown", hl.dsp.global("caelestia:brightnessDown"), locked)
+
+-- Suspensión
+create_bind(vars.kbSleep, hl.dsp.exec_cmd("sleep-now"), locked)
+
+-- Zoom del cursor
+create_bind(
+    vars.kbZoomOut,
+    hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 - 0.1}')"),
+    repeating
+)
+create_bind(
+    vars.kbZoomIn,
+    hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float/{print $2 + 0.1}')"),
+    repeating
+)
+
+-- Recargar Shell y Hyprland
+create_bind(
+    "CTRL + SUPER + R",
+    hl.dsp.exec_cmd("bash -c 'hyprctl reload; caelestia shell --kill; sleep .1; caelestia shell -d'"),
+    release
+)

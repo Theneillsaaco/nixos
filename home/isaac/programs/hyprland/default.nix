@@ -23,6 +23,8 @@ in {
     extraLuaFiles = {
       "kwallet_path" = { autoLoad = false; content = ''return "${pamKwalletInit}"''; };
       "vars" = { autoLoad = false; content = builtins.readFile ./lua/vars.lua; };
+      "utils/functions" = { autoLoad = false; content = builtins.readFile ./lua/utils/functions.lua; };
+      "utils/json" = { autoLoad = false; content = builtins.readFile ./lua/utils/json.lua; };
       "execs" = { autoLoad = true; content = builtins.readFile ./lua/execs.lua; };
       "keybinds" = { autoLoad = true; content = builtins.readFile ./lua/keybinds.lua; };
       "rules" = { autoLoad = true; content = builtins.readFile ./lua/rules.lua; };

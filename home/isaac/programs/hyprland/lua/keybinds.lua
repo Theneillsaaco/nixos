@@ -103,7 +103,7 @@ create_bind(vars.kbWindowGroupCycleNext, hl.dsp.group.next(), repeating)
 create_bind(vars.kbWindowGroupCyclePrev, hl.dsp.group.prev(), repeating)
 create_bind(vars.kbToggleGroup, hl.dsp.group.toggle())
 create_bind(vars.kbUngroup, hl.dsp.window.move({ out_of_group = true }))
-create_bind(vars.kbGroupLockActive, hl.dsp.group.lock_active())
+create_bind(vars.kbGroupLockActive, hl.dsp.group.lock())
 
 -- Acciones de Ventana
 create_bind(vars.kbWindowDecreaseWidth, hl.dsp.layout("splitratio -0.1"), repeating)

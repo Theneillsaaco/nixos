@@ -14,5 +14,7 @@
     onlyoffice-desktopeditors
 
     brave
+
+    qbittorrent
   ];
 }

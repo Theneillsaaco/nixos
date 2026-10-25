@@ -3,11 +3,9 @@
   boot = {
     consoleLogLevel = 3;
     initrd = {
-      verbose = false;
       kernelModules = [ "nvme" ];
       supportedFilesystems = [ "btrfs" ];
       # kernelModules = [ "amdgpu" ];
-      systemd.enable = true;
     };
 
     kernelParams = [

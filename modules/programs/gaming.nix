@@ -18,4 +18,15 @@
       ];
     })
   ];
+
+  systemd.settings.Manager = {
+    DefaultLimitNOFILE = 524288;
+  };
+  
+  security.pam.loginLimits = [{
+    domain = "isaac";
+    type = "hard";
+    item = "nofile";
+    value = "524288";
+  }];
 }

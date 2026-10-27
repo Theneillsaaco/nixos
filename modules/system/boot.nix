@@ -6,6 +6,9 @@
       kernelModules = [ "nvme" ];
       supportedFilesystems = [ "btrfs" ];
       # kernelModules = [ "amdgpu" ];
+       
+      compressor = "zstd";
+      compressorArgs = [ "-19" "-T0" ];
     };
 
     kernelParams = [

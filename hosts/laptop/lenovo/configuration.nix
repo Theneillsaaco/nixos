@@ -32,8 +32,6 @@
   fileSystems."/nix".options = lib.mkAfter [ "compress=zstd" "noatime" ];
 
   services = {
-    fstrim.enable = true;
-
     # Actualizaciones de firmware vía LVFS (fwupdmgr update).
     # OJO: una actualización de firmware cambia PCR 0 y hay que re-enrolar el TPM:
     #   sudo systemd-cryptenroll --wipe-slot=tpm2 --tpm2-device=auto --tpm2-pcrs=0+2+7+12 /dev/disk/by-uuid/d7768ef2-4c7b-4d66-acec-96bd52f82e5b

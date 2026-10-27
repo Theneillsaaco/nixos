@@ -200,22 +200,6 @@
         "type": "github"
       }
     },
-    "flake-compat_5": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767039857,
-        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -598,11 +582,11 @@
       },
       "locked": {
         "dir": "contrib/nix",
-        "lastModified": 1792948806,
-        "narHash": "sha256-p1H/OMoDNsWM2WGbY8vZ3E+3T3pVWLG+yUV7MV2x7xA=",
+        "lastModified": 1793095713,
+        "narHash": "sha256-j1+37MvePJT2fDzpRyc36sWlWGK1ErQPIBo/Ua6m8bo=",
         "ref": "refs/heads/master",
-        "rev": "c089772ad7253e2ee0985c09ab351af2c53e9116",
-        "revCount": 308,
+        "rev": "00bd1fcaa416a2c90089a16315af03b40c9d119f",
+        "revCount": 312,
         "type": "git",
         "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       },
@@ -698,34 +682,9 @@
         "type": "github"
       }
     },
-    "nix-cachyos-kernel_2": {
-      "inputs": {
-        "flake-compat": "flake-compat_4",
-        "flake-parts": [
-          "nur-xddxdd",
-          "flake-parts"
-        ],
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1792825458,
-        "narHash": "sha256-4OhFUWfxbhGDARlbudsp2XWXdEsvyU2zRS0U2LNYV2M=",
-        "owner": "xddxdd",
-        "repo": "nix-cachyos-kernel",
-        "rev": "e5f3b46dde090718a7a02d4ea1e1cc64feb2d758",
-        "type": "github"
-      },
-      "original": {
-        "owner": "xddxdd",
-        "ref": "release",
-        "repo": "nix-cachyos-kernel",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
-          "nur-xddxdd",
           "nixpkgs"
         ]
       },
@@ -830,46 +789,20 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1792734696,
-        "narHash": "sha256-nAY7gNcbuoQkfPHxwVuRFcazYHptzBpKZN/I1/18Vaw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a32588c117116d2bf0edc33915981398fab2b00",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1792773339,
-        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur-xddxdd": {
       "inputs": {
         "devshell": "devshell",
         "flake-parts": "flake-parts_2",
-        "nix-cachyos-kernel": "nix-cachyos-kernel_2",
-        "nix-index-database": "nix-index-database",
+        "nix-cachyos-kernel": [
+          "nix-cachyos-kernel"
+        ],
+        "nix-index-database": [
+          "nix-index-database"
+        ],
         "nixfmt-rs": "nixfmt-rs",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "treefmt-nix": "treefmt-nix"
       },
@@ -933,7 +866,7 @@
     },
     "pre-commit-hooks-nix": {
       "inputs": {
-        "flake-compat": "flake-compat_5",
+        "flake-compat": "flake-compat_4",
         "nixpkgs": [
           "nur-xddxdd",
           "nixpkgs"
@@ -984,6 +917,7 @@
         "lanzaboote": "lanzaboote",
         "media-player": "media-player",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "nur-xddxdd": "nur-xddxdd",
         "zen-browser": "zen-browser"

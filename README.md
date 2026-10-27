@@ -103,7 +103,6 @@ Rebuild/boot commands are host-aware: the `rebuild`/`boot`/`upgrade` shell alias
 - **Printing**: CUPS
 - **Networking**: NetworkManager, resolved with DNSSEC + fallback DNS
 - **VPN**: Cloudflare Warp with helper `warp-on`/`warp-off` scripts
-- **Sandboxing**: Firejail-wrapped GUI apps (browsers, chat clients, office suite)
 - **Flatpak & AppImage**: Universal Linux package support
 
 ### User Environment (Home Manager)
@@ -173,7 +172,7 @@ upgrade   # update && rebuild
 
 ### Garbage Collection
 ```bash
-# Handled automatically via programs.nh.clean (daily, --keep-since 7d --keep 5)
+# Handled automatically via programs.nh.clean (daily, --keep-since 7d --keep 3)
 # Manual alternative:
 sudo nix-collect-garbage -d
 sudo nix-store --optimize

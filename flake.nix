@@ -17,7 +17,17 @@
     # Kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    nur-xddxdd.url = "github:xddxdd/nur-packages";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    nur-xddxdd = {
+      url = "github:xddxdd/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
+      inputs.nix-index-database.follows = "nix-index-database";
+    };
     
     # Shells
     caelestia-shell = {

@@ -1,7 +1,12 @@
 { inputs, ... }: {
   nix = {
     channel.enable = false;
-    
+
+    # Dont use CPU/IO in load
+    # daemonCPUSchedPolicy = "idle";
+    # daemonIOSchedClass = "idle";
+    # daemonIOSchedPriority = 7;
+     
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
@@ -20,6 +25,14 @@
       builders-use-substitutes = true;
       eval-cache = true;
 
+      fallback = true;
+      connect-timeout = 10;
+      log-lines = 25;
+
+      # GC when no space in disc
+      min-free = 128 * 1000 * 1000;
+      max-free = 1000 * 1000 * 1000;
+      
       nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
       download-buffer-size = 524288000;
       
@@ -45,4 +58,6 @@
     #   options = "--delete-older-than 7d";
     # };
   };
+
+  systemd.services.nix-daemon.serviceConfig.OOMScoreAdjust = 1000;
 }

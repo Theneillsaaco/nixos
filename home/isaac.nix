@@ -10,10 +10,14 @@
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
     inputs.zen-browser.homeModules.default
+    inputs.nix-index-database.homeModules.nix-index
     ./isaac/programs/hyprland/default.nix
   ]
   ++ myLib.importDir ./isaac/programs
   ++ myLib.importDir ./isaac/config;
+
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
 
   # Home packages
   home.packages = with pkgs; [

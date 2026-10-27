@@ -27,6 +27,8 @@ in {
         "p384_mlkem1024"
         "p256_kyber90s512"
         "x25519_kyber90s512"
+        "p256_hqc1"
+        "x25519_hqc1"
         "p256_bikel1"
         "x25519_bikel1"
         "p256_frodo640aes"

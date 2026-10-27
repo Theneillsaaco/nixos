@@ -4,6 +4,7 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
+      wifi.macAddress = "stable";
     };
     
     firewall = {

@@ -74,6 +74,15 @@
           windowIcons = [ { regex = "steam(_app_(default|[0-9]+))?"; icon = "sports_esports"; } ];
         };
 
+        activeWindow = {
+          showOnHover = false;
+        };
+
+        clock = {
+          background = true;
+          showDate = true;
+        };
+
         statusIcons = [
           { id = "lockStatus"; enabled = false; }
           { id = "microphone"; enabled = false; }

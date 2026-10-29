@@ -22,7 +22,7 @@ This flake defines two machines, each with its own hardware profile:
 
 | Host     | Machine                          | CPU/Platform notes                          | Boot / Disk security                   |
 |----------|-----------------------------------|----------------------------------------------|------------------------------------------|
-| `hp`     | HP laptop (older)                | Intel i5-7200U                               | Standard boot                            |
+| `hp`     | HP laptop (older)                | Intel i5-7200U                               | Secure Boot (Lanzaboote)                     |
 | `lenovo` | Lenovo laptop actual             | AMD Ryzen 7 5825U, btrfs swapfile hibernation | **Secure Boot (Lanzaboote) + TPM2-backed LUKS auto-unlock** |
 
 Rebuild/boot commands are host-aware: the `rebuild`/`boot`/`upgrade` shell aliases resolve to the correct flake target (`#hp` or `#lenovo`) automatically based on which machine you're on, so the same dotfiles work unmodified across hosts. 

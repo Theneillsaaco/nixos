@@ -38,7 +38,7 @@
 
     initContent = ''
       # Caelestia
-      cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
+      command cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
 
       # Marcadores
       _mark_prompt_start() {

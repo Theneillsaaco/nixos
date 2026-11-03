@@ -20,5 +20,12 @@
   services.flatpak.enable = true;
   security.openssl.oqs-provider.enable = true;
 
+  # temporal fix
+  nixpkgs.config = {
+    problems.handlers = {
+      "gtk+".broken = "warn"; # O "ignore" para silenciarlo por completo
+    };
+  };
+
   environment.variables.NIXOS_OZONE_WL = "1";
 }

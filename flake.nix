@@ -62,6 +62,11 @@
       url = "github:kem-a/AppManager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mocktail = {
+      url = "github:komaruworld/mocktail";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, nur-xddxdd, ... }: 

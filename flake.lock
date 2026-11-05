@@ -205,6 +205,24 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
+        "lastModified": 1785627969,
+        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
         "lastModified": 1793576659,
         "narHash": "sha256-V1h85lUaJBQoHFrB2vpXZOE0Ju1MYSnIpsehoVZYlDo=",
         "owner": "hercules-ci",
@@ -218,9 +236,9 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
+    "flake-parts_3": {
       "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_2"
+        "nixpkgs-lib": "nixpkgs-lib_3"
       },
       "locked": {
         "lastModified": 1793576659,
@@ -582,11 +600,11 @@
       },
       "locked": {
         "dir": "contrib/nix",
-        "lastModified": 1793095713,
-        "narHash": "sha256-j1+37MvePJT2fDzpRyc36sWlWGK1ErQPIBo/Ua6m8bo=",
+        "lastModified": 1793714070,
+        "narHash": "sha256-7Bv+Wfi8m7alq8EH804P0sXkNfl+rAi0ZEb+gP/7DVA=",
         "ref": "refs/heads/master",
-        "rev": "00bd1fcaa416a2c90089a16315af03b40c9d119f",
-        "revCount": 312,
+        "rev": "1257c50b082e7d97c89b675338b8a435fc576c6d",
+        "revCount": 328,
         "type": "git",
         "url": "https://invent.kde.org/theneillsaaco/ktabletop.git"
       },
@@ -661,10 +679,31 @@
         "type": "github"
       }
     },
+    "mocktail": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793830673,
+        "narHash": "sha256-0p3cjyx4/mFyrT8eSn2nYOJqZKYMQ3yaXte3eJyNwqI=",
+        "owner": "komaruworld",
+        "repo": "mocktail",
+        "rev": "e636d75e357df9433f867dbd1504f145151ba141",
+        "type": "github"
+      },
+      "original": {
+        "owner": "komaruworld",
+        "repo": "mocktail",
+        "type": "github"
+      }
+    },
     "nix-cachyos-kernel": {
       "inputs": {
         "flake-compat": "flake-compat_3",
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -745,6 +784,21 @@
     },
     "nixpkgs-lib": {
       "locked": {
+        "lastModified": 1785031560,
+        "narHash": "sha256-OmshNvn2vupOFpYinLUu+1Dnpu4n7Q5N3ggGVNHpkUI=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "0e79af5e3d4dcfcd676ab5ba3f95d2e3352e078c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
         "lastModified": 1793504054,
         "narHash": "sha256-ThkfL3D/FhCiZFc9+3BtxwuMmpuK+/bGtXCSo1+yVew=",
         "owner": "nix-community",
@@ -758,7 +812,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib_2": {
+    "nixpkgs-lib_3": {
       "locked": {
         "lastModified": 1793504054,
         "narHash": "sha256-ThkfL3D/FhCiZFc9+3BtxwuMmpuK+/bGtXCSo1+yVew=",
@@ -792,7 +846,7 @@
     "nur-xddxdd": {
       "inputs": {
         "devshell": "devshell",
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "nix-cachyos-kernel": [
           "nix-cachyos-kernel"
         ],
@@ -916,6 +970,7 @@
         "ktabletop": "ktabletop",
         "lanzaboote": "lanzaboote",
         "media-player": "media-player",
+        "mocktail": "mocktail",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",

@@ -4,7 +4,7 @@
     jetbrains.rider
 
     zed-editor
-    opencode
+    # opencode
     cloc
     foot
   ];

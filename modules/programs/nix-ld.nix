@@ -5,5 +5,6 @@
     openssl
     curl
     stdenv.cc.cc
+    libgpg-error
   ];
 }

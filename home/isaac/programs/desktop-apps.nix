@@ -13,7 +13,7 @@
     # office
     onlyoffice-desktopeditors
 
-    brave
+    google-chrome
 
     qbittorrent
   ];

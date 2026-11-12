@@ -8,6 +8,7 @@
 
     inputs.media-player.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ktabletop.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # dwafs error
     # inputs.app-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.mocktail.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

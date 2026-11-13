@@ -666,11 +666,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794448083,
-        "narHash": "sha256-scoMcPkvHEvbvKx04P/5ssl/QQGe/0WRcuHLJOLBsZI=",
+        "lastModified": 1794537219,
+        "narHash": "sha256-u83YAA4Oe9mv86/eRWsN1q0YNidd2Ndk4hD0vGSSghY=",
         "owner": "Theneillsaaco",
         "repo": "media-player-m3",
-        "rev": "54c7720c60ddec81a36a23f1c4c12fb86a0ac160",
+        "rev": "d1de43d237456befcf4e89b3e8c5ebd0c67194de",
         "type": "github"
       },
       "original": {

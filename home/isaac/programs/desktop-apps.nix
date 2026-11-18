@@ -12,7 +12,8 @@
 
     # office
     onlyoffice-desktopeditors
-
+    zoom-us
+    
     google-chrome
 
     qbittorrent

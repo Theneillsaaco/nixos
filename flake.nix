@@ -48,8 +48,8 @@
       };
     };
 
-    media-player = {
-      url = "github:Theneillsaaco/media-player-m3";
+    kyuto = {
+      url = "github:Theneillsaaco/kyuto";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

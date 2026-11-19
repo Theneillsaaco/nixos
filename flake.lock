@@ -614,6 +614,26 @@
         "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       }
     },
+    "kyuto": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795047288,
+        "narHash": "sha256-nRbqztgwwFawIQcYRwu7Oe+3xHQNYGM8seoVo7G3I18=",
+        "owner": "Theneillsaaco",
+        "repo": "kyuto",
+        "rev": "845e96039f61fef1ad482336c98e355781f92ab8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Theneillsaaco",
+        "repo": "kyuto",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -656,26 +676,6 @@
         "owner": "soramanew",
         "repo": "m3shapes",
         "rev": "32ad9ce328bb77ed349b40a3be10ee9ea610b8ab",
-        "type": "github"
-      }
-    },
-    "media-player": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1794946580,
-        "narHash": "sha256-ZMgFBqz1V7hciAwz0amMsP/6VcpdDSQ5CH3jkX5fSmI=",
-        "owner": "Theneillsaaco",
-        "repo": "media-player-m3",
-        "rev": "9c99c402ff7c70acffeb1db17307af752d21e2d4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Theneillsaaco",
-        "repo": "media-player-m3",
         "type": "github"
       }
     },
@@ -968,8 +968,8 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "ktabletop": "ktabletop",
+        "kyuto": "kyuto",
         "lanzaboote": "lanzaboote",
-        "media-player": "media-player",
         "mocktail": "mocktail",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-index-database": "nix-index-database",

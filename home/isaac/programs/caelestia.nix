@@ -148,6 +148,7 @@
         playerAliases = [{ from = "com.github.th-ch.youtube-music"; to = "YT Music"; }];
         gpuType = "Auto";
         dataUnits = "Decimal";
+        defaultPlayer = "Kyuto";
       };
 
       session = {

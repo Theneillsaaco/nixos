@@ -54,7 +54,7 @@
     };
 
     ktabletop = {
-      url = "git+https://invent.kde.org/notifyctrl/ktabletop.git?dir=contrib/nix";
+      url = "git+https://invent.kde.org/notifyctrl/ktabletop.git?dir=contrib/nix&rev=dfbb54f6612be39778b62e7652cd49b97ce7a470";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

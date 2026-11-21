@@ -600,16 +600,17 @@
       },
       "locked": {
         "dir": "contrib/nix",
-        "lastModified": 1795251134,
-        "narHash": "sha256-mLAB6e2TvUvNDkSWyHsIg2UNcxxA9KH5jDr5h1/inK8=",
+        "lastModified": 1795048435,
+        "narHash": "sha256-hv8NsoRns3KJpUHofFOut+scLLglNmYiFugwQIBsrmA=",
         "ref": "refs/heads/master",
-        "rev": "c3e17079dae5a2be8db0976c900bb89afd55e389",
-        "revCount": 379,
+        "rev": "dfbb54f6612be39778b62e7652cd49b97ce7a470",
+        "revCount": 366,
         "type": "git",
         "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       },
       "original": {
         "dir": "contrib/nix",
+        "rev": "dfbb54f6612be39778b62e7652cd49b97ce7a470",
         "type": "git",
         "url": "https://invent.kde.org/notifyctrl/ktabletop.git"
       }

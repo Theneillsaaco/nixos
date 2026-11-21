@@ -49,7 +49,7 @@
     };
 
     kyuto = {
-      url = "github:Theneillsaaco/kyuto";
+      url = "github:Theneillsaaco/kyuto/Dotnet-11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

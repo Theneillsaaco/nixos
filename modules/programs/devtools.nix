@@ -9,7 +9,6 @@
     statix
     deadnix
 
-    dotnet-sdk_10
     dotnet-sdk_11
     bun
     nodejs

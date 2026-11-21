@@ -622,11 +622,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795224068,
-        "narHash": "sha256-6g4F4OVak0iiU7/aoBvmkYbCd8Tk56okcxKsm0U0znI=",
+        "lastModified": 1795301799,
+        "narHash": "sha256-fjKVepP45wFXsydE10PGP0EYHhmIHdLdQAr2oKIyvCo=",
         "owner": "Theneillsaaco",
         "repo": "kyuto",
-        "rev": "17fdc015cac8b25c75f028c55f62c9b57de28ee4",
+        "rev": "5e6065d1c2f494cfc4cabfbd85820f3037b3dad1",
         "type": "github"
       },
       "original": {

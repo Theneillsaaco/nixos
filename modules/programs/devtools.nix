@@ -11,7 +11,7 @@
 
     dotnet-sdk_11
     bun
-    nodejs
+    nodejs_latest
     python3
 
     arduino-ide

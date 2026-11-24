@@ -6,4 +6,6 @@
   #   nssmdns4 = true;
   #   openFirewall = true;
   # };
+
+  programs.gpu-screen-recorder.enable = true;
 }

@@ -15,6 +15,7 @@
     zoom-us
     
     google-chrome
+    ladybird
 
     qbittorrent
   ];

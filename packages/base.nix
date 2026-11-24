@@ -36,7 +36,8 @@
     playerctl
     ffmpeg
     easyeffects
-
+    vlc
+    
     # system
     pciutils # lspci
     usbutils # lsusb

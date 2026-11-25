@@ -5,6 +5,7 @@
 
     zed-editor
     opencode
+    claude-code
     cloc
     foot
   ];

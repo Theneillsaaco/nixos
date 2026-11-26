@@ -138,7 +138,7 @@
       };
 
       dotnet = pkgs.mkShell {
-        packages = with pkgs; [ dotnet-sdk_10 ];
+        packages = with pkgs; [ dotnet-sdk_11 ];
       };
 
       web = pkgs.mkShell {

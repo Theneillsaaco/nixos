@@ -8,5 +8,7 @@
     claude-code
     cloc
     foot
+
+    poppler-utils
   ];
 }
